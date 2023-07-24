@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_D8JPoCefEe6TBf00FOiHFQ" selectedViews="_EA_TYCefEe6TBf00FOiHFQ" version="103.1.0">
+  <viewpoint:DAnalysis uid="_D8JPoCefEe6TBf00FOiHFQ" selectedViews="_EA_TYCefEe6TBf00FOiHFQ" version="15.1.0.202211301600">
     <semanticResources>platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment</semanticResources>
     <semanticResources>object.ecore</semanticResources>
     <semanticResources>object.genmodel</semanticResources>
@@ -9,7 +9,7 @@
     <eAnnotations xmi:type="description:DAnnotationEntry" uid="_EAVzICefEe6TBf00FOiHFQ" source="FIRST_SESSION_OPENNING_PERFORMED"/>
     <ownedViews xmi:type="viewpoint:DView" uid="_EA_TYCefEe6TBf00FOiHFQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="a49c4a9a-84fd-4728-aa6a-b0b1a03563cd">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="73ef44f7-c4fb-4409-8777-e44725d977c5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="object.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -221,17 +221,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_Hai24CekEe6s7fuTNXx5xw" type="4001" element="_HacJNiekEe6s7fuTNXx5xw" source="_Dam2kCekEe6s7fuTNXx5xw" target="_CH3cUCekEe6s7fuTNXx5xw">
           <children xmi:type="notation:Node" xmi:id="_Hai25CekEe6s7fuTNXx5xw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hai25SekEe6s7fuTNXx5xw" x="-28" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hai25SekEe6s7fuTNXx5xw" x="-83" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Hai25iekEe6s7fuTNXx5xw" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hai25yekEe6s7fuTNXx5xw" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Hai26CekEe6s7fuTNXx5xw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hai26SekEe6s7fuTNXx5xw" x="-3" y="16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hai26SekEe6s7fuTNXx5xw" x="-6" y="36"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Hai24SekEe6s7fuTNXx5xw" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Hai24iekEe6s7fuTNXx5xw" fontName="Noto Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Hai24yekEe6s7fuTNXx5xw" points="[0, -10, 120, 156]$[0, -70, 120, 96]$[-119, -70, 1, 96]$[-119, -117, 1, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Hai24yekEe6s7fuTNXx5xw" points="[0, -10, 198, 156]$[0, -76, 198, 90]$[-197, -76, 1, 90]$[-197, -149, 1, 17]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Hajd8CekEe6s7fuTNXx5xw" id="(0.5254237288135594,0.15151515151515152)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Hajd8SekEe6s7fuTNXx5xw" id="(0.5,0.7424242424242424)"/>
         </edges>
