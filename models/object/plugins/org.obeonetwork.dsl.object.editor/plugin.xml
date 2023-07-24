@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright Text	Copyright (c) 2008, 2023 Obeo....
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated object -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.object.presentation.ObjectModelWizardID"
+            name="%_UI_ObjectModelWizard_label"
+            class="org.obeonetwork.dsl.object.presentation.ObjectModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ObjectModelFile.gif">
+         <description>%_UI_ObjectModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated object -->
+      <editor
+            id="org.obeonetwork.dsl.object.presentation.ObjectEditorID"
+            name="%_UI_ObjectEditor_label"
+            icon="icons/full/obj16/ObjectModelFile.gif"
+            extensions="object"
+            class="org.obeonetwork.dsl.object.presentation.ObjectEditor"
+            contributorClass="org.obeonetwork.dsl.object.presentation.ObjectActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

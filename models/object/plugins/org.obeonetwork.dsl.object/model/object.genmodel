@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/org.obeonetwork.dsl.object/src-gen" creationIcons="false"
-    editDirectory="/org.obeonetwork.dsl.object.edit/src-gen" editorDirectory="/org.obeonetwork.dsl.object.editor/src-gen"
-    modelPluginID="org.obeonetwork.dsl.object" modelName="Object" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightText="Copyright Text&#x9;Copyright (c) 2008, 2023 Obeo...."
+    modelDirectory="/org.obeonetwork.dsl.object/src" creationIcons="false" editDirectory="/org.obeonetwork.dsl.object.edit/src"
+    editorDirectory="/org.obeonetwork.dsl.object.editor/src" modelPluginID="org.obeonetwork.dsl.object"
+    modelName="Object" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
+    complianceLevel="11.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>object.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Object" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
+  <genPackages prefix="Object" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
       ecorePackage="object.ecore#/">
     <genClasses ecoreClass="object.ecore#//Value">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//Value/metaType"/>
@@ -35,162 +38,6 @@
     </genClasses>
     <genClasses ecoreClass="object.ecore#//Workspace">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//Workspace/values"/>
-    </genClasses>
-  </genPackages>
-  <genPackages prefix="Technicalid" ecorePackage="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#/">
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable/technicalid"/>
-    </genClasses>
-  </genPackages>
-  <genPackages prefix="Environment" ecorePackage="../../org.obeonetwork.dsl.environment/model/environment.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveTypeKind">
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveTypeKind/OTHER"/>
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveTypeKind/NUMBER"/>
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveTypeKind/TEXT"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind">
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind/ZERO_ONE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind/ONE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind/ZERO_STAR"/>
-      <genEnumLiterals ecoreEnumLiteral="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind/ONE_STAR"/>
-    </genEnums>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/links"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/priorityDefinitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/typesDefinition"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type/typeDefinition"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveType/kind"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Enumeration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Enumeration/literals"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Literal/name"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action/name"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//InterDSMLink">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//InterDSMLink/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//InterDSMLink/target"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/metadatas"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/behaviours"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/bindingRegistries"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/createdOn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/modifiedOn"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MetaDataContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//MetaDataContainer/metadatas"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Annotation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Annotation/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Annotation/body"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//PriorityDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//PriorityDefinition/priorities"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Priority">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Priority/name"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//MetaData"/>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition/types"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Behaviour"/>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/supertype"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/associatedTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/ownedAttributes"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/ownedReferences"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/references"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/properties"/>
-      <genOperations ecoreOperation="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/isSubtypeOf">
-        <genParameters ecoreParameter="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/isSubtypeOf/type"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//DTO">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//DTO/ownedContainer"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//FilterContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//FilterContainer/ownedFilters"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Filter"/>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace/owner"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace/name"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Attribute">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Attribute/type"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Attribute/containingType"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/isComposite"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/navigable"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/containingType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/referencedType"/>
-      <genOperations ecoreOperation="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/canBeOppositeOf">
-        <genParameters ecoreParameter="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/canBeOppositeOf/opposite"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property/multiplicity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property/isIdentifier"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/references"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/left"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/right"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/subBindingInfos"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/targets"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingInfo/elements"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingReference/left"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingReference/right"/>
-      <genOperations ecoreOperation="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingReference/getOppositeBindingElement">
-        <genParameters ecoreParameter="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingReference/getOppositeBindingElement/bindingElement"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/boundElement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/bindingExpression"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/referencedByAsLeft"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/referencedByAsRight"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/referencedBy"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement/pathReferences"/>
-    </genClasses>
-    <genClasses ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingRegistry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingRegistry/bindingInfos"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement">
-      <genOperations ecoreOperation="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement/isPathValid">
-        <genParameters ecoreParameter="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement/isPathValid/root"/>
-        <genParameters ecoreParameter="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement/isPathValid/path"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//DataType"/>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//NamespacesContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.obeonetwork.dsl.environment/model/environment.ecore#//NamespacesContainer/ownedNamespaces"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ConstrainableElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ConstrainableElement/maximum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ConstrainableElement/minimum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.obeonetwork.dsl.environment/model/environment.ecore#//ConstrainableElement/pattern"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

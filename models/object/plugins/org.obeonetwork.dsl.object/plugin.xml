@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated object -->
+      <package
+            uri="http://www.obeonetwork.org/dsl/object/1.0"
+            class="org.obeonetwork.dsl.object.ObjectPackage"
+            genModel="model/object.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated object -->
+      <parser
+            type="object"
+            class="org.obeonetwork.dsl.object.util.ObjectResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
