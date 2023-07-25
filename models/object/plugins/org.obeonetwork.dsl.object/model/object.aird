@@ -11,7 +11,7 @@
     <eAnnotations xmi:type="description:DAnnotationEntry" uid="_EAVzICefEe6TBf00FOiHFQ" source="FIRST_SESSION_OPENNING_PERFORMED"/>
     <ownedViews xmi:type="viewpoint:DView" uid="_EA_TYCefEe6TBf00FOiHFQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="1690270554354">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="1690275123055">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="object.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -893,7 +893,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_a8vz9ifgEe6s7fuTNXx5xw" name="[0..*] containedValue" sourceNode="_JV1AkCfgEe6s7fuTNXx5xw" targetNode="_CHwuoCekEe6s7fuTNXx5xw">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_a8vz9ifgEe6s7fuTNXx5xw" name="[0..1] containedValue" sourceNode="_JV1AkCfgEe6s7fuTNXx5xw" targetNode="_CHwuoCekEe6s7fuTNXx5xw">
       <target xmi:type="ecore:EReference" href="object.ecore#//PropertyContainedValue/containedValue"/>
       <semanticElements xmi:type="ecore:EReference" href="object.ecore#//PropertyContainedValue/containedValue"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Fw9UoCnuEe6s7fuTNXx5xw" description="_Qb06QCfdEe6s7fuTNXx5xw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
