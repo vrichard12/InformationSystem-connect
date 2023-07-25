@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.PropertyReferencedValue;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyReferencedValue} object.
@@ -99,7 +100,10 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PropertyReferencedValue_type");
+		String label = ((PropertyReferencedValue)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropertyReferencedValue_type") :
+			getString("_UI_PropertyReferencedValue_type") + " " + label;
 	}
 
 

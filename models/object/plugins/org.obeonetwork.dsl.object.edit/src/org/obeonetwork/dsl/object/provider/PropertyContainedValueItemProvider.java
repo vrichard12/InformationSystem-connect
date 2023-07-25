@@ -110,7 +110,10 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PropertyContainedValue_type");
+		String label = ((PropertyContainedValue)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropertyContainedValue_type") :
+			getString("_UI_PropertyContainedValue_type") + " " + label;
 	}
 
 
