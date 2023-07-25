@@ -1,5 +1,12 @@
 /**
- * Copyright Text	Copyright (c) 2008, 2023 Obeo....
+ * Copyright (c) 2008, 2023 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
  */
 package org.obeonetwork.dsl.object.provider;
 
@@ -21,9 +28,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.PropertyValue;
 
