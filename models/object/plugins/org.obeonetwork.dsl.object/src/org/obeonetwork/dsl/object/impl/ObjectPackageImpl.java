@@ -287,6 +287,16 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPropertyValue_Name() {
+		return (EAttribute)propertyValueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertyContainedValue() {
 		return propertyContainedValueEClass;
 	}
@@ -387,6 +397,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		propertyValueEClass = createEClass(PROPERTY_VALUE);
 		createEReference(propertyValueEClass, PROPERTY_VALUE__META_PROPERTY);
 		createEReference(propertyValueEClass, PROPERTY_VALUE__VALUE);
+		createEAttribute(propertyValueEClass, PROPERTY_VALUE__NAME);
 
 		propertyContainedValueEClass = createEClass(PROPERTY_CONTAINED_VALUE);
 		createEReference(propertyContainedValueEClass, PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE);
@@ -457,6 +468,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		initEClass(propertyValueEClass, PropertyValue.class, "PropertyValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyValue_MetaProperty(), theEnvironmentPackage.getProperty(), null, "metaProperty", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropertyValue_Value(), this.getValue(), null, "value", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyContainedValueEClass, PropertyContainedValue.class, "PropertyContainedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyContainedValue_ContainedValue(), this.getValue(), null, "containedValue", null, 0, -1, PropertyContainedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -469,6 +481,32 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getPropertyValue_Value(),
+		   source,
+		   new String[] {
+			   "documentation", "The value of the PropertyValue. It is mapped to PropertyContainedValue::containedValue or PropertyReferencedValue::referencedValue depending on the concrete type of this PropertyValue."
+		   });
+		addAnnotation
+		  (getPropertyValue_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The PropertyValue name. If metaProperty is defined, its value is the one of the referenced Property."
+		   });
 	}
 
 } //ObjectPackageImpl

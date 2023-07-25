@@ -23,11 +23,22 @@ import org.obeonetwork.dsl.object.Value;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getMetaProperty <em>Meta Property</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PropertyValueImpl extends CDOObjectImpl implements PropertyValue {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +132,26 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return (String)eDynamicGet(ObjectPackage.PROPERTY_VALUE__NAME, ObjectPackage.Literals.PROPERTY_VALUE__NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		eDynamicSet(ObjectPackage.PROPERTY_VALUE__NAME, ObjectPackage.Literals.PROPERTY_VALUE__NAME, newName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_VALUE__META_PROPERTY:
@@ -129,6 +160,8 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 			case ObjectPackage.PROPERTY_VALUE__VALUE:
 				if (resolve) return getValue();
 				return basicGetValue();
+			case ObjectPackage.PROPERTY_VALUE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +179,9 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 				return;
 			case ObjectPackage.PROPERTY_VALUE__VALUE:
 				setValue((Value)newValue);
+				return;
+			case ObjectPackage.PROPERTY_VALUE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -165,6 +201,9 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 			case ObjectPackage.PROPERTY_VALUE__VALUE:
 				setValue((Value)null);
 				return;
+			case ObjectPackage.PROPERTY_VALUE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,6 +220,8 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 				return basicGetMetaProperty() != null;
 			case ObjectPackage.PROPERTY_VALUE__VALUE:
 				return basicGetValue() != null;
+			case ObjectPackage.PROPERTY_VALUE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

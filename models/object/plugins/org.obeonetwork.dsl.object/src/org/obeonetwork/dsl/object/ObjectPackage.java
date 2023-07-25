@@ -301,13 +301,22 @@ public interface ObjectPackage extends EPackage {
 	int PROPERTY_VALUE__VALUE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_VALUE__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Property Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE_FEATURE_COUNT = 2;
+	int PROPERTY_VALUE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl <em>Property Contained Value</em>}' class.
@@ -336,6 +345,15 @@ public interface ObjectPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_CONTAINED_VALUE__VALUE = PROPERTY_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_CONTAINED_VALUE__NAME = PROPERTY_VALUE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Contained Value</b></em>' containment reference list.
@@ -382,6 +400,15 @@ public interface ObjectPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_REFERENCED_VALUE__VALUE = PROPERTY_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_REFERENCED_VALUE__NAME = PROPERTY_VALUE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Value</b></em>' reference.
@@ -638,6 +665,17 @@ public interface ObjectPackage extends EPackage {
 	EReference getPropertyValue_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PropertyValue#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.object.PropertyValue#getName()
+	 * @see #getPropertyValue()
+	 * @generated
+	 */
+	EAttribute getPropertyValue_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PropertyContainedValue <em>Property Contained Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -829,6 +867,14 @@ public interface ObjectPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY_VALUE__VALUE = eINSTANCE.getPropertyValue_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_VALUE__NAME = eINSTANCE.getPropertyValue_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl <em>Property Contained Value</em>}' class.
