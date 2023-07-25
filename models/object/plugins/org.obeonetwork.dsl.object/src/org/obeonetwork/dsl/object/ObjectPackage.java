@@ -363,7 +363,7 @@ public interface ObjectPackage extends EPackage {
 	int PROPERTY_CONTAINED_VALUE__NAME = PROPERTY_VALUE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Contained Value</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Contained Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -693,10 +693,10 @@ public interface ObjectPackage extends EPackage {
 	EClass getPropertyContainedValue();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValue <em>Contained Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValue <em>Contained Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contained Value</em>'.
+	 * @return the meta object for the containment reference '<em>Contained Value</em>'.
 	 * @see org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValue()
 	 * @see #getPropertyContainedValue()
 	 * @generated
@@ -894,7 +894,7 @@ public interface ObjectPackage extends EPackage {
 		EClass PROPERTY_CONTAINED_VALUE = eINSTANCE.getPropertyContainedValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Contained Value</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Contained Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

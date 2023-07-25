@@ -12,11 +12,15 @@ package org.obeonetwork.dsl.object.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import org.obeonetwork.dsl.environment.Property;
 
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.PropertyContainedValue;
+import org.obeonetwork.dsl.object.PropertyReferencedValue;
 import org.obeonetwork.dsl.object.PropertyValue;
 import org.obeonetwork.dsl.object.Value;
 
@@ -111,35 +115,58 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public Value getValue() {
-		return (Value)eDynamicGet(ObjectPackage.PROPERTY_VALUE__VALUE, ObjectPackage.Literals.PROPERTY_VALUE__VALUE, true, true);
+		Value value = basicGetValue();
+		return value != null && ((EObject)value).eIsProxy() ? (Value)eResolveProxy((InternalEObject)value) : value;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Value basicGetValue() {
-		return (Value)eDynamicGet(ObjectPackage.PROPERTY_VALUE__VALUE, ObjectPackage.Literals.PROPERTY_VALUE__VALUE, false, true);
+		if(this.eClass() == ObjectPackage.eINSTANCE.getPropertyContainedValue()) {
+			return ((PropertyContainedValue)this).getContainedValue();
+		}
+		
+		if(this.eClass() == ObjectPackage.eINSTANCE.getPropertyReferencedValue()) {
+			return ((PropertyReferencedValue)this).getReferencedValue();
+		}
+
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValue(Value newValue) {
-		eDynamicSet(ObjectPackage.PROPERTY_VALUE__VALUE, ObjectPackage.Literals.PROPERTY_VALUE__VALUE, newValue);
+		
+		if(this.eClass() == ObjectPackage.eINSTANCE.getPropertyContainedValue()) {
+			((PropertyContainedValue)this).setContainedValue(newValue);
+			return;
+		}
+		
+		if(this.eClass() == ObjectPackage.eINSTANCE.getPropertyReferencedValue()) {
+			((PropertyReferencedValue)this).setReferencedValue(newValue);
+			return;
+		}
+		
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
+		if(getMetaProperty() != null) {
+			return getMetaProperty().getName();
+		}
 		return (String)eDynamicGet(ObjectPackage.PROPERTY_VALUE__NAME, ObjectPackage.Literals.PROPERTY_VALUE__NAME, true, true);
 	}
 

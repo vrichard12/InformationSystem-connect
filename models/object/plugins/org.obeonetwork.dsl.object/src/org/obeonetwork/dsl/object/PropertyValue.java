@@ -66,7 +66,7 @@ public interface PropertyValue extends CDOObject {
 	 * @return the value of the '<em>Value</em>' reference.
 	 * @see #setValue(Value)
 	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Value()
-	 * @model derived="true"
+	 * @model volatile="true" derived="true"
 	 * @generated
 	 */
 	Value getValue();

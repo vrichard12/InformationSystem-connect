@@ -65,8 +65,37 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Value> getContainedValue() {
-		return (EList<Value>)eDynamicGet(ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, true, true);
+	public Value getContainedValue() {
+		return (Value)eDynamicGet(ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value basicGetContainedValue() {
+		return (Value)eDynamicGet(ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainedValue(Value newContainedValue, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newContainedValue, ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContainedValue(Value newContainedValue) {
+		eDynamicSet(ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE, newContainedValue);
 	}
 
 	/**
@@ -78,7 +107,7 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
-				return ((InternalEList<?>)getContainedValue()).basicRemove(otherEnd, msgs);
+				return basicSetContainedValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -92,7 +121,8 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
-				return getContainedValue();
+				if (resolve) return getContainedValue();
+				return basicGetContainedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +137,7 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
-				getContainedValue().clear();
-				getContainedValue().addAll((Collection<? extends Value>)newValue);
+				setContainedValue((Value)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,7 +152,7 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
-				getContainedValue().clear();
+				setContainedValue((Value)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,7 +167,7 @@ public class PropertyContainedValueImpl extends PropertyValueImpl implements Pro
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
-				return !getContainedValue().isEmpty();
+				return basicGetContainedValue() != null;
 		}
 		return super.eIsSet(featureID);
 	}
