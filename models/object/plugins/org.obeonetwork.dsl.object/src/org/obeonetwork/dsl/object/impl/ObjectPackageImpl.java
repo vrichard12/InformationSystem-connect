@@ -364,6 +364,16 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getWorkspace_Name() {
+		return (EAttribute)workspaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ObjectFactory getObjectFactory() {
 		return (ObjectFactory)getEFactoryInstance();
 	}
@@ -414,6 +424,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		workspaceEClass = createEClass(WORKSPACE);
 		createEReference(workspaceEClass, WORKSPACE__VALUES);
+		createEAttribute(workspaceEClass, WORKSPACE__NAME);
 	}
 
 	/**
@@ -485,6 +496,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWorkspace_Values(), this.getValue(), null, "values", null, 0, -1, Workspace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWorkspace_Name(), ecorePackage.getEString(), "name", null, 0, 1, Workspace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

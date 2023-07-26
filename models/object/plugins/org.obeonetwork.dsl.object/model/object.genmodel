@@ -39,6 +39,7 @@
     </genClasses>
     <genClasses ecoreClass="object.ecore#//Workspace">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//Workspace/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//Workspace/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
