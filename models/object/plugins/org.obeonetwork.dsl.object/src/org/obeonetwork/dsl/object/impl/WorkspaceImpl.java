@@ -36,11 +36,22 @@ import org.obeonetwork.dsl.object.Workspace;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.object.impl.WorkspaceImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.WorkspaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +88,26 @@ public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return (String)eDynamicGet(ObjectPackage.WORKSPACE__NAME, ObjectPackage.Literals.WORKSPACE__NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		eDynamicSet(ObjectPackage.WORKSPACE__NAME, ObjectPackage.Literals.WORKSPACE__NAME, newName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ObjectPackage.WORKSPACE__VALUES:
@@ -95,6 +126,8 @@ public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
 		switch (featureID) {
 			case ObjectPackage.WORKSPACE__VALUES:
 				return getValues();
+			case ObjectPackage.WORKSPACE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,6 +145,9 @@ public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
 				getValues().clear();
 				getValues().addAll((Collection<? extends Value>)newValue);
 				return;
+			case ObjectPackage.WORKSPACE__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,6 +163,9 @@ public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
 			case ObjectPackage.WORKSPACE__VALUES:
 				getValues().clear();
 				return;
+			case ObjectPackage.WORKSPACE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,6 +180,8 @@ public class WorkspaceImpl extends ObeoDSMObjectImpl implements Workspace {
 		switch (featureID) {
 			case ObjectPackage.WORKSPACE__VALUES:
 				return !getValues().isEmpty();
+			case ObjectPackage.WORKSPACE__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

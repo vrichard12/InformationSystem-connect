@@ -536,13 +536,22 @@ public interface ObjectPackage extends EPackage {
 	int WORKSPACE__VALUES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKSPACE__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Workspace</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKSPACE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+	int WORKSPACE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 
 	/**
@@ -746,6 +755,17 @@ public interface ObjectPackage extends EPackage {
 	EReference getWorkspace_Values();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.Workspace#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.object.Workspace#getName()
+	 * @see #getWorkspace()
+	 * @generated
+	 */
+	EAttribute getWorkspace_Name();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -936,6 +956,14 @@ public interface ObjectPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WORKSPACE__VALUES = eINSTANCE.getWorkspace_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORKSPACE__NAME = eINSTANCE.getWorkspace_Name();
 
 	}
 
