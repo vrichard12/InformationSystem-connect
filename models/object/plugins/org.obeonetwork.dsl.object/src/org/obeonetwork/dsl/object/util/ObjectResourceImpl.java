@@ -10,8 +10,13 @@
  */
 package org.obeonetwork.dsl.object.util;
 
-import org.eclipse.emf.common.util.URI;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
@@ -19,7 +24,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see org.obeonetwork.dsl.object.util.ObjectResourceFactoryImpl
- * @generated
+ * @generated NOT
  */
 public class ObjectResourceImpl extends XMIResourceImpl {
 	/**
@@ -33,4 +38,26 @@ public class ObjectResourceImpl extends XMIResourceImpl {
 		super(uri);
 	}
 
+	@Override
+	public void save(Map<?, ?> options) throws IOException {
+		if (options == null || !options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
+			Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+			if (options != null) {
+				saveOptions.putAll(options);
+			}
+			saveOptions.put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
+			super.save(saveOptions);
+		} else {
+			super.save(options);
+		}
+	}
+
+	/**
+	 * user UUID as identifier
+	 */
+	@Override
+	protected boolean useUUIDs() {
+		return true;
+	}
+	
 } //ObjectResourceImpl
