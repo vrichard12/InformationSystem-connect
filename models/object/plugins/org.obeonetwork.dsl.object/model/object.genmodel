@@ -21,10 +21,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//ObjectValue/propertyValues"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PrimitiveTypeValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PrimitiveTypeValue/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PrimitiveTypeValue/data"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//LiteralValue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//LiteralValue/literal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//LiteralValue/data"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//LiteralValue/name"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PropertyValue">

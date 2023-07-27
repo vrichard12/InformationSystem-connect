@@ -25,7 +25,7 @@ import org.obeonetwork.dsl.object.ObjectPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.LiteralValueImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.LiteralValueImpl#getData <em>Data</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.object.impl.LiteralValueImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -67,8 +67,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	 * @generated
 	 */
 	@Override
-	public Literal getLiteral() {
-		return (Literal)eDynamicGet(ObjectPackage.LITERAL_VALUE__LITERAL, ObjectPackage.Literals.LITERAL_VALUE__LITERAL, true, true);
+	public Literal getData() {
+		return (Literal)eDynamicGet(ObjectPackage.LITERAL_VALUE__DATA, ObjectPackage.Literals.LITERAL_VALUE__DATA, true, true);
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Literal basicGetLiteral() {
-		return (Literal)eDynamicGet(ObjectPackage.LITERAL_VALUE__LITERAL, ObjectPackage.Literals.LITERAL_VALUE__LITERAL, false, true);
+	public Literal basicGetData() {
+		return (Literal)eDynamicGet(ObjectPackage.LITERAL_VALUE__DATA, ObjectPackage.Literals.LITERAL_VALUE__DATA, false, true);
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	 * @generated
 	 */
 	@Override
-	public void setLiteral(Literal newLiteral) {
-		eDynamicSet(ObjectPackage.LITERAL_VALUE__LITERAL, ObjectPackage.Literals.LITERAL_VALUE__LITERAL, newLiteral);
+	public void setData(Literal newData) {
+		eDynamicSet(ObjectPackage.LITERAL_VALUE__DATA, ObjectPackage.Literals.LITERAL_VALUE__DATA, newData);
 	}
 
 	/**
@@ -97,8 +97,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	 */
 	@Override
 	public String getName() {
-		if(getLiteral() != null) {
-			return getLiteral().getName();
+		if(getData() != null) {
+			return getData().getName();
 		}
 		return (String)eDynamicGet(ObjectPackage.LITERAL_VALUE__NAME, ObjectPackage.Literals.LITERAL_VALUE__NAME, true, true);
 	}
@@ -121,9 +121,9 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.LITERAL_VALUE__LITERAL:
-				if (resolve) return getLiteral();
-				return basicGetLiteral();
+			case ObjectPackage.LITERAL_VALUE__DATA:
+				if (resolve) return getData();
+				return basicGetData();
 			case ObjectPackage.LITERAL_VALUE__NAME:
 				return getName();
 		}
@@ -138,8 +138,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.LITERAL_VALUE__LITERAL:
-				setLiteral((Literal)newValue);
+			case ObjectPackage.LITERAL_VALUE__DATA:
+				setData((Literal)newValue);
 				return;
 			case ObjectPackage.LITERAL_VALUE__NAME:
 				setName((String)newValue);
@@ -156,8 +156,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.LITERAL_VALUE__LITERAL:
-				setLiteral((Literal)null);
+			case ObjectPackage.LITERAL_VALUE__DATA:
+				setData((Literal)null);
 				return;
 			case ObjectPackage.LITERAL_VALUE__NAME:
 				setName(NAME_EDEFAULT);
@@ -174,8 +174,8 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.LITERAL_VALUE__LITERAL:
-				return basicGetLiteral() != null;
+			case ObjectPackage.LITERAL_VALUE__DATA:
+				return basicGetData() != null;
 			case ObjectPackage.LITERAL_VALUE__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}

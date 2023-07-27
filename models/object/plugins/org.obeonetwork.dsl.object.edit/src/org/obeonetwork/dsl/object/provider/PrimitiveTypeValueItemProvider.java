@@ -53,25 +53,25 @@ public class PrimitiveTypeValueItemProvider extends DataTypeValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
+			addDataPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Data feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addDataPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveTypeValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveTypeValue_value_feature", "_UI_PrimitiveTypeValue_type"),
-				 ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__VALUE,
+				 getString("_UI_PrimitiveTypeValue_data_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveTypeValue_data_feature", "_UI_PrimitiveTypeValue_type"),
+				 ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__DATA,
 				 true,
 				 false,
 				 false,
@@ -128,7 +128,7 @@ public class PrimitiveTypeValueItemProvider extends DataTypeValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PrimitiveTypeValue.class)) {
-			case ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE:
+			case ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

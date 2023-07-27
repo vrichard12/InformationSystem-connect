@@ -23,22 +23,21 @@ import org.obeonetwork.dsl.object.PrimitiveTypeValue;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PrimitiveTypeValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.PrimitiveTypeValueImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements PrimitiveTypeValue {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getData() <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
-
+	protected static final Object DATA_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +63,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	 * @generated
 	 */
 	@Override
-	public Object getValue() {
-		return (Object)eDynamicGet(ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE, ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__VALUE, true, true);
+	public Object getData() {
+		return (Object)eDynamicGet(ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA, ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__DATA, true, true);
 	}
 
 	/**
@@ -74,8 +73,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	 * @generated
 	 */
 	@Override
-	public void setValue(Object newValue) {
-		eDynamicSet(ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE, ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__VALUE, newValue);
+	public void setData(Object newData) {
+		eDynamicSet(ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA, ObjectPackage.Literals.PRIMITIVE_TYPE_VALUE__DATA, newData);
 	}
 
 	/**
@@ -86,8 +85,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE:
-				return getValue();
+			case ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA:
+				return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -100,8 +99,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE:
-				setValue(newValue);
+			case ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA:
+				setData(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -115,8 +114,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA:
+				setData(DATA_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -130,8 +129,8 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PRIMITIVE_TYPE_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
+			case ObjectPackage.PRIMITIVE_TYPE_VALUE__DATA:
+				return DATA_EDEFAULT == null ? getData() != null : !DATA_EDEFAULT.equals(getData());
 		}
 		return super.eIsSet(featureID);
 	}

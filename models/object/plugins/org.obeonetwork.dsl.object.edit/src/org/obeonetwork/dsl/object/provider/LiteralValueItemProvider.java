@@ -53,26 +53,26 @@ public class LiteralValueItemProvider extends DataTypeValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLiteralPropertyDescriptor(object);
+			addDataPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Literal feature.
+	 * This adds a property descriptor for the Data feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLiteralPropertyDescriptor(Object object) {
+	protected void addDataPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LiteralValue_literal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LiteralValue_literal_feature", "_UI_LiteralValue_type"),
-				 ObjectPackage.Literals.LITERAL_VALUE__LITERAL,
+				 getString("_UI_LiteralValue_data_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LiteralValue_data_feature", "_UI_LiteralValue_type"),
+				 ObjectPackage.Literals.LITERAL_VALUE__DATA,
 				 true,
 				 false,
 				 true,
