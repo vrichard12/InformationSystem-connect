@@ -11,7 +11,7 @@
     <eAnnotations xmi:type="description:DAnnotationEntry" uid="_EAVzICefEe6TBf00FOiHFQ" source="FIRST_SESSION_OPENNING_PERFORMED"/>
     <ownedViews xmi:type="viewpoint:DView" uid="_EA_TYCefEe6TBf00FOiHFQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="1690389810767">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EBx9kCefEe6TBf00FOiHFQ" name="object" repPath="#_EBV4sCefEe6TBf00FOiHFQ" changeId="1690445012678">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="object.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -63,6 +63,10 @@
         <children xmi:type="notation:Node" xmi:id="_iusVACfaEe6s7fuTNXx5xw" type="2003" element="_iujLECfaEe6s7fuTNXx5xw">
           <children xmi:type="notation:Node" xmi:id="_ius8ECfaEe6s7fuTNXx5xw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_ius8ESfaEe6s7fuTNXx5xw" type="7004">
+            <children xmi:type="notation:Node" xmi:id="__4BTsCxQEe6xGKuY1yzEnQ" type="3010" element="__3tKoCxQEe6xGKuY1yzEnQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="__4BTsSxQEe6xGKuY1yzEnQ" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="__4BTsixQEe6xGKuY1yzEnQ"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_ius8EifaEe6s7fuTNXx5xw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_ius8EyfaEe6s7fuTNXx5xw"/>
           </children>
@@ -263,17 +267,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_SEnu8CfbEe6s7fuTNXx5xw" type="4001" element="_SEgaPCfbEe6s7fuTNXx5xw" source="_iusVACfaEe6s7fuTNXx5xw" target="_DTzrACekEe6s7fuTNXx5xw">
           <children xmi:type="notation:Node" xmi:id="_SEoWACfbEe6s7fuTNXx5xw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SEoWASfbEe6s7fuTNXx5xw" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SEoWASfbEe6s7fuTNXx5xw" x="-37" y="-6"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_SEoWAifbEe6s7fuTNXx5xw" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SEoWAyfbEe6s7fuTNXx5xw" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_SEoWBCfbEe6s7fuTNXx5xw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SEoWBSfbEe6s7fuTNXx5xw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SEoWBSfbEe6s7fuTNXx5xw" x="-8" y="19"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SEnu8SfbEe6s7fuTNXx5xw" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SEnu8ifbEe6s7fuTNXx5xw" fontName="Noto Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SEnu8yfbEe6s7fuTNXx5xw" points="[0, 0, 173, 82]$[-173, -82, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SEnu8yfbEe6s7fuTNXx5xw" points="[0, -6, 113, 131]$[0, -81, 113, 56]$[-112, -81, 1, 56]$[-112, -136, 1, 1]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SEoWBifbEe6s7fuTNXx5xw" id="(0.5,0.09090909090909091)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SEoWByfbEe6s7fuTNXx5xw" id="(0.5,0.9857142857142858)"/>
         </edges>
@@ -551,10 +555,18 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_iujyICfaEe6s7fuTNXx5xw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Dyx5GCxREe6xGKuY1yzEnQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="__3tKoCxQEe6xGKuY1yzEnQ" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="object.ecore#//LiteralValue/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="object.ecore#//LiteralValue/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_DyzHMixREe6xGKuY1yzEnQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_R37WxifbEe6s7fuTNXx5xw" sourceNode="_ikZJgCfaEe6s7fuTNXx5xw" targetNode="_DTuLcCekEe6s7fuTNXx5xw">
       <target xmi:type="ecore:EClass" href="object.ecore#//PrimitiveTypeValue"/>
@@ -571,12 +583,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_SEgaPCfbEe6s7fuTNXx5xw" sourceNode="_iujLECfaEe6s7fuTNXx5xw" targetNode="_DTuLcCekEe6s7fuTNXx5xw">
       <target xmi:type="ecore:EClass" href="object.ecore#//LiteralValue"/>
       <semanticElements xmi:type="ecore:EClass" href="object.ecore#//LiteralValue"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_SEhBQCfbEe6s7fuTNXx5xw" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Dy3YoCxREe6xGKuY1yzEnQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_SEhBQSfbEe6s7fuTNXx5xw" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_Dy3YoSxREe6xGKuY1yzEnQ" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_SEhBQifbEe6s7fuTNXx5xw" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Dy3YoixREe6xGKuY1yzEnQ" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
