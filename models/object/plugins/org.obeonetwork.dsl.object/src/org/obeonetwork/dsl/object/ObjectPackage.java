@@ -271,13 +271,22 @@ public interface ObjectPackage extends EPackage {
 	int LITERAL_VALUE__LITERAL = DATA_TYPE_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_VALUE__NAME = DATA_TYPE_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Literal Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_VALUE_FEATURE_COUNT = DATA_TYPE_VALUE_FEATURE_COUNT + 1;
+	int LITERAL_VALUE_FEATURE_COUNT = DATA_TYPE_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl <em>Property Value</em>}' class.
@@ -649,6 +658,17 @@ public interface ObjectPackage extends EPackage {
 	EReference getLiteralValue_Literal();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.LiteralValue#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.object.LiteralValue#getName()
+	 * @see #getLiteralValue()
+	 * @generated
+	 */
+	EAttribute getLiteralValue_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PropertyValue <em>Property Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,6 +888,14 @@ public interface ObjectPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LITERAL_VALUE__LITERAL = eINSTANCE.getLiteralValue_Literal();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_VALUE__NAME = eINSTANCE.getLiteralValue_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl <em>Property Value</em>}' class.

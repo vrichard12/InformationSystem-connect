@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.environment.Literal;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.object.LiteralValue#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.LiteralValue#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getLiteralValue()
@@ -50,5 +51,30 @@ public interface LiteralValue extends DataTypeValue {
 	 * @generated
 	 */
 	void setLiteral(Literal value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The LiteralValue name. If literal is defined, its value is the one of the referenced Literal.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getLiteralValue_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.LiteralValue#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // LiteralValue

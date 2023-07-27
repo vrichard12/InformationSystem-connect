@@ -264,6 +264,16 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getLiteralValue_Name() {
+		return (EAttribute)literalValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertyValue() {
 		return propertyValueEClass;
 	}
@@ -410,6 +420,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		literalValueEClass = createEClass(LITERAL_VALUE);
 		createEReference(literalValueEClass, LITERAL_VALUE__LITERAL);
+		createEAttribute(literalValueEClass, LITERAL_VALUE__NAME);
 
 		propertyValueEClass = createEClass(PROPERTY_VALUE);
 		createEReference(propertyValueEClass, PROPERTY_VALUE__META_PROPERTY);
@@ -482,6 +493,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		initEClass(literalValueEClass, LiteralValue.class, "LiteralValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLiteralValue_Literal(), theEnvironmentPackage.getLiteral(), null, "literal", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLiteralValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyValueEClass, PropertyValue.class, "PropertyValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyValue_MetaProperty(), theEnvironmentPackage.getProperty(), null, "metaProperty", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -514,6 +526,12 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 */
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (getLiteralValue_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "The LiteralValue name. If literal is defined, its value is the one of the referenced Literal."
+		   });
 		addAnnotation
 		  (getPropertyValue_Value(),
 		   source,
