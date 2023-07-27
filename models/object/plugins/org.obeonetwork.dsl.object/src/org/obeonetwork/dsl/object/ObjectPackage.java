@@ -216,13 +216,13 @@ public interface ObjectPackage extends EPackage {
 	int PRIMITIVE_TYPE_VALUE__META_TYPE = DATA_TYPE_VALUE__META_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE_VALUE__VALUE = DATA_TYPE_VALUE_FEATURE_COUNT + 0;
+	int PRIMITIVE_TYPE_VALUE__DATA = DATA_TYPE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Primitive Type Value</em>' class.
@@ -262,13 +262,13 @@ public interface ObjectPackage extends EPackage {
 	int LITERAL_VALUE__META_TYPE = DATA_TYPE_VALUE__META_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Literal</b></em>' reference.
+	 * The feature id for the '<em><b>Data</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_VALUE__LITERAL = DATA_TYPE_VALUE_FEATURE_COUNT + 0;
+	int LITERAL_VALUE__DATA = DATA_TYPE_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -626,15 +626,15 @@ public interface ObjectPackage extends EPackage {
 	EClass getPrimitiveTypeValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getData <em>Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.obeonetwork.dsl.object.PrimitiveTypeValue#getValue()
+	 * @return the meta object for the attribute '<em>Data</em>'.
+	 * @see org.obeonetwork.dsl.object.PrimitiveTypeValue#getData()
 	 * @see #getPrimitiveTypeValue()
 	 * @generated
 	 */
-	EAttribute getPrimitiveTypeValue_Value();
+	EAttribute getPrimitiveTypeValue_Data();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.LiteralValue <em>Literal Value</em>}'.
@@ -647,15 +647,15 @@ public interface ObjectPackage extends EPackage {
 	EClass getLiteralValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.object.LiteralValue#getLiteral <em>Literal</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.object.LiteralValue#getData <em>Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Literal</em>'.
-	 * @see org.obeonetwork.dsl.object.LiteralValue#getLiteral()
+	 * @return the meta object for the reference '<em>Data</em>'.
+	 * @see org.obeonetwork.dsl.object.LiteralValue#getData()
 	 * @see #getLiteralValue()
 	 * @generated
 	 */
-	EReference getLiteralValue_Literal();
+	EReference getLiteralValue_Data();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.LiteralValue#getName <em>Name</em>}'.
@@ -864,12 +864,12 @@ public interface ObjectPackage extends EPackage {
 		EClass PRIMITIVE_TYPE_VALUE = eINSTANCE.getPrimitiveTypeValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRIMITIVE_TYPE_VALUE__VALUE = eINSTANCE.getPrimitiveTypeValue_Value();
+		EAttribute PRIMITIVE_TYPE_VALUE__DATA = eINSTANCE.getPrimitiveTypeValue_Data();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.LiteralValueImpl <em>Literal Value</em>}' class.
@@ -882,12 +882,12 @@ public interface ObjectPackage extends EPackage {
 		EClass LITERAL_VALUE = eINSTANCE.getLiteralValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Literal</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Data</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LITERAL_VALUE__LITERAL = eINSTANCE.getLiteralValue_Literal();
+		EReference LITERAL_VALUE__DATA = eINSTANCE.getLiteralValue_Data();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

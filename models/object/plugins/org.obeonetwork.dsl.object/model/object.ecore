@@ -10,10 +10,10 @@
         eType="#//PropertyValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveTypeValue" eSuperTypes="#//DataTypeValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralValue" eSuperTypes="#//DataTypeValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Literal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Literal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The LiteralValue name. If literal is defined, its value is the one of the referenced Literal."/>

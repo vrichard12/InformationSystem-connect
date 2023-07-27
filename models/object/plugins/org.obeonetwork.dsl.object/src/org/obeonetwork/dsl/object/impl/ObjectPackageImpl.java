@@ -234,7 +234,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPrimitiveTypeValue_Value() {
+	public EAttribute getPrimitiveTypeValue_Data() {
 		return (EAttribute)primitiveTypeValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -254,7 +254,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getLiteralValue_Literal() {
+	public EReference getLiteralValue_Data() {
 		return (EReference)literalValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -416,10 +416,10 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		createEReference(objectValueEClass, OBJECT_VALUE__PROPERTY_VALUES);
 
 		primitiveTypeValueEClass = createEClass(PRIMITIVE_TYPE_VALUE);
-		createEAttribute(primitiveTypeValueEClass, PRIMITIVE_TYPE_VALUE__VALUE);
+		createEAttribute(primitiveTypeValueEClass, PRIMITIVE_TYPE_VALUE__DATA);
 
 		literalValueEClass = createEClass(LITERAL_VALUE);
-		createEReference(literalValueEClass, LITERAL_VALUE__LITERAL);
+		createEReference(literalValueEClass, LITERAL_VALUE__DATA);
 		createEAttribute(literalValueEClass, LITERAL_VALUE__NAME);
 
 		propertyValueEClass = createEClass(PROPERTY_VALUE);
@@ -489,10 +489,10 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		initEReference(getObjectValue_PropertyValues(), this.getPropertyValue(), null, "propertyValues", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primitiveTypeValueEClass, PrimitiveTypeValue.class, "PrimitiveTypeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimitiveTypeValue_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, PrimitiveTypeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimitiveTypeValue_Data(), ecorePackage.getEJavaObject(), "data", null, 0, 1, PrimitiveTypeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalValueEClass, LiteralValue.class, "LiteralValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLiteralValue_Literal(), theEnvironmentPackage.getLiteral(), null, "literal", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLiteralValue_Data(), theEnvironmentPackage.getLiteral(), null, "data", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLiteralValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyValueEClass, PropertyValue.class, "PropertyValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

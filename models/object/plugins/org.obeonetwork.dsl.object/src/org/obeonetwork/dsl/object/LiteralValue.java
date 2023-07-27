@@ -21,7 +21,7 @@ import org.obeonetwork.dsl.environment.Literal;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.LiteralValue#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.LiteralValue#getData <em>Data</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.object.LiteralValue#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -31,26 +31,26 @@ import org.obeonetwork.dsl.environment.Literal;
  */
 public interface LiteralValue extends DataTypeValue {
 	/**
-	 * Returns the value of the '<em><b>Literal</b></em>' reference.
+	 * Returns the value of the '<em><b>Data</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Literal</em>' reference.
-	 * @see #setLiteral(Literal)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getLiteralValue_Literal()
+	 * @return the value of the '<em>Data</em>' reference.
+	 * @see #setData(Literal)
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getLiteralValue_Data()
 	 * @model
 	 * @generated
 	 */
-	Literal getLiteral();
+	Literal getData();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.LiteralValue#getLiteral <em>Literal</em>}' reference.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.LiteralValue#getData <em>Data</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Literal</em>' reference.
-	 * @see #getLiteral()
+	 * @param value the new value of the '<em>Data</em>' reference.
+	 * @see #getData()
 	 * @generated
 	 */
-	void setLiteral(Literal value);
+	void setData(Literal value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

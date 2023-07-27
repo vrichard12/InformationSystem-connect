@@ -20,7 +20,7 @@ package org.obeonetwork.dsl.object;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getData <em>Data</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getPrimitiveTypeValue()
@@ -29,25 +29,25 @@ package org.obeonetwork.dsl.object;
  */
 public interface PrimitiveTypeValue extends DataTypeValue {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Object)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPrimitiveTypeValue_Value()
+	 * @return the value of the '<em>Data</em>' attribute.
+	 * @see #setData(Object)
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPrimitiveTypeValue_Data()
 	 * @model
 	 * @generated
 	 */
-	Object getValue();
+	Object getData();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PrimitiveTypeValue#getData <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Data</em>' attribute.
+	 * @see #getData()
 	 * @generated
 	 */
-	void setValue(Object value);
+	void setData(Object value);
 
 } // PrimitiveTypeValue
