@@ -7,4 +7,17 @@
 	       name="object">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.obeonetwork.dsl.is.ui.categoryID"
+           class="org.obeonetwork.dsl.object.design.wizards.NewObjectModelWizard"
+           icon="icons/full/obj16/ObjectModelFile.gif"
+           id="org.obeonetwork.dsl.object.design.wizards.NewObjectModelWizard"
+           name="Object Model">
+        <description>
+           New object model wizard
+        </description>
+     </wizard>
+  </extension>
 </plugin>

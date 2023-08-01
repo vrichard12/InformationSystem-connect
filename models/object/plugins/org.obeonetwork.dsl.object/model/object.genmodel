@@ -12,7 +12,7 @@
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Object" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
-      ecorePackage="object.ecore#/">
+      generateModelWizard="false" ecorePackage="object.ecore#/">
     <genClasses ecoreClass="object.ecore#//Value">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//Value/metaType"/>
     </genClasses>
