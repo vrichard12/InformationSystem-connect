@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design,
  org.eclipse.sirius.diagram,
  org.obeonetwork.dsl.is,
- org.obeonetwork.dsl.object
+ org.obeonetwork.dsl.object,
+ org.obeonetwork.dsl.object.edit
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName

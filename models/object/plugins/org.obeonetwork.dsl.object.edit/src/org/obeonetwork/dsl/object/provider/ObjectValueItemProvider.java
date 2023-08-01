@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.ObjectValue;
+import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.ObjectValue} object.
@@ -113,14 +114,15 @@ public class ObjectValueItemProvider extends ValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ObjectValue)object).getTechnicalid();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ObjectValue_type") :
-			getString("_UI_ObjectValue_type") + " " + label;
+		return ObjectLabelSwitch.getObjectLabel((ObjectValue)object);
+//		String label = ((ObjectValue)object).getTechnicalid();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_ObjectValue_type") :
+//			getString("_UI_ObjectValue_type") + " " + label;
 	}
 
 
