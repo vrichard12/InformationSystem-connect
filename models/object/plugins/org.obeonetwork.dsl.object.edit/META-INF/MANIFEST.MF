@@ -8,6 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.object.provider.ObjectEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.object.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.object;visibility:=reexport,

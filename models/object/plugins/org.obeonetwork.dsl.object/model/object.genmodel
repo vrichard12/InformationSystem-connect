@@ -6,7 +6,7 @@
     editorDirectory="/org.obeonetwork.dsl.object.editor/src" modelPluginID="org.obeonetwork.dsl.object"
     modelName="Object" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="11.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    complianceLevel="8.0" suppressGenModelAnnotations="false" copyrightFields="false"
     providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>object.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
