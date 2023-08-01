@@ -12,10 +12,10 @@
           </style>
         </nodeMappings>
         <nodeMappings name="OWD_LiteralValue" semanticCandidatesExpression="feature:values" domainClass="object::LiteralValue">
-          <style xsi:type="style:SquareDescription" borderLineStyle="dash" labelSize="12" labelExpression="aql:self.getObjectLabel()" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="12" labelExpression="aql:self.getObjectLabel()" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="OWD_PropertyContainedValue" semanticCandidatesExpression="aql:self.values->filter(object::ObjectValue)->closure(o|o.propertyValues->filter(object::PropertyContainedValue).containedValue->filter(object::ObjectValue)).propertyValues->filter(object::PropertyContainedValue)" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetFinderExpression="feature:containedValue" sourceFinderExpression="aql:self.eContainer()" domainClass="object::PropertyContainedValue" useDomainElement="true">
@@ -58,11 +58,29 @@
           </style>
         </containerMappings>
         <toolSections name="Value">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="OWD_ObjectValue_Creation" label="Object" containerMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="OWD_Value_ObjectValue_Create" label="Object" containerMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::ObjectValue" referenceName="values"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Value_PrimitiveType_Create" label="Primitive" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PrimitiveTypeValue" referenceName="values">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setStringData('')"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Value_LiteralValue_Create" label="Literal" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::LiteralValue" referenceName="values">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'LITERAL'"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -71,7 +89,7 @@
         <toolSections name="Relation"/>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PrimitiveTypeValueService"/>
   </ownedViewpoints>
 </description:Group>
