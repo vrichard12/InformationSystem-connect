@@ -16,14 +16,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
+import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PrimitiveTypeValue} object.
@@ -105,11 +104,11 @@ public class PrimitiveTypeValueItemProvider extends DataTypeValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveTypeValue)object).getTechnicalid();
+		String label = ObjectLabelSwitch.getObjectLabel((PrimitiveTypeValue)object);
 		return label == null || label.length() == 0 ?
 			getString("_UI_PrimitiveTypeValue_type") :
 			getString("_UI_PrimitiveTypeValue_type") + " " + label;
@@ -121,7 +120,7 @@ public class PrimitiveTypeValueItemProvider extends DataTypeValueItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {

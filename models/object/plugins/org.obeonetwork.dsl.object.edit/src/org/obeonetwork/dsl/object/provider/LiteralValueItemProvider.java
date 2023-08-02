@@ -16,14 +16,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.object.LiteralValue;
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.LiteralValue} object.
@@ -128,11 +127,11 @@ public class LiteralValueItemProvider extends DataTypeValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LiteralValue)object).getName();
+		String label = ObjectLabelSwitch.getObjectLabel((LiteralValue)object);
 		return label == null || label.length() == 0 ?
 			getString("_UI_LiteralValue_type") :
 			getString("_UI_LiteralValue_type") + " " + label;
