@@ -118,11 +118,10 @@ public class ObjectValueItemProvider extends ValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return ObjectLabelSwitch.getObjectLabel((ObjectValue)object);
-//		String label = ((ObjectValue)object).getTechnicalid();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_ObjectValue_type") :
-//			getString("_UI_ObjectValue_type") + " " + label;
+		String label = ObjectLabelSwitch.getObjectLabel((ObjectValue)object);
+		return label == null || label.length() == 0 ?
+			getString("_UI_ObjectValue_type") :
+			getString("_UI_ObjectValue_type") + " " + label;
 	}
 
 

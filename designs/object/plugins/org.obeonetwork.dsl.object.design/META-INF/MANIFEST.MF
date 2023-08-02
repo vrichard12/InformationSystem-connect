@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.is,
  org.obeonetwork.dsl.object,
  org.obeonetwork.dsl.object.edit,
- org.obeonetwork.utils.common.ui
+ org.obeonetwork.utils.common.ui,
+ org.obeonetwork.utils.common
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName
