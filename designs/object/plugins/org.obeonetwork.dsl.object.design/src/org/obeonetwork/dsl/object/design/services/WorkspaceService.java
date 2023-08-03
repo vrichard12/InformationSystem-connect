@@ -1,7 +1,6 @@
 package org.obeonetwork.dsl.object.design.services;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -10,13 +9,13 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.window.Window;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
-import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
 
-public class WorkspaceServices {
+public class WorkspaceService {
 	
 	public static Type openSelectMetaTypeDialog(Workspace context, EClass metaMetaType) {
 		
@@ -41,14 +40,9 @@ public class WorkspaceServices {
 		
         wizard.setLevelToExpand(4);
 
-        IPageCompleteTester pageCompleteTester = new IPageCompleteTester() {
-			@Override
-			public boolean isPageComplete(
-					Collection<ISObjectTreeItemWrapper> selectedTreeItemWrapers,
-					Collection<ISObjectTreeItemWrapper> partiallySelectedTreeItemWrapers) {
-				return selectedTreeItemWrapers.size() == 1;
-			}
-        };
+        IPageCompleteTester pageCompleteTester = 
+        		(selectedTreeItemWrapers, partiallySelectedTreeItemWrapers) -> 
+        			selectedTreeItemWrapers.size() == 1;
         wizard.setPageCompleteTester(pageCompleteTester);
         
         Type type = null;
