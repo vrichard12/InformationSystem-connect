@@ -26,7 +26,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="OWD_PropertyReferencedValue" semanticCandidatesExpression="aql:self.values->filter(object::ObjectValue)->closure(o|o.propertyValues->filter(object::PropertyContainedValue).containedValue->filter(object::ObjectValue)).propertyValues->filter(object::PropertyReferencedValue)" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetFinderExpression="feature:containedValue" sourceFinderExpression="aql:self.eContainer()" domainClass="object::PropertyReferencedValue" useDomainElement="true">
+        <edgeMappings name="OWD_PropertyReferencedValue" semanticCandidatesExpression="aql:self.values->filter(object::ObjectValue)->closure(o|o.propertyValues->filter(object::PropertyContainedValue).containedValue->filter(object::ObjectValue)).propertyValues->filter(object::PropertyReferencedValue)" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']" targetFinderExpression="feature:referencedValue" sourceFinderExpression="aql:self.eContainer()" domainClass="object::PropertyReferencedValue" useDomainElement="true">
           <style sourceArrow="Diamond" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -35,14 +35,14 @@
           </style>
         </edgeMappings>
         <containerMappings name="OWD_ObjectValue" semanticCandidatesExpression="aql:let containedObjects = self.values->filter(object::ObjectValue)->closure(o|o.propertyValues->filter(object::PropertyContainedValue).containedValue->filter(object::ObjectValue)) in containedObjects + containedObjects.propertyValues->filter(object::PropertyReferencedValue).referencedValue->filter(object::ObjectValue) endlet" domainClass="object::ObjectValue" childrenPresentation="List">
-          <subNodeMappings name="OWD_DataTypePropertyValue" semanticCandidatesExpression="aql:self.propertyValues->select(pv | pv.value.oclIsKindOf(object::DataTypeValue))" domainClass="object::PropertyValue">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:if self.name &lt;> null then self.name endif + ' = ' + if self.value &lt;> null then self.value.getLabel() else '' endif" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="OWD_DataTypePropertyValue" semanticCandidatesExpression="aql:self.propertyValues->select(pv | pv.value = null or pv.value.oclIsKindOf(object::DataTypeValue))" domainClass="object::PropertyValue">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
             <conditionnalStyles predicateExpression="aql:self.oclOclIsKindOf(object::PropertyReferencedValue)">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:if self.name &lt;> null then self.name endif + ' = ' + if self.value &lt;> null then self.value.getLabel() else '' endif" labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -89,7 +89,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="structuredType" valueExpression="aql:self.openSelectMetaTypeDialog(environment::StructuredType).oclAsType(environment::StructuredType)">
+              <firstModelOperations xsi:type="tool_1:Let" variableName="structuredType" valueExpression="aql:container.openSelectMetaTypeDialog(environment::StructuredType).oclAsType(environment::StructuredType)">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:structuredType&lt;>null">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::ObjectValue" referenceName="values">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:structuredType"/>
@@ -102,7 +102,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="primitiveType" valueExpression="aql:self.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
+              <firstModelOperations xsi:type="tool_1:Let" variableName="primitiveType" valueExpression="aql:container.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:primitiveType&lt;>null">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PrimitiveTypeValue" referenceName="values">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:primitiveType"/>
@@ -116,7 +116,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="enumeration" valueExpression="aql:self.openSelectMetaTypeDialog(environment::Enumeration).oclAsType(environment::Enumeration)">
+              <firstModelOperations xsi:type="tool_1:Let" variableName="enumeration" valueExpression="aql:container.openSelectMetaTypeDialog(environment::Enumeration).oclAsType(environment::Enumeration)">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:enumeration&lt;>null">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::LiteralValue" referenceName="values">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:enumeration"/>
@@ -127,12 +127,37 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Property"/>
+        <toolSections name="Property">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyContainedValue_Create" label="Owned" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyContainedValue.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="property"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyReferencedValue_Create" label="Referenced" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyReferencedValue.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="property" valueExpression="aql:container.openSelectValueDialog()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:property&lt;>null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="property"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedValue" valueExpression="var:property"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <toolSections name="Relation"/>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PrimitiveTypeValueService"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.WorkspaceServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.WorkspaceService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.ObjectValueService"/>
   </ownedViewpoints>
 </description:Group>
