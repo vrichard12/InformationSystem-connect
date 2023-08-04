@@ -38,6 +38,7 @@ public class PrimitiveTypeValueImpl extends DataTypeValueImpl implements Primiti
 	 * @ordered
 	 */
 	protected static final Object DATA_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

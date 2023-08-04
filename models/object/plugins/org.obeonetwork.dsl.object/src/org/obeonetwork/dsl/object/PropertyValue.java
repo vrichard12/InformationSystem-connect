@@ -12,6 +12,9 @@ package org.obeonetwork.dsl.object;
 
 import org.eclipse.emf.cdo.CDOObject;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
 
 /**
@@ -24,8 +27,10 @@ import org.obeonetwork.dsl.environment.Property;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getMetaProperty <em>Meta Property</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getValues <em>Values</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue()
@@ -57,29 +62,19 @@ public interface PropertyValue extends CDOObject {
 	void setMetaProperty(Property value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' reference.
+	 * Returns the value of the '<em><b>Values</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.object.Value}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value of the PropertyValue. It is mapped to PropertyContainedValue::containedValue or PropertyReferencedValue::referencedValue depending on the concrete type of this PropertyValue.
+	 * The values of the PropertyValue. It is mapped to PropertyContainedValue::containedValues or PropertyReferencedValue::referencedValues depending on the concrete type of this PropertyValue.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value</em>' reference.
-	 * @see #setValue(Value)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Value()
+	 * @return the value of the '<em>Values</em>' reference list.
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Values()
 	 * @model volatile="true" derived="true"
 	 * @generated
 	 */
-	Value getValue();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' reference.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Value value);
+	EList<Value> getValues();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -105,5 +100,58 @@ public interface PropertyValue extends CDOObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.environment.MultiplicityKind}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The PropertyValue multiplicity. If metaProperty is defined, its value is the one of the referenced Property.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Multiplicity</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
+	 * @see #setMultiplicity(MultiplicityKind)
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Multiplicity()
+	 * @model
+	 * @generated
+	 */
+	MultiplicityKind getMultiplicity();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getMultiplicity <em>Multiplicity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Multiplicity</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
+	 * @see #getMultiplicity()
+	 * @generated
+	 */
+	void setMultiplicity(MultiplicityKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The value of this PropertyValue. If the property is mono valued the feature is mapped to the Value, if the property is multi valued the feature is mapped to the list of Values.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(Object)
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Value()
+	 * @model volatile="true" derived="true"
+	 * @generated
+	 */
+	Object getValue();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(Object value);
 
 } // PropertyValue

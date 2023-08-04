@@ -29,14 +29,16 @@
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PropertyValue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//PropertyValue/metaProperty"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference object.ecore#//PropertyValue/value"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference object.ecore#//PropertyValue/values"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/value"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PropertyContainedValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//PropertyContainedValue/containedValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//PropertyContainedValue/containedValues"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PropertyReferencedValue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//PropertyReferencedValue/referencedValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference object.ecore#//PropertyReferencedValue/referencedValues"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//Workspace">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//Workspace/values"/>

@@ -10,6 +10,7 @@
  */
 package org.obeonetwork.dsl.object;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.obeonetwork.dsl.object;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValue <em>Referenced Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValues <em>Referenced Values</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyReferencedValue()
@@ -29,25 +30,15 @@ package org.obeonetwork.dsl.object;
  */
 public interface PropertyReferencedValue extends PropertyValue {
 	/**
-	 * Returns the value of the '<em><b>Referenced Value</b></em>' reference.
+	 * Returns the value of the '<em><b>Referenced Values</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.object.Value}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referenced Value</em>' reference.
-	 * @see #setReferencedValue(Value)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyReferencedValue_ReferencedValue()
+	 * @return the value of the '<em>Referenced Values</em>' reference list.
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyReferencedValue_ReferencedValues()
 	 * @model
 	 * @generated
 	 */
-	Value getReferencedValue();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValue <em>Referenced Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Referenced Value</em>' reference.
-	 * @see #getReferencedValue()
-	 * @generated
-	 */
-	void setReferencedValue(Value value);
+	EList<Value> getReferencedValues();
 
 } // PropertyReferencedValue
