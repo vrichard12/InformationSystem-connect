@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValue <em>Contained Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValues <em>Contained Values</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyContainedValue()
@@ -30,25 +30,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PropertyContainedValue extends PropertyValue {
 	/**
-	 * Returns the value of the '<em><b>Contained Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Contained Values</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.object.Value}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contained Value</em>' containment reference.
-	 * @see #setContainedValue(Value)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyContainedValue_ContainedValue()
+	 * @return the value of the '<em>Contained Values</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyContainedValue_ContainedValues()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	Value getContainedValue();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValue <em>Contained Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contained Value</em>' containment reference.
-	 * @see #getContainedValue()
-	 * @generated
-	 */
-	void setContainedValue(Value value);
+	EList<Value> getContainedValues();
 
 } // PropertyContainedValue

@@ -10,6 +10,10 @@
  */
 package org.obeonetwork.dsl.object.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.obeonetwork.dsl.object.ObjectPackage;
@@ -24,7 +28,7 @@ import org.obeonetwork.dsl.object.Value;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl#getReferencedValue <em>Referenced Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl#getReferencedValues <em>Referenced Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,28 +58,10 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public Value getReferencedValue() {
-		return (Value)eDynamicGet(ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value basicGetReferencedValue() {
-		return (Value)eDynamicGet(ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setReferencedValue(Value newReferencedValue) {
-		eDynamicSet(ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE, newReferencedValue);
+	public EList<Value> getReferencedValues() {
+		return (EList<Value>)eDynamicGet(ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES, ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES, true, true);
 	}
 
 	/**
@@ -86,9 +72,8 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE:
-				if (resolve) return getReferencedValue();
-				return basicGetReferencedValue();
+			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
+				return getReferencedValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,11 +83,13 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE:
-				setReferencedValue((Value)newValue);
+			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
+				getReferencedValues().clear();
+				getReferencedValues().addAll((Collection<? extends Value>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -116,8 +103,8 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE:
-				setReferencedValue((Value)null);
+			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
+				getReferencedValues().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -131,10 +118,18 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE:
-				return basicGetReferencedValue() != null;
+			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
+				return !getReferencedValues().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Value> getValues() {
+		return getReferencedValues();
 	}
 
 } //PropertyReferencedValueImpl

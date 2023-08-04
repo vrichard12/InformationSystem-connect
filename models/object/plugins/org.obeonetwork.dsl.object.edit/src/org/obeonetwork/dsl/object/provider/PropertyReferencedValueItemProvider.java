@@ -51,25 +51,25 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencedValuePropertyDescriptor(object);
+			addReferencedValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Referenced Value feature.
+	 * This adds a property descriptor for the Referenced Values feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferencedValuePropertyDescriptor(Object object) {
+	protected void addReferencedValuesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyReferencedValue_referencedValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyReferencedValue_referencedValue_feature", "_UI_PropertyReferencedValue_type"),
-				 ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUE,
+				 getString("_UI_PropertyReferencedValue_referencedValues_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyReferencedValue_referencedValues_feature", "_UI_PropertyReferencedValue_type"),
+				 ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES,
 				 true,
 				 false,
 				 true,

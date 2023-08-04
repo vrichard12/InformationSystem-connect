@@ -70,7 +70,7 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE);
+			childrenFeatures.add(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -136,7 +136,7 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PropertyContainedValue.class)) {
-			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE:
+			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -156,17 +156,17 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE,
+				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createObjectValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE,
+				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createPrimitiveTypeValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUE,
+				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createLiteralValue()));
 	}
 
