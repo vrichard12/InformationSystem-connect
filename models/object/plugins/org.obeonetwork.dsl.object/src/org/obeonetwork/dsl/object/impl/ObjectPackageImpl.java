@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.object.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -509,6 +510,26 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 
 		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectValue_PropertyValues(), this.getPropertyValue(), null, "propertyValues", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(objectValueEClass, ecorePackage.getEBoolean(), "hasProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(objectValueEClass, ecorePackage.getEBoolean(), "hasProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEnvironmentPackage.getProperty(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(objectValueEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(objectValueEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEnvironmentPackage.getProperty(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(objectValueEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(objectValueEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEnvironmentPackage.getProperty(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(primitiveTypeValueEClass, PrimitiveTypeValue.class, "PrimitiveTypeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPrimitiveTypeValue_Data(), ecorePackage.getEJavaObject(), "data", null, 0, 1, PrimitiveTypeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
