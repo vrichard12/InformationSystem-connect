@@ -21,6 +21,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyValue" abstract="true">
+    <eOperations name="isMultiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metaProperty" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
         eType="#//Value" volatile="true" derived="true">

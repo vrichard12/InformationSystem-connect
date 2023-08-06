@@ -190,10 +190,10 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public Object getValue() {
-		if(getMultiplicity() == null || getMultiplicity() == MultiplicityKind.ZERO_ONE_LITERAL || getMultiplicity() == MultiplicityKind.ONE_LITERAL) {
-			return getValues().isEmpty() ? null : getValues().get(0);
-		} else {
+		if(isMultiple()) {
 			return getValues();
+		} else {
+			return getValues().isEmpty() ? null : getValues().get(0);
 		}
 	}
 
@@ -205,21 +205,33 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public void setValue(Object newValue) {
 		EList<Value> values = getValues();
-		if(getMultiplicity() == null || getMultiplicity() == MultiplicityKind.ZERO_ONE_LITERAL || getMultiplicity() == MultiplicityKind.ONE_LITERAL) {
-			if(newValue instanceof Value) {
-				values.removeIf(v -> true);
-				values.add((Value)newValue);
-			} else {
-				throw new InvalidParameterException();
-			}
-		} else {
+		if(isMultiple()) {
 			if(newValue instanceof List<?> && ((List<?>) newValue).stream().allMatch(Value.class::isInstance)) {
 				values.removeIf(v -> true);
 				((List<?>) newValue).stream().forEach(v -> values.add((Value) v));
 			} else {
 				throw new InvalidParameterException();
 			}
+		} else {
+			if(newValue instanceof Value) {
+				values.removeIf(v -> true);
+				values.add((Value)newValue);
+			} else {
+				throw new InvalidParameterException();
+			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isMultiple() {
+		return getMultiplicity() != null && 
+				(getMultiplicity() == MultiplicityKind.ONE_STAR_LITERAL || 
+				getMultiplicity() == MultiplicityKind.ZERO_STAR_LITERAL);
 	}
 
 	/**
