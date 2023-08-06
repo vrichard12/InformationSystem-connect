@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.object;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.environment.Property;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,5 +41,53 @@ public interface ObjectValue extends Value {
 	 * @generated
 	 */
 	EList<PropertyValue> getPropertyValues();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasProperty(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasProperty(Property property);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Object getValue(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Object getValue(Property property);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setValue(String name, Object value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setValue(Property property, Object value);
 
 } // ObjectValue

@@ -19,6 +19,26 @@
     <genClasses ecoreClass="object.ecore#//DataTypeValue"/>
     <genClasses ecoreClass="object.ecore#//ObjectValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//ObjectValue/propertyValues"/>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/hasProperty">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/hasProperty/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/hasProperty.1">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/hasProperty.1/property"/>
+      </genOperations>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/getValue">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/getValue/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/getValue.1">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/getValue.1/property"/>
+      </genOperations>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/setValue">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/setValue/name"/>
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/setValue/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="object.ecore#//ObjectValue/setValue.1">
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/setValue.1/property"/>
+        <genParameters ecoreParameter="object.ecore#//ObjectValue/setValue.1/value"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PrimitiveTypeValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PrimitiveTypeValue/data"/>
