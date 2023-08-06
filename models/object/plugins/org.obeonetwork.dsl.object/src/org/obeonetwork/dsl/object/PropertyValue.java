@@ -154,4 +154,12 @@ public interface PropertyValue extends CDOObject {
 	 */
 	void setValue(Object value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isMultiple();
+
 } // PropertyValue

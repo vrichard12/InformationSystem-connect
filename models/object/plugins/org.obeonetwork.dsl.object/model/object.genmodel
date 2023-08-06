@@ -33,6 +33,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute object.ecore#//PropertyValue/value"/>
+      <genOperations ecoreOperation="object.ecore#//PropertyValue/isMultiple"/>
     </genClasses>
     <genClasses ecoreClass="object.ecore#//PropertyContainedValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference object.ecore#//PropertyContainedValue/containedValues"/>
