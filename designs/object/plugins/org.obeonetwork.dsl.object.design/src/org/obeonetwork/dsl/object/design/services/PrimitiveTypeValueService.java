@@ -15,7 +15,7 @@ public class PrimitiveTypeValueService {
 	}
 	
 	@SuppressWarnings("serial")
-	private static final Map<String, Object> PRIMITIVE_TYPES_DEFAULT_VALUES = new HashMap<>() {{
+	private static final Map<String, Object> PRIMITIVE_TYPES_DEFAULT_VALUES = new HashMap<String, Object>() {{
 		put("Boolean", Boolean.TRUE);
 		put("Date", new Date());
 		put("Double", Double.valueOf(0));
