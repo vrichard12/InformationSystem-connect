@@ -25,8 +25,8 @@ public class ObjectValueService {
 			children = ((ObjectValue) element).getPropertyValues().stream()
 					.filter(PropertyContainedValue.class::isInstance).map(PropertyContainedValue.class::cast)
 					.collect(toList());
-		} else if(element instanceof PropertyContainedValue && ((PropertyContainedValue) element).getContainedValue() != null) {
-			children = Collections.singletonList(((PropertyContainedValue) element).getContainedValue());
+		} else if(element instanceof PropertyContainedValue) {
+			children = ((PropertyContainedValue) element).getContainedValues();
 		} else {
 			children = Collections.emptyList();
 		}
