@@ -27,14 +27,14 @@
           </style>
         </edgeMappings>
         <containerMappings name="OWD_ObjectValue" semanticCandidatesExpression="aql:let containedObjects = self.values->filter(object::ObjectValue)->closure(o|o.propertyValues->filter(object::PropertyContainedValue).containedValues->filter(object::ObjectValue)) in containedObjects + containedObjects.propertyValues->filter(object::PropertyReferencedValue).referencedValues->filter(object::ObjectValue) endlet" domainClass="object::ObjectValue" childrenPresentation="List">
-          <borderedNodeMappings name="OWD_ObjectPropertyValue" semanticCandidatesExpression="aql:self.propertyValues->select(pv | pv.isObjectPropertyValue())" domainClass="object::ObjectValue">
-            <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" widthComputationExpression="1" heightComputationExpression="1">
+          <borderedNodeMappings name="OWD_ObjectPropertyValue" semanticCandidatesExpression="aql:self.propertyValues->select(pv | pv.isObjectPropertyValue())" domainClass="object::PropertyValue">
+            <style xsi:type="style:LozengeNodeDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.name + '[' + self.multiplicity + ']'" widthComputationExpression="2" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
-            <conditionnalStyles predicateExpression="aql:self.oclOclIsKindOf(object::PropertyReferencedValue)">
-              <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" widthComputationExpression="1" heightComputationExpression="1">
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(object::PropertyReferencedValue)">
+              <style xsi:type="style:LozengeNodeDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.name + '[' + self.multiplicity + ']'" widthComputationExpression="2" heightComputationExpression="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -42,14 +42,14 @@
             </conditionnalStyles>
           </borderedNodeMappings>
           <subNodeMappings name="OWD_DataTypePropertyValue" semanticCandidatesExpression="aql:self.propertyValues->select(pv | pv.isDataTypePropertyValue())" domainClass="object::PropertyValue">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
-            <conditionnalStyles predicateExpression="aql:self.oclOclIsKindOf(object::PropertyReferencedValue)">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelPosition="node" resizeKind="NSEW">
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(object::PropertyReferencedValue)">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name + ' = ' + if self.value &lt;> null then self.value.getObjectLabel() else 'null' endif" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -147,11 +147,11 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="property" valueExpression="aql:container.openSelectValueDialog()">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:property&lt;>null">
+              <firstModelOperations xsi:type="tool_1:Let" variableName="selectedValue" valueExpression="aql:container.openSelectValueDialog()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selectedValue&lt;>null">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="property"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedValue" valueExpression="var:property"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedValues" valueExpression="var:selectedValue"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -165,5 +165,6 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PrimitiveTypeValueService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.WorkspaceService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.ObjectValueService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PropertyValueService"/>
   </ownedViewpoints>
 </description:Group>
