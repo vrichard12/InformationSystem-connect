@@ -308,7 +308,7 @@ public interface ObjectPackage extends EPackage {
 	int PROPERTY_VALUE__META_PROPERTY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' reference list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -372,7 +372,7 @@ public interface ObjectPackage extends EPackage {
 	int PROPERTY_CONTAINED_VALUE__META_PROPERTY = PROPERTY_VALUE__META_PROPERTY;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' reference list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -445,7 +445,7 @@ public interface ObjectPackage extends EPackage {
 	int PROPERTY_REFERENCED_VALUE__META_PROPERTY = PROPERTY_VALUE__META_PROPERTY;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' reference list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -744,10 +744,10 @@ public interface ObjectPackage extends EPackage {
 	EReference getPropertyValue_MetaProperty();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.object.PropertyValue#getValues <em>Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.PropertyValue#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Values</em>'.
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
 	 * @see org.obeonetwork.dsl.object.PropertyValue#getValues()
 	 * @see #getPropertyValue()
 	 * @generated
@@ -992,7 +992,7 @@ public interface ObjectPackage extends EPackage {
 		EReference PROPERTY_VALUE__META_PROPERTY = eINSTANCE.getPropertyValue_MetaProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

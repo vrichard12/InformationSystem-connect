@@ -62,16 +62,16 @@ public interface PropertyValue extends CDOObject {
 	void setMetaProperty(Property value);
 
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' reference list.
+	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.object.Value}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The values of the PropertyValue. It is mapped to PropertyContainedValue::containedValues or PropertyReferencedValue::referencedValues depending on the concrete type of this PropertyValue.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Values</em>' reference list.
+	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Values()
-	 * @model volatile="true" derived="true"
+	 * @model containment="true" resolveProxies="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<Value> getValues();
@@ -139,7 +139,7 @@ public interface PropertyValue extends CDOObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Object)
 	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Value()
-	 * @model volatile="true" derived="true"
+	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	Object getValue();

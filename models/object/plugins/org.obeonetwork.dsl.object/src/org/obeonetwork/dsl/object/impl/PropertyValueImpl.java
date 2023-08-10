@@ -14,8 +14,11 @@ import java.security.InvalidParameterException;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
@@ -232,6 +235,20 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 		return getMultiplicity() != null && 
 				(getMultiplicity() == MultiplicityKind.ONE_STAR_LITERAL || 
 				getMultiplicity() == MultiplicityKind.ZERO_STAR_LITERAL);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ObjectPackage.PROPERTY_VALUE__VALUES:
+				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
