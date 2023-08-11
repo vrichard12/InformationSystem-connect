@@ -212,6 +212,8 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 			if(newValue instanceof List<?> && ((List<?>) newValue).stream().allMatch(Value.class::isInstance)) {
 				values.removeIf(v -> true);
 				((List<?>) newValue).stream().forEach(v -> values.add((Value) v));
+			} else if(newValue instanceof Value) {
+				values.add((Value) newValue);
 			} else {
 				throw new InvalidParameterException();
 			}
