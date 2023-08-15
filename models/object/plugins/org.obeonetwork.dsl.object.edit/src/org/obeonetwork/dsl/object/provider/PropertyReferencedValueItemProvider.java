@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.PropertyReferencedValue;
+import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyReferencedValue} object.
@@ -103,11 +104,11 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PropertyReferencedValue)object).getName();
+		String label = ObjectLabelSwitch.getObjectLabel((PropertyReferencedValue)object);
 		return label == null || label.length() == 0 ?
 			getString("_UI_PropertyReferencedValue_type") :
 			getString("_UI_PropertyReferencedValue_type") + " " + label;
