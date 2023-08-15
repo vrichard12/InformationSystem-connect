@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.PropertyContainedValue;
+import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyContainedValue} object.
@@ -113,11 +114,11 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PropertyContainedValue)object).getName();
+		String label = ObjectLabelSwitch.getObjectLabel((PropertyContainedValue)object);
 		return label == null || label.length() == 0 ?
 			getString("_UI_PropertyContainedValue_type") :
 			getString("_UI_PropertyContainedValue_type") + " " + label;
