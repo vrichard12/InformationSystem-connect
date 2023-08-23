@@ -10,7 +10,7 @@ public class PropertyValueService {
 	
 	public static boolean isDataTypePropertyValue(PropertyValue propertyValue) {
 		if(propertyValue.getMetaProperty() != null) {
-			return propertyValue instanceof Attribute;
+			return propertyValue.getMetaProperty() instanceof Attribute;
 		}
 		
 		if(!propertyValue.getValues().isEmpty()) {
@@ -22,7 +22,7 @@ public class PropertyValueService {
 
 	public static boolean isObjectPropertyValue(PropertyValue propertyValue) {
 		if(propertyValue.getMetaProperty() != null) {
-			return propertyValue instanceof Reference;
+			return propertyValue.getMetaProperty() instanceof Reference;
 		}
 		
 		if(!propertyValue.getValues().isEmpty()) {
