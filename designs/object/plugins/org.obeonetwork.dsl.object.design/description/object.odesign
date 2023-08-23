@@ -157,6 +157,30 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyFromDefiningTypeValue_Create" label="From defining type" precondition="aql:container.metaType&lt;>null" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="selectedProperty" valueExpression="aql:container.openSelectPropertyDialog()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selectedProperty&lt;>null">
+                  <subModelOperations xsi:type="tool_1:Switch">
+                    <cases conditionExpression="aql:selectedProperty.oclIsKindOf(environment::Reference) and not selectedProperty.oclAsType(environment::Reference).isComposite">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
+                      </subModelOperations>
+                    </cases>
+                    <default>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
+                      </subModelOperations>
+                    </default>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Relation">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="OWD_Relation_PropertyValue_Create" label="Property value" edgeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@edgeMappings[name='OWD_PropertyValue_values']">
