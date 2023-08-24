@@ -9,11 +9,6 @@ import org.obeonetwork.dsl.object.PrimitiveTypeValue;
 
 public class PrimitiveTypeValueService {
 
-	public static PrimitiveTypeValue setStringData(PrimitiveTypeValue self, String data) {
-		self.setData(data);
-		return self;
-	}
-	
 	@SuppressWarnings("serial")
 	private static final Map<String, Object> PRIMITIVE_TYPES_DEFAULT_VALUES = new HashMap<String, Object>() {{
 		put("Boolean", Boolean.TRUE);
