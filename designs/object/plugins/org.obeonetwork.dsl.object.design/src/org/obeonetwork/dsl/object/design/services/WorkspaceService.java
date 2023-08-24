@@ -11,13 +11,12 @@ import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
-import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
 
 public class WorkspaceService {
 	
-	public static Type openSelectMetaTypeDialog(Workspace context, EClass metaMetaType) {
+	public static Type openSelectMetaTypeDialog(EObject context, EClass metaMetaType) {
 		
 		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
 				null,

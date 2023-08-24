@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="object" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="object" version="12.0.0.2017041100">
   <ownedViewpoints name="Object Views" modelFileExtension="object">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Object Workspace Diagram" titleExpression="aql:self.name + ' Workspace Diagram'" domainClass="object::Workspace" enablePopupBars="true">
       <metamodel href="../../org.obeonetwork.dsl.object/model/object.ecore#/"/>
@@ -64,69 +64,65 @@
           </style>
         </containerMappings>
         <toolSections name="Value">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="OWD_Value_ObjectValue_Create" label="Object" containerMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::ObjectValue" referenceName="values"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createObjectValueInstance()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Value_PrimitiveType_Create" label="Primitive" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PrimitiveTypeValue" referenceName="values">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setStringData('')"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createPrimitiveTypeValueInstance()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Value_LiteralValue_Create" label="Literal" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::LiteralValue" referenceName="values">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="LITERAL"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createLiteralValueInstance()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Instance">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="OWD_Instance_ObjectValue_Create" label="Object" containerMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="structuredType" valueExpression="aql:container.openSelectMetaTypeDialog(environment::StructuredType).oclAsType(environment::StructuredType)">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:structuredType&lt;>null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::ObjectValue" referenceName="values">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:structuredType"/>
+              <firstModelOperations xsi:type="tool:Let" variableName="structuredType" valueExpression="aql:element.openSelectMetaTypeDialog(environment::StructuredType).oclAsType(environment::StructuredType)">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:structuredType&lt;>null">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createObjectValueInstance()">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="metaType" valueExpression="var:structuredType"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Instance_PrimitiveType_Create" label="Primitive" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="primitiveType" valueExpression="aql:container.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:primitiveType&lt;>null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PrimitiveTypeValue" referenceName="values">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:primitiveType"/>
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDefaultPrimitiveTypeData()"/>
+              <firstModelOperations xsi:type="tool:Let" variableName="primitiveType" valueExpression="aql:element.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:primitiveType&lt;>null">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createPrimitiveTypeValueInstance()">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="metaType" valueExpression="var:primitiveType"/>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setDefaultPrimitiveTypeData()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Instance_LiteralValue_Create" label="Literal" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="enumeration" valueExpression="aql:container.openSelectMetaTypeDialog(environment::Enumeration).oclAsType(environment::Enumeration)">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:enumeration&lt;>null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::LiteralValue" referenceName="values">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="metaType" valueExpression="var:enumeration"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="data" valueExpression="aql:enumeration.literals->first()"/>
+              <firstModelOperations xsi:type="tool:Let" variableName="enumeration" valueExpression="aql:element.openSelectMetaTypeDialog(environment::Enumeration).oclAsType(environment::Enumeration)">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:enumeration&lt;>null">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createLiteralValueInstance()">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="metaType" valueExpression="var:enumeration"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="data" valueExpression="aql:enumeration.literals->first()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -134,46 +130,46 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Property">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyContainedValue_Create" label="Owned" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyContainedValue.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="OWD_Property_PropertyContainedValue_Create" label="Owned" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyContainedValue.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="property"/>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="property"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyReferencedValue_Create" label="Referenced" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyReferencedValue.gif">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="OWD_Property_PropertyReferencedValue_Create" label="Referenced" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PropertyReferencedValue.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="selectedValue" valueExpression="aql:container.openSelectValueDialog()">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selectedValue&lt;>null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="property"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedValues" valueExpression="var:selectedValue"/>
+              <firstModelOperations xsi:type="tool:Let" variableName="selectedValue" valueExpression="aql:container.openSelectValueDialog()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:selectedValue&lt;>null">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="property"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="referencedValues" valueExpression="var:selectedValue"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="OWD_Property_PropertyFromDefiningTypeValue_Create" label="From defining type" precondition="aql:container.metaType&lt;>null" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="OWD_Property_PropertyFromDefiningTypeValue_Create" label="From defining type" precondition="aql:container.metaType&lt;>null" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" variableName="selectedProperty" valueExpression="aql:container.openSelectPropertyDialog()">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selectedProperty&lt;>null">
-                  <subModelOperations xsi:type="tool_1:Switch">
+              <firstModelOperations xsi:type="tool:Let" variableName="selectedProperty" valueExpression="aql:container.openSelectPropertyDialog()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:selectedProperty&lt;>null">
+                  <subModelOperations xsi:type="tool:Switch">
                     <cases conditionExpression="aql:selectedProperty.oclIsKindOf(environment::Reference) and not selectedProperty.oclAsType(environment::Reference).isComposite">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
                       </subModelOperations>
                     </cases>
                     <default>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyContainedValue" referenceName="propertyValues">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:selectedProperty.name"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="metaProperty" valueExpression="var:selectedProperty"/>
                       </subModelOperations>
                     </default>
                   </subModelOperations>
@@ -183,14 +179,14 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Relation">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="OWD_Relation_PropertyValue_Create" label="Property value" edgeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@edgeMappings[name='OWD_PropertyValue_values']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="OWD_Relation_PropertyValue_Create" label="Property value" edgeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@edgeMappings[name='OWD_PropertyValue_values']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -203,5 +199,6 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.ObjectValueService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PropertyValueService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.CreateValueService"/>
   </ownedViewpoints>
 </description:Group>
