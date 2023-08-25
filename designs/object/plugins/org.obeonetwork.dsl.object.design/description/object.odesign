@@ -64,21 +64,21 @@
           </style>
         </containerMappings>
         <toolSections name="Value">
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/ObjectValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createObjectValueInstance()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PrimitiveTypeValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.createPrimitiveTypeValueInstance()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Value_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/LiteralValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -87,7 +87,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Instance">
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_ObjectValue_Create" label="Object" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/ObjectValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -100,7 +100,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_PrimitiveType_Create" label="Primitive" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/PrimitiveTypeValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -114,7 +114,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)">
+          <ownedTools xsi:type="tool:ToolDescription" name="OWD_Instance_LiteralValue_Create" label="Literal" precondition="aql:self.oclIsKindOf(object::Workspace) or self.oclIsKindOf(object::PropertyContainedValue)" iconPath="/org.obeonetwork.dsl.object.edit/icons/full/obj16/LiteralValue.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -148,7 +148,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="OWD_Property_PropertyFromDefiningTypeValue_Create" label="From defining type" precondition="aql:container.metaType&lt;>null" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="OWD_Property_PropertyFromDefiningTypeValue_Create" label="From defining type" precondition="aql:container.metaType&lt;>null" nodeMappings="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@subNodeMappings[name='OWD_DataTypePropertyValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" iconPath="/org.obeonetwork.dsl.object.design/icons/full/obj16/PropertyValue.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
