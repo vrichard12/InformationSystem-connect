@@ -208,6 +208,12 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public void setValue(Object newValue) {
 		EList<Value> values = getValues();
+		
+		if(newValue == null) {
+			values.removeIf(v -> true);
+			return;
+		}
+		
 		if(isMultiple()) {
 			if(newValue instanceof List<?> && ((List<?>) newValue).stream().allMatch(Value.class::isInstance)) {
 				values.removeIf(v -> true);
@@ -237,6 +243,30 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 		return getMultiplicity() != null && 
 				(getMultiplicity() == MultiplicityKind.ONE_STAR_LITERAL || 
 				getMultiplicity() == MultiplicityKind.ZERO_STAR_LITERAL);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean unsetValue() {
+		boolean removed = !getValues().isEmpty();
+		getValues().removeIf(v -> true);
+		return removed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean unsetValue(Value value) {
+		boolean removed = getValues().contains(value);
+		getValues().remove(value);
+		return removed;
 	}
 
 	/**
