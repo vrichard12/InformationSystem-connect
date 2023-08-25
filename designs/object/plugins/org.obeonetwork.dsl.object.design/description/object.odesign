@@ -18,7 +18,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="OWD_PropertyValue_values" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']" targetFinderExpression="feature:values">
+        <edgeMappings name="OWD_PropertyValue_values" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']" targetFinderExpression="feature:values" reconnections="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectSource'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectTarget']">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:if view.sourceNode.target.isMultiple() then view.sourceNode.target.values->indexOf(view.targetNode.target) else '' endif">
@@ -143,13 +143,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:Let" variableName="selectedValue" valueExpression="aql:container.openSelectValueDialog()">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:selectedValue&lt;>null">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="property"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="referencedValues" valueExpression="var:selectedValue"/>
-                  </subModelOperations>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="object::PropertyReferencedValue" referenceName="propertyValues">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="property"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -190,6 +185,28 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="OWD_PropertyValue_values_ReconnectSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:edgeView.targetNode.target.moveValue(source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="OWD_PropertyValue_values_ReconnectTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.replaceValue(source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -200,5 +217,6 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.PropertyValueService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.ui.services.DebugServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.CreateValueService"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.ValueService"/>
   </ownedViewpoints>
 </description:Group>
