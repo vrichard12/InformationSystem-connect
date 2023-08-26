@@ -26,8 +26,8 @@
       <eParameters name="property" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyValues" upperBound="-1"
-        eType="#//PropertyValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//ObjectProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveTypeValue" eSuperTypes="#//DataTypeValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -40,7 +40,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyValue" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectProperty" abstract="true">
     <eOperations name="isMultiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="unsetValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="unsetValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -70,11 +70,11 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyContainedValue" eSuperTypes="#//PropertyValue">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectContainmentProperty" eSuperTypes="#//ObjectProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="containedValues" upperBound="-1"
         eType="#//Value" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyReferencedValue" eSuperTypes="#//PropertyValue">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectReferenceProperty" eSuperTypes="#//ObjectProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedValues" upperBound="-1"
         eType="#//Value"/>
   </eClassifiers>

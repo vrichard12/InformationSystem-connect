@@ -15,35 +15,41 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
+
 import org.obeonetwork.dsl.object.ObjectPackage;
-import org.obeonetwork.dsl.object.PropertyValue;
+import org.obeonetwork.dsl.object.ObjectProperty;
 import org.obeonetwork.dsl.object.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property Value</b></em>'.
+ * An implementation of the model object '<em><b>Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getMetaProperty <em>Meta Property</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getValues <em>Values</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getMultiplicity <em>Multiplicity</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl#getMetaProperty <em>Meta Property</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class PropertyValueImpl extends CDOObjectImpl implements PropertyValue {
+public abstract class ObjectPropertyImpl extends CDOObjectImpl implements ObjectProperty {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -79,7 +85,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyValueImpl() {
+	protected ObjectPropertyImpl() {
 		super();
 	}
 
@@ -90,7 +96,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ObjectPackage.Literals.PROPERTY_VALUE;
+		return ObjectPackage.Literals.OBJECT_PROPERTY;
 	}
 
 	/**
@@ -110,7 +116,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public Property getMetaProperty() {
-		return (Property)eDynamicGet(ObjectPackage.PROPERTY_VALUE__META_PROPERTY, ObjectPackage.Literals.PROPERTY_VALUE__META_PROPERTY, true, true);
+		return (Property)eDynamicGet(ObjectPackage.OBJECT_PROPERTY__META_PROPERTY, ObjectPackage.Literals.OBJECT_PROPERTY__META_PROPERTY, true, true);
 	}
 
 	/**
@@ -119,7 +125,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 * @generated
 	 */
 	public Property basicGetMetaProperty() {
-		return (Property)eDynamicGet(ObjectPackage.PROPERTY_VALUE__META_PROPERTY, ObjectPackage.Literals.PROPERTY_VALUE__META_PROPERTY, false, true);
+		return (Property)eDynamicGet(ObjectPackage.OBJECT_PROPERTY__META_PROPERTY, ObjectPackage.Literals.OBJECT_PROPERTY__META_PROPERTY, false, true);
 	}
 
 	/**
@@ -129,7 +135,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public void setMetaProperty(Property newMetaProperty) {
-		eDynamicSet(ObjectPackage.PROPERTY_VALUE__META_PROPERTY, ObjectPackage.Literals.PROPERTY_VALUE__META_PROPERTY, newMetaProperty);
+		eDynamicSet(ObjectPackage.OBJECT_PROPERTY__META_PROPERTY, ObjectPackage.Literals.OBJECT_PROPERTY__META_PROPERTY, newMetaProperty);
 	}
 
 	/**
@@ -150,7 +156,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 		if(getMetaProperty() != null) {
 			return getMetaProperty().getName();
 		}
-		return (String)eDynamicGet(ObjectPackage.PROPERTY_VALUE__NAME, ObjectPackage.Literals.PROPERTY_VALUE__NAME, true, true);
+		return (String)eDynamicGet(ObjectPackage.OBJECT_PROPERTY__NAME, ObjectPackage.Literals.OBJECT_PROPERTY__NAME, true, true);
 	}
 
 	/**
@@ -160,7 +166,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public void setName(String newName) {
-		eDynamicSet(ObjectPackage.PROPERTY_VALUE__NAME, ObjectPackage.Literals.PROPERTY_VALUE__NAME, newName);
+		eDynamicSet(ObjectPackage.OBJECT_PROPERTY__NAME, ObjectPackage.Literals.OBJECT_PROPERTY__NAME, newName);
 	}
 
 	/**
@@ -173,7 +179,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 		if(getMetaProperty() != null) {
 			return getMetaProperty().getMultiplicity();
 		}
-		return (MultiplicityKind)eDynamicGet(ObjectPackage.PROPERTY_VALUE__MULTIPLICITY, ObjectPackage.Literals.PROPERTY_VALUE__MULTIPLICITY, true, true);
+		return (MultiplicityKind)eDynamicGet(ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY, ObjectPackage.Literals.OBJECT_PROPERTY__MULTIPLICITY, true, true);
 	}
 
 	/**
@@ -183,7 +189,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	 */
 	@Override
 	public void setMultiplicity(MultiplicityKind newMultiplicity) {
-		eDynamicSet(ObjectPackage.PROPERTY_VALUE__MULTIPLICITY, ObjectPackage.Literals.PROPERTY_VALUE__MULTIPLICITY, newMultiplicity);
+		eDynamicSet(ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY, ObjectPackage.Literals.OBJECT_PROPERTY__MULTIPLICITY, newMultiplicity);
 	}
 
 	/**
@@ -277,7 +283,7 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -291,16 +297,16 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_VALUE__META_PROPERTY:
+			case ObjectPackage.OBJECT_PROPERTY__META_PROPERTY:
 				if (resolve) return getMetaProperty();
 				return basicGetMetaProperty();
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				return getValues();
-			case ObjectPackage.PROPERTY_VALUE__NAME:
+			case ObjectPackage.OBJECT_PROPERTY__NAME:
 				return getName();
-			case ObjectPackage.PROPERTY_VALUE__MULTIPLICITY:
+			case ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY:
 				return getMultiplicity();
-			case ObjectPackage.PROPERTY_VALUE__VALUE:
+			case ObjectPackage.OBJECT_PROPERTY__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -315,20 +321,20 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_VALUE__META_PROPERTY:
+			case ObjectPackage.OBJECT_PROPERTY__META_PROPERTY:
 				setMetaProperty((Property)newValue);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				getValues().clear();
 				getValues().addAll((Collection<? extends Value>)newValue);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__NAME:
+			case ObjectPackage.OBJECT_PROPERTY__NAME:
 				setName((String)newValue);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__MULTIPLICITY:
+			case ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY:
 				setMultiplicity((MultiplicityKind)newValue);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__VALUE:
+			case ObjectPackage.OBJECT_PROPERTY__VALUE:
 				setValue(newValue);
 				return;
 		}
@@ -343,19 +349,19 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_VALUE__META_PROPERTY:
+			case ObjectPackage.OBJECT_PROPERTY__META_PROPERTY:
 				setMetaProperty((Property)null);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				getValues().clear();
 				return;
-			case ObjectPackage.PROPERTY_VALUE__NAME:
+			case ObjectPackage.OBJECT_PROPERTY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__MULTIPLICITY:
+			case ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY:
 				setMultiplicity(MULTIPLICITY_EDEFAULT);
 				return;
-			case ObjectPackage.PROPERTY_VALUE__VALUE:
+			case ObjectPackage.OBJECT_PROPERTY__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -370,18 +376,18 @@ public abstract class PropertyValueImpl extends CDOObjectImpl implements Propert
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_VALUE__META_PROPERTY:
+			case ObjectPackage.OBJECT_PROPERTY__META_PROPERTY:
 				return basicGetMetaProperty() != null;
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				return !getValues().isEmpty();
-			case ObjectPackage.PROPERTY_VALUE__NAME:
+			case ObjectPackage.OBJECT_PROPERTY__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case ObjectPackage.PROPERTY_VALUE__MULTIPLICITY:
+			case ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY:
 				return getMultiplicity() != MULTIPLICITY_EDEFAULT;
-			case ObjectPackage.PROPERTY_VALUE__VALUE:
+			case ObjectPackage.OBJECT_PROPERTY__VALUE:
 				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //PropertyValueImpl
+} //ObjectPropertyImpl

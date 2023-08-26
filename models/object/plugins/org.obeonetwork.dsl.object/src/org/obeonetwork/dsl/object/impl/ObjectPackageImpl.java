@@ -15,23 +15,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-
 import org.obeonetwork.dsl.object.DataTypeValue;
 import org.obeonetwork.dsl.object.LiteralValue;
+import org.obeonetwork.dsl.object.ObjectContainmentProperty;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.ObjectProperty;
+import org.obeonetwork.dsl.object.ObjectReferenceProperty;
 import org.obeonetwork.dsl.object.ObjectValue;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
-import org.obeonetwork.dsl.object.PropertyContainedValue;
-import org.obeonetwork.dsl.object.PropertyReferencedValue;
-import org.obeonetwork.dsl.object.PropertyValue;
 import org.obeonetwork.dsl.object.Value;
 import org.obeonetwork.dsl.object.Workspace;
-
 import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
@@ -81,21 +77,21 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propertyValueEClass = null;
+	private EClass objectPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propertyContainedValueEClass = null;
+	private EClass objectContainmentPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propertyReferencedValueEClass = null;
+	private EClass objectReferencePropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,7 +211,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getObjectValue_PropertyValues() {
+	public EReference getObjectValue_Properties() {
 		return (EReference)objectValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -275,8 +271,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getPropertyValue() {
-		return propertyValueEClass;
+	public EClass getObjectProperty() {
+		return objectPropertyEClass;
 	}
 
 	/**
@@ -285,8 +281,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPropertyValue_MetaProperty() {
-		return (EReference)propertyValueEClass.getEStructuralFeatures().get(0);
+	public EReference getObjectProperty_MetaProperty() {
+		return (EReference)objectPropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -295,8 +291,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPropertyValue_Values() {
-		return (EReference)propertyValueEClass.getEStructuralFeatures().get(1);
+	public EReference getObjectProperty_Values() {
+		return (EReference)objectPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -305,8 +301,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPropertyValue_Name() {
-		return (EAttribute)propertyValueEClass.getEStructuralFeatures().get(2);
+	public EAttribute getObjectProperty_Name() {
+		return (EAttribute)objectPropertyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -315,8 +311,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPropertyValue_Multiplicity() {
-		return (EAttribute)propertyValueEClass.getEStructuralFeatures().get(3);
+	public EAttribute getObjectProperty_Multiplicity() {
+		return (EAttribute)objectPropertyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -325,8 +321,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPropertyValue_Value() {
-		return (EAttribute)propertyValueEClass.getEStructuralFeatures().get(4);
+	public EAttribute getObjectProperty_Value() {
+		return (EAttribute)objectPropertyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -335,8 +331,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getPropertyContainedValue() {
-		return propertyContainedValueEClass;
+	public EClass getObjectContainmentProperty() {
+		return objectContainmentPropertyEClass;
 	}
 
 	/**
@@ -345,8 +341,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPropertyContainedValue_ContainedValues() {
-		return (EReference)propertyContainedValueEClass.getEStructuralFeatures().get(0);
+	public EReference getObjectContainmentProperty_ContainedValues() {
+		return (EReference)objectContainmentPropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -355,8 +351,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getPropertyReferencedValue() {
-		return propertyReferencedValueEClass;
+	public EClass getObjectReferenceProperty() {
+		return objectReferencePropertyEClass;
 	}
 
 	/**
@@ -365,8 +361,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPropertyReferencedValue_ReferencedValues() {
-		return (EReference)propertyReferencedValueEClass.getEStructuralFeatures().get(0);
+	public EReference getObjectReferenceProperty_ReferencedValues() {
+		return (EReference)objectReferencePropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -434,7 +430,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		dataTypeValueEClass = createEClass(DATA_TYPE_VALUE);
 
 		objectValueEClass = createEClass(OBJECT_VALUE);
-		createEReference(objectValueEClass, OBJECT_VALUE__PROPERTY_VALUES);
+		createEReference(objectValueEClass, OBJECT_VALUE__PROPERTIES);
 
 		primitiveTypeValueEClass = createEClass(PRIMITIVE_TYPE_VALUE);
 		createEAttribute(primitiveTypeValueEClass, PRIMITIVE_TYPE_VALUE__DATA);
@@ -443,18 +439,18 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		createEReference(literalValueEClass, LITERAL_VALUE__DATA);
 		createEAttribute(literalValueEClass, LITERAL_VALUE__NAME);
 
-		propertyValueEClass = createEClass(PROPERTY_VALUE);
-		createEReference(propertyValueEClass, PROPERTY_VALUE__META_PROPERTY);
-		createEReference(propertyValueEClass, PROPERTY_VALUE__VALUES);
-		createEAttribute(propertyValueEClass, PROPERTY_VALUE__NAME);
-		createEAttribute(propertyValueEClass, PROPERTY_VALUE__MULTIPLICITY);
-		createEAttribute(propertyValueEClass, PROPERTY_VALUE__VALUE);
+		objectPropertyEClass = createEClass(OBJECT_PROPERTY);
+		createEReference(objectPropertyEClass, OBJECT_PROPERTY__META_PROPERTY);
+		createEReference(objectPropertyEClass, OBJECT_PROPERTY__VALUES);
+		createEAttribute(objectPropertyEClass, OBJECT_PROPERTY__NAME);
+		createEAttribute(objectPropertyEClass, OBJECT_PROPERTY__MULTIPLICITY);
+		createEAttribute(objectPropertyEClass, OBJECT_PROPERTY__VALUE);
 
-		propertyContainedValueEClass = createEClass(PROPERTY_CONTAINED_VALUE);
-		createEReference(propertyContainedValueEClass, PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES);
+		objectContainmentPropertyEClass = createEClass(OBJECT_CONTAINMENT_PROPERTY);
+		createEReference(objectContainmentPropertyEClass, OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES);
 
-		propertyReferencedValueEClass = createEClass(PROPERTY_REFERENCED_VALUE);
-		createEReference(propertyReferencedValueEClass, PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES);
+		objectReferencePropertyEClass = createEClass(OBJECT_REFERENCE_PROPERTY);
+		createEReference(objectReferencePropertyEClass, OBJECT_REFERENCE_PROPERTY__REFERENCED_VALUES);
 
 		workspaceEClass = createEClass(WORKSPACE);
 		createEReference(workspaceEClass, WORKSPACE__VALUES);
@@ -498,8 +494,8 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		objectValueEClass.getESuperTypes().add(this.getValue());
 		primitiveTypeValueEClass.getESuperTypes().add(this.getDataTypeValue());
 		literalValueEClass.getESuperTypes().add(this.getDataTypeValue());
-		propertyContainedValueEClass.getESuperTypes().add(this.getPropertyValue());
-		propertyReferencedValueEClass.getESuperTypes().add(this.getPropertyValue());
+		objectContainmentPropertyEClass.getESuperTypes().add(this.getObjectProperty());
+		objectReferencePropertyEClass.getESuperTypes().add(this.getObjectProperty());
 		workspaceEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 
 		// Initialize classes and features; add operations and parameters
@@ -509,7 +505,7 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		initEClass(dataTypeValueEClass, DataTypeValue.class, "DataTypeValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectValue_PropertyValues(), this.getPropertyValue(), null, "propertyValues", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectValue_Properties(), this.getObjectProperty(), null, "properties", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(objectValueEClass, ecorePackage.getEBoolean(), "hasProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -538,25 +534,25 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 		initEReference(getLiteralValue_Data(), theEnvironmentPackage.getLiteral(), null, "data", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLiteralValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propertyValueEClass, PropertyValue.class, "PropertyValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropertyValue_MetaProperty(), theEnvironmentPackage.getProperty(), null, "metaProperty", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropertyValue_Values(), this.getValue(), null, "values", null, 0, -1, PropertyValue.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyValue_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", null, 0, 1, PropertyValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyValue_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, PropertyValue.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(objectPropertyEClass, ObjectProperty.class, "ObjectProperty", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getObjectProperty_MetaProperty(), theEnvironmentPackage.getProperty(), null, "metaProperty", null, 0, 1, ObjectProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectProperty_Values(), this.getValue(), null, "values", null, 0, -1, ObjectProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObjectProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, ObjectProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObjectProperty_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", null, 0, 1, ObjectProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObjectProperty_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, ObjectProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		addEOperation(propertyValueEClass, ecorePackage.getEBoolean(), "isMultiple", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(objectPropertyEClass, ecorePackage.getEBoolean(), "isMultiple", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(propertyValueEClass, ecorePackage.getEBoolean(), "unsetValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(objectPropertyEClass, ecorePackage.getEBoolean(), "unsetValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(propertyValueEClass, ecorePackage.getEBoolean(), "unsetValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(objectPropertyEClass, ecorePackage.getEBoolean(), "unsetValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getValue(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(propertyContainedValueEClass, PropertyContainedValue.class, "PropertyContainedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropertyContainedValue_ContainedValues(), this.getValue(), null, "containedValues", null, 0, -1, PropertyContainedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(objectContainmentPropertyEClass, ObjectContainmentProperty.class, "ObjectContainmentProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getObjectContainmentProperty_ContainedValues(), this.getValue(), null, "containedValues", null, 0, -1, ObjectContainmentProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propertyReferencedValueEClass, PropertyReferencedValue.class, "PropertyReferencedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropertyReferencedValue_ReferencedValues(), this.getValue(), null, "referencedValues", null, 0, -1, PropertyReferencedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(objectReferencePropertyEClass, ObjectReferenceProperty.class, "ObjectReferenceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getObjectReferenceProperty_ReferencedValues(), this.getValue(), null, "referencedValues", null, 0, -1, ObjectReferenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workspaceEClass, Workspace.class, "Workspace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWorkspace_Values(), this.getValue(), null, "values", null, 0, -1, Workspace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -585,25 +581,25 @@ public class ObjectPackageImpl extends EPackageImpl implements ObjectPackage {
 			   "documentation", "The LiteralValue name. If literal is defined, its value is the one of the referenced Literal."
 		   });
 		addAnnotation
-		  (getPropertyValue_Values(),
+		  (getObjectProperty_Values(),
 		   source,
 		   new String[] {
 			   "documentation", "The values of the PropertyValue. It is mapped to PropertyContainedValue::containedValues or PropertyReferencedValue::referencedValues depending on the concrete type of this PropertyValue."
 		   });
 		addAnnotation
-		  (getPropertyValue_Name(),
+		  (getObjectProperty_Name(),
 		   source,
 		   new String[] {
 			   "documentation", "The PropertyValue name. If metaProperty is defined, its value is the one of the referenced Property."
 		   });
 		addAnnotation
-		  (getPropertyValue_Multiplicity(),
+		  (getObjectProperty_Multiplicity(),
 		   source,
 		   new String[] {
 			   "documentation", "The PropertyValue multiplicity. If metaProperty is defined, its value is the one of the referenced Property."
 		   });
 		addAnnotation
-		  (getPropertyValue_Value(),
+		  (getObjectProperty_Value(),
 		   source,
 		   new String[] {
 			   "documentation", "The value of this PropertyValue. If the property is mono valued the feature is mapped to the Value, if the property is multi valued the feature is mapped to the list of Values."

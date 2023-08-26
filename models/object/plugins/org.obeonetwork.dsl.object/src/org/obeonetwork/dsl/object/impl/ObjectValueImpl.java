@@ -14,20 +14,16 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.ObjectProperty;
 import org.obeonetwork.dsl.object.ObjectValue;
-import org.obeonetwork.dsl.object.PropertyValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +33,7 @@ import org.obeonetwork.dsl.object.PropertyValue;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectValueImpl#getPropertyValues <em>Property Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectValueImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,8 +65,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<PropertyValue> getPropertyValues() {
-		return (EList<PropertyValue>)eDynamicGet(ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES, ObjectPackage.Literals.OBJECT_VALUE__PROPERTY_VALUES, true, true);
+	public EList<ObjectProperty> getProperties() {
+		return (EList<ObjectProperty>)eDynamicGet(ObjectPackage.OBJECT_VALUE__PROPERTIES, ObjectPackage.Literals.OBJECT_VALUE__PROPERTIES, true, true);
 	}
 
 	/**
@@ -80,8 +76,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public boolean hasProperty(String name) {
-		return getPropertyValues().stream()
-		.anyMatch(pv -> name.equals(pv.getMetaProperty().getName()));
+		return getProperties().stream()
+		.anyMatch(p -> name.equals(p.getMetaProperty().getName()));
 	}
 
 	/**
@@ -91,8 +87,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public boolean hasProperty(Property property) {
-		return getPropertyValues().stream()
-		.anyMatch(pv -> pv.getMetaProperty() == property);
+		return getProperties().stream()
+		.anyMatch(p -> p.getMetaProperty() == property);
 	}
 
 	/**
@@ -102,9 +98,9 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public Object getValue(String name) {
-		return getPropertyValues().stream()
-		.filter(pv -> name.equals(pv.getMetaProperty().getName()))
-		.findAny().map(pv -> pv.getValue()).orElse(null);
+		return getProperties().stream()
+		.filter(p -> name.equals(p.getMetaProperty().getName()))
+		.findAny().map(p -> p.getValue()).orElse(null);
 	}
 
 	/**
@@ -114,9 +110,9 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public Object getValue(Property property) {
-		return getPropertyValues().stream()
-		.filter(pv -> pv.getMetaProperty() == property)
-		.findAny().map(pv -> pv.getValue()).orElse(null);
+		return getProperties().stream()
+		.filter(p -> p.getMetaProperty() == property)
+		.findAny().map(p -> p.getValue()).orElse(null);
 	}
 
 	/**
@@ -126,15 +122,15 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public void setValue(String name, Object value) {
-		Optional<PropertyValue> pvOpt = getPropertyValues().stream()
-		.filter(pv -> name.equals(pv.getName()))
+		Optional<ObjectProperty> propertyOption = getProperties().stream()
+		.filter(p -> name.equals(p.getName()))
 		.findAny();
-		pvOpt.ifPresent(pv -> pv.setValue(value));
-		if(!pvOpt.isPresent()) {
-			PropertyValue pv = ObjectFactory.eINSTANCE.createPropertyContainedValue();
-			pv.setName(name);
-			pv.setValue(value);
-			getPropertyValues().add(pv);
+		propertyOption.ifPresent(property -> property.setValue(value));
+		if(!propertyOption.isPresent()) {
+			ObjectProperty property = ObjectFactory.eINSTANCE.createObjectContainmentProperty();
+			property.setName(name);
+			property.setValue(value);
+			getProperties().add(property);
 		}
 	}
 
@@ -145,17 +141,17 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 */
 	@Override
 	public void setValue(Property property, Object value) {
-		Optional<PropertyValue> pvOpt = getPropertyValues().stream()
-		.filter(pv -> pv.getMetaProperty() == property)
+		Optional<ObjectProperty> propertyOption = getProperties().stream()
+		.filter(p -> p.getMetaProperty() == property)
 		.findAny();
-		pvOpt.ifPresent(pv -> pv.setValue(value));
-		if(!pvOpt.isPresent()) {
-			PropertyValue pv = (property instanceof Reference && !((Reference)property).isIsComposite())?
-					ObjectFactory.eINSTANCE.createPropertyReferencedValue() :
-					ObjectFactory.eINSTANCE.createPropertyContainedValue();
-			pv.setMetaProperty(property);
-			pv.setValue(value);
-			getPropertyValues().add(pv);
+		propertyOption.ifPresent(p -> p.setValue(value));
+		if(!propertyOption.isPresent()) {
+			ObjectProperty p = (property instanceof Reference && !((Reference)property).isIsComposite())?
+					ObjectFactory.eINSTANCE.createObjectReferenceProperty() :
+					ObjectFactory.eINSTANCE.createObjectContainmentProperty();
+			p.setMetaProperty(property);
+			p.setValue(value);
+			getProperties().add(p);
 		}
 	}
 
@@ -167,8 +163,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
-				return ((InternalEList<?>)getPropertyValues()).basicRemove(otherEnd, msgs);
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,8 +177,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
-				return getPropertyValues();
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,9 +192,9 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
-				getPropertyValues().clear();
-				getPropertyValues().addAll((Collection<? extends PropertyValue>)newValue);
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends ObjectProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,8 +208,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
-				getPropertyValues().clear();
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
+				getProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,8 +223,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
-				return !getPropertyValues().isEmpty();
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
+				return !getProperties().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

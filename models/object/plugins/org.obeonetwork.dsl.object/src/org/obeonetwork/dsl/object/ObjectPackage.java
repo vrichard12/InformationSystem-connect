@@ -170,13 +170,13 @@ public interface ObjectPackage extends EPackage {
 	int OBJECT_VALUE__META_TYPE = VALUE__META_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Property Values</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_VALUE__PROPERTY_VALUES = VALUE_FEATURE_COUNT + 0;
+	int OBJECT_VALUE__PROPERTIES = VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Value</em>' class.
@@ -289,14 +289,14 @@ public interface ObjectPackage extends EPackage {
 	int LITERAL_VALUE_FEATURE_COUNT = DATA_TYPE_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl <em>Property Value</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl <em>Property</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.object.impl.PropertyValueImpl
-	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.impl.ObjectPropertyImpl
+	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectProperty()
 	 * @generated
 	 */
-	int PROPERTY_VALUE = 5;
+	int OBJECT_PROPERTY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Meta Property</b></em>' reference.
@@ -305,7 +305,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE__META_PROPERTY = 0;
+	int OBJECT_PROPERTY__META_PROPERTY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -314,7 +314,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE__VALUES = 1;
+	int OBJECT_PROPERTY__VALUES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +323,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE__NAME = 2;
+	int OBJECT_PROPERTY__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -332,7 +332,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE__MULTIPLICITY = 3;
+	int OBJECT_PROPERTY__MULTIPLICITY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -341,26 +341,26 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE__VALUE = 4;
+	int OBJECT_PROPERTY__VALUE = 4;
 
 	/**
-	 * The number of structural features of the '<em>Property Value</em>' class.
+	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUE_FEATURE_COUNT = 5;
+	int OBJECT_PROPERTY_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl <em>Property Contained Value</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.ObjectContainmentPropertyImpl <em>Containment Property</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl
-	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyContainedValue()
+	 * @see org.obeonetwork.dsl.object.impl.ObjectContainmentPropertyImpl
+	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectContainmentProperty()
 	 * @generated
 	 */
-	int PROPERTY_CONTAINED_VALUE = 6;
+	int OBJECT_CONTAINMENT_PROPERTY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Meta Property</b></em>' reference.
@@ -369,7 +369,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__META_PROPERTY = PROPERTY_VALUE__META_PROPERTY;
+	int OBJECT_CONTAINMENT_PROPERTY__META_PROPERTY = OBJECT_PROPERTY__META_PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -378,7 +378,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__VALUES = PROPERTY_VALUE__VALUES;
+	int OBJECT_CONTAINMENT_PROPERTY__VALUES = OBJECT_PROPERTY__VALUES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -387,7 +387,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__NAME = PROPERTY_VALUE__NAME;
+	int OBJECT_CONTAINMENT_PROPERTY__NAME = OBJECT_PROPERTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -396,7 +396,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__MULTIPLICITY = PROPERTY_VALUE__MULTIPLICITY;
+	int OBJECT_CONTAINMENT_PROPERTY__MULTIPLICITY = OBJECT_PROPERTY__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -405,7 +405,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__VALUE = PROPERTY_VALUE__VALUE;
+	int OBJECT_CONTAINMENT_PROPERTY__VALUE = OBJECT_PROPERTY__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Contained Values</b></em>' containment reference list.
@@ -414,26 +414,26 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES = PROPERTY_VALUE_FEATURE_COUNT + 0;
+	int OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES = OBJECT_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Property Contained Value</em>' class.
+	 * The number of structural features of the '<em>Containment Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_CONTAINED_VALUE_FEATURE_COUNT = PROPERTY_VALUE_FEATURE_COUNT + 1;
+	int OBJECT_CONTAINMENT_PROPERTY_FEATURE_COUNT = OBJECT_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl <em>Property Referenced Value</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.ObjectReferencePropertyImpl <em>Reference Property</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl
-	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyReferencedValue()
+	 * @see org.obeonetwork.dsl.object.impl.ObjectReferencePropertyImpl
+	 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectReferenceProperty()
 	 * @generated
 	 */
-	int PROPERTY_REFERENCED_VALUE = 7;
+	int OBJECT_REFERENCE_PROPERTY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Meta Property</b></em>' reference.
@@ -442,7 +442,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__META_PROPERTY = PROPERTY_VALUE__META_PROPERTY;
+	int OBJECT_REFERENCE_PROPERTY__META_PROPERTY = OBJECT_PROPERTY__META_PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -451,7 +451,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__VALUES = PROPERTY_VALUE__VALUES;
+	int OBJECT_REFERENCE_PROPERTY__VALUES = OBJECT_PROPERTY__VALUES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -460,7 +460,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__NAME = PROPERTY_VALUE__NAME;
+	int OBJECT_REFERENCE_PROPERTY__NAME = OBJECT_PROPERTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -469,7 +469,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__MULTIPLICITY = PROPERTY_VALUE__MULTIPLICITY;
+	int OBJECT_REFERENCE_PROPERTY__MULTIPLICITY = OBJECT_PROPERTY__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -478,7 +478,7 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__VALUE = PROPERTY_VALUE__VALUE;
+	int OBJECT_REFERENCE_PROPERTY__VALUE = OBJECT_PROPERTY__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Values</b></em>' reference list.
@@ -487,16 +487,16 @@ public interface ObjectPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES = PROPERTY_VALUE_FEATURE_COUNT + 0;
+	int OBJECT_REFERENCE_PROPERTY__REFERENCED_VALUES = OBJECT_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Property Referenced Value</em>' class.
+	 * The number of structural features of the '<em>Reference Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_REFERENCED_VALUE_FEATURE_COUNT = PROPERTY_VALUE_FEATURE_COUNT + 1;
+	int OBJECT_REFERENCE_PROPERTY_FEATURE_COUNT = OBJECT_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.object.impl.WorkspaceImpl <em>Workspace</em>}' class.
@@ -659,15 +659,15 @@ public interface ObjectPackage extends EPackage {
 	EClass getObjectValue();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.ObjectValue#getPropertyValues <em>Property Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.ObjectValue#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Property Values</em>'.
-	 * @see org.obeonetwork.dsl.object.ObjectValue#getPropertyValues()
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see org.obeonetwork.dsl.object.ObjectValue#getProperties()
 	 * @see #getObjectValue()
 	 * @generated
 	 */
-	EReference getObjectValue_PropertyValues();
+	EReference getObjectValue_Properties();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PrimitiveTypeValue <em>Primitive Type Value</em>}'.
@@ -723,111 +723,111 @@ public interface ObjectPackage extends EPackage {
 	EAttribute getLiteralValue_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PropertyValue <em>Property Value</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.ObjectProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property Value</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see org.obeonetwork.dsl.object.ObjectProperty
 	 * @generated
 	 */
-	EClass getPropertyValue();
+	EClass getObjectProperty();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.object.PropertyValue#getMetaProperty <em>Meta Property</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.object.ObjectProperty#getMetaProperty <em>Meta Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Meta Property</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue#getMetaProperty()
-	 * @see #getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.ObjectProperty#getMetaProperty()
+	 * @see #getObjectProperty()
 	 * @generated
 	 */
-	EReference getPropertyValue_MetaProperty();
+	EReference getObjectProperty_MetaProperty();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.PropertyValue#getValues <em>Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.ObjectProperty#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue#getValues()
-	 * @see #getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.ObjectProperty#getValues()
+	 * @see #getObjectProperty()
 	 * @generated
 	 */
-	EReference getPropertyValue_Values();
+	EReference getObjectProperty_Values();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PropertyValue#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.ObjectProperty#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue#getName()
-	 * @see #getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.ObjectProperty#getName()
+	 * @see #getObjectProperty()
 	 * @generated
 	 */
-	EAttribute getPropertyValue_Name();
+	EAttribute getObjectProperty_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PropertyValue#getMultiplicity <em>Multiplicity</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.ObjectProperty#getMultiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Multiplicity</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue#getMultiplicity()
-	 * @see #getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.ObjectProperty#getMultiplicity()
+	 * @see #getObjectProperty()
 	 * @generated
 	 */
-	EAttribute getPropertyValue_Multiplicity();
+	EAttribute getObjectProperty_Multiplicity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.object.ObjectProperty#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyValue#getValue()
-	 * @see #getPropertyValue()
+	 * @see org.obeonetwork.dsl.object.ObjectProperty#getValue()
+	 * @see #getObjectProperty()
 	 * @generated
 	 */
-	EAttribute getPropertyValue_Value();
+	EAttribute getObjectProperty_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PropertyContainedValue <em>Property Contained Value</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.ObjectContainmentProperty <em>Containment Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property Contained Value</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyContainedValue
+	 * @return the meta object for class '<em>Containment Property</em>'.
+	 * @see org.obeonetwork.dsl.object.ObjectContainmentProperty
 	 * @generated
 	 */
-	EClass getPropertyContainedValue();
+	EClass getObjectContainmentProperty();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValues <em>Contained Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.object.ObjectContainmentProperty#getContainedValues <em>Contained Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Contained Values</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyContainedValue#getContainedValues()
-	 * @see #getPropertyContainedValue()
+	 * @see org.obeonetwork.dsl.object.ObjectContainmentProperty#getContainedValues()
+	 * @see #getObjectContainmentProperty()
 	 * @generated
 	 */
-	EReference getPropertyContainedValue_ContainedValues();
+	EReference getObjectContainmentProperty_ContainedValues();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.PropertyReferencedValue <em>Property Referenced Value</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.ObjectReferenceProperty <em>Reference Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property Referenced Value</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyReferencedValue
+	 * @return the meta object for class '<em>Reference Property</em>'.
+	 * @see org.obeonetwork.dsl.object.ObjectReferenceProperty
 	 * @generated
 	 */
-	EClass getPropertyReferencedValue();
+	EClass getObjectReferenceProperty();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValues <em>Referenced Values</em>}'.
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.object.ObjectReferenceProperty#getReferencedValues <em>Referenced Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Referenced Values</em>'.
-	 * @see org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValues()
-	 * @see #getPropertyReferencedValue()
+	 * @see org.obeonetwork.dsl.object.ObjectReferenceProperty#getReferencedValues()
+	 * @see #getObjectReferenceProperty()
 	 * @generated
 	 */
-	EReference getPropertyReferencedValue_ReferencedValues();
+	EReference getObjectReferenceProperty_ReferencedValues();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.object.Workspace <em>Workspace</em>}'.
@@ -922,12 +922,12 @@ public interface ObjectPackage extends EPackage {
 		EClass OBJECT_VALUE = eINSTANCE.getObjectValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Values</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT_VALUE__PROPERTY_VALUES = eINSTANCE.getObjectValue_PropertyValues();
+		EReference OBJECT_VALUE__PROPERTIES = eINSTANCE.getObjectValue_Properties();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PrimitiveTypeValueImpl <em>Primitive Type Value</em>}' class.
@@ -974,14 +974,14 @@ public interface ObjectPackage extends EPackage {
 		EAttribute LITERAL_VALUE__NAME = eINSTANCE.getLiteralValue_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PropertyValueImpl <em>Property Value</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.ObjectPropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.object.impl.PropertyValueImpl
-		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyValue()
+		 * @see org.obeonetwork.dsl.object.impl.ObjectPropertyImpl
+		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectProperty()
 		 * @generated
 		 */
-		EClass PROPERTY_VALUE = eINSTANCE.getPropertyValue();
+		EClass OBJECT_PROPERTY = eINSTANCE.getObjectProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Meta Property</b></em>' reference feature.
@@ -989,7 +989,7 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_VALUE__META_PROPERTY = eINSTANCE.getPropertyValue_MetaProperty();
+		EReference OBJECT_PROPERTY__META_PROPERTY = eINSTANCE.getObjectProperty_MetaProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
@@ -997,7 +997,7 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_VALUE__VALUES = eINSTANCE.getPropertyValue_Values();
+		EReference OBJECT_PROPERTY__VALUES = eINSTANCE.getObjectProperty_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1005,7 +1005,7 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_VALUE__NAME = eINSTANCE.getPropertyValue_Name();
+		EAttribute OBJECT_PROPERTY__NAME = eINSTANCE.getObjectProperty_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
@@ -1013,7 +1013,7 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_VALUE__MULTIPLICITY = eINSTANCE.getPropertyValue_Multiplicity();
+		EAttribute OBJECT_PROPERTY__MULTIPLICITY = eINSTANCE.getObjectProperty_Multiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1021,17 +1021,17 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_VALUE__VALUE = eINSTANCE.getPropertyValue_Value();
+		EAttribute OBJECT_PROPERTY__VALUE = eINSTANCE.getObjectProperty_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl <em>Property Contained Value</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.ObjectContainmentPropertyImpl <em>Containment Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.object.impl.PropertyContainedValueImpl
-		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyContainedValue()
+		 * @see org.obeonetwork.dsl.object.impl.ObjectContainmentPropertyImpl
+		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectContainmentProperty()
 		 * @generated
 		 */
-		EClass PROPERTY_CONTAINED_VALUE = eINSTANCE.getPropertyContainedValue();
+		EClass OBJECT_CONTAINMENT_PROPERTY = eINSTANCE.getObjectContainmentProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Contained Values</b></em>' containment reference list feature.
@@ -1039,17 +1039,17 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES = eINSTANCE.getPropertyContainedValue_ContainedValues();
+		EReference OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES = eINSTANCE.getObjectContainmentProperty_ContainedValues();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl <em>Property Referenced Value</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.ObjectReferencePropertyImpl <em>Reference Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl
-		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getPropertyReferencedValue()
+		 * @see org.obeonetwork.dsl.object.impl.ObjectReferencePropertyImpl
+		 * @see org.obeonetwork.dsl.object.impl.ObjectPackageImpl#getObjectReferenceProperty()
 		 * @generated
 		 */
-		EClass PROPERTY_REFERENCED_VALUE = eINSTANCE.getPropertyReferencedValue();
+		EClass OBJECT_REFERENCE_PROPERTY = eINSTANCE.getObjectReferenceProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Referenced Values</b></em>' reference list feature.
@@ -1057,7 +1057,7 @@ public interface ObjectPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES = eINSTANCE.getPropertyReferencedValue_ReferencedValues();
+		EReference OBJECT_REFERENCE_PROPERTY__REFERENCED_VALUES = eINSTANCE.getObjectReferenceProperty_ReferencedValues();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.object.impl.WorkspaceImpl <em>Workspace</em>}' class.

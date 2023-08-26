@@ -19,40 +19,40 @@ import org.obeonetwork.dsl.environment.Property;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Property Value</b></em>'.
+ * A representation of the model object '<em><b>Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getMetaProperty <em>Meta Property</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getValues <em>Values</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getMultiplicity <em>Multiplicity</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectProperty#getMetaProperty <em>Meta Property</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectProperty#getValues <em>Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectProperty#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectProperty#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectProperty#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue()
+ * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty()
  * @model abstract="true"
  * @extends CDOObject
  * @generated
  */
-public interface PropertyValue extends CDOObject {
+public interface ObjectProperty extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Meta Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Meta Property</em>' reference.
 	 * @see #setMetaProperty(Property)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_MetaProperty()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty_MetaProperty()
 	 * @model
 	 * @generated
 	 */
 	Property getMetaProperty();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getMetaProperty <em>Meta Property</em>}' reference.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.ObjectProperty#getMetaProperty <em>Meta Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Meta Property</em>' reference.
@@ -70,7 +70,7 @@ public interface PropertyValue extends CDOObject {
 	 * The values of the PropertyValue. It is mapped to PropertyContainedValue::containedValues or PropertyReferencedValue::referencedValues depending on the concrete type of this PropertyValue.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Values</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Values()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty_Values()
 	 * @model containment="true" resolveProxies="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -85,14 +85,14 @@ public interface PropertyValue extends CDOObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Name()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.ObjectProperty#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -112,14 +112,14 @@ public interface PropertyValue extends CDOObject {
 	 * @return the value of the '<em>Multiplicity</em>' attribute.
 	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
 	 * @see #setMultiplicity(MultiplicityKind)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Multiplicity()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty_Multiplicity()
 	 * @model
 	 * @generated
 	 */
 	MultiplicityKind getMultiplicity();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getMultiplicity <em>Multiplicity</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.ObjectProperty#getMultiplicity <em>Multiplicity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Multiplicity</em>' attribute.
@@ -138,14 +138,14 @@ public interface PropertyValue extends CDOObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Object)
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyValue_Value()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectProperty_Value()
 	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	Object getValue();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.object.PropertyValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.object.ObjectProperty#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -178,4 +178,4 @@ public interface PropertyValue extends CDOObject {
 	 */
 	boolean unsetValue(Value value);
 
-} // PropertyValue
+} // ObjectProperty

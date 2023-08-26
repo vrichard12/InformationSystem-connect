@@ -7,9 +7,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.object.LiteralValue;
 import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.ObjectProperty;
 import org.obeonetwork.dsl.object.ObjectValue;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
-import org.obeonetwork.dsl.object.PropertyValue;
 import org.obeonetwork.dsl.object.Value;
 import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.dsl.object.util.ObjectSwitch;
@@ -24,9 +24,9 @@ public class ObjectLabelSwitch extends ObjectSwitch<String> {
 	
 	private String getObjectValueNameGuess(ObjectValue objectValue) {
 		return Arrays.asList("name", "key").stream()
-		.flatMap(name -> objectValue.getPropertyValues().stream()
-				.filter(pv -> name.equalsIgnoreCase(pv.getName())))
-		.map(pv -> getValuesLabel(pv.getValues(), pv.isMultiple()))
+		.flatMap(name -> objectValue.getProperties().stream()
+				.filter(p -> name.equalsIgnoreCase(p.getName())))
+		.map(p -> getValuesLabel(p.getValues(), p.isMultiple()))
 		.findFirst().orElse("<ObjectValue>");
 	}
 
@@ -47,8 +47,8 @@ public class ObjectLabelSwitch extends ObjectSwitch<String> {
 	
 	
 	@Override
-	public String casePropertyValue(PropertyValue propertyValue) {
-		return propertyValue.getName() + " = " + getValuesLabel(propertyValue.getValues(), propertyValue.isMultiple());
+	public String caseObjectProperty(ObjectProperty property) {
+		return property.getName() + " = " + getValuesLabel(property.getValues(), property.isMultiple());
 	}
 
 	private String getValuesLabel(EList<Value> values, boolean multiple) {
