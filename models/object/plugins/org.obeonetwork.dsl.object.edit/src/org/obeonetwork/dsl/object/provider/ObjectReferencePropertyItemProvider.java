@@ -21,23 +21,23 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.obeonetwork.dsl.object.ObjectPackage;
-import org.obeonetwork.dsl.object.PropertyReferencedValue;
+import org.obeonetwork.dsl.object.ObjectReferenceProperty;
 import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyReferencedValue} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.ObjectReferenceProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyReferencedValueItemProvider extends PropertyValueItemProvider {
+public class ObjectReferencePropertyItemProvider extends ObjectPropertyItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyReferencedValueItemProvider(AdapterFactory adapterFactory) {
+	public ObjectReferencePropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,9 +68,9 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyReferencedValue_referencedValues_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyReferencedValue_referencedValues_feature", "_UI_PropertyReferencedValue_type"),
-				 ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES,
+				 getString("_UI_ObjectReferenceProperty_referencedValues_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectReferenceProperty_referencedValues_feature", "_UI_ObjectReferenceProperty_type"),
+				 ObjectPackage.Literals.OBJECT_REFERENCE_PROPERTY__REFERENCED_VALUES,
 				 true,
 				 false,
 				 true,
@@ -80,14 +80,14 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 	}
 
 	/**
-	 * This returns PropertyReferencedValue.gif.
+	 * This returns ObjectReferenceProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyReferencedValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ObjectReferenceProperty"));
 	}
 
 	/**
@@ -108,10 +108,10 @@ public class PropertyReferencedValueItemProvider extends PropertyValueItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ObjectLabelSwitch.getObjectLabel((PropertyReferencedValue)object);
+		String label = ObjectLabelSwitch.getObjectLabel((ObjectReferenceProperty)object);
 		return label == null || label.length() == 0 ?
-			getString("_UI_PropertyReferencedValue_type") :
-			getString("_UI_PropertyReferencedValue_type") + " " + label;
+			getString("_UI_ObjectReferenceProperty_type") :
+			getString("_UI_ObjectReferenceProperty_type") + " " + label;
 	}
 
 

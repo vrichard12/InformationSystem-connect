@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.environment.Property;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.ObjectValue#getPropertyValues <em>Property Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectValue#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectValue()
@@ -31,16 +31,16 @@ import org.obeonetwork.dsl.environment.Property;
  */
 public interface ObjectValue extends Value {
 	/**
-	 * Returns the value of the '<em><b>Property Values</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.object.PropertyValue}.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.object.ObjectProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Values</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectValue_PropertyValues()
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectValue_Properties()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	EList<PropertyValue> getPropertyValues();
+	EList<ObjectProperty> getProperties();
 
 	/**
 	 * <!-- begin-user-doc -->

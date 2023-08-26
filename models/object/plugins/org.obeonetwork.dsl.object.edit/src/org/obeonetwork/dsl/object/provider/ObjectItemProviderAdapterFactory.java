@@ -149,49 +149,49 @@ public class ObjectItemProviderAdapterFactory extends ObjectAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.object.PropertyContainedValue} instances.
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.object.ObjectContainmentProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyContainedValueItemProvider propertyContainedValueItemProvider;
+	protected ObjectContainmentPropertyItemProvider objectContainmentPropertyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.object.PropertyContainedValue}.
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.object.ObjectContainmentProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropertyContainedValueAdapter() {
-		if (propertyContainedValueItemProvider == null) {
-			propertyContainedValueItemProvider = new PropertyContainedValueItemProvider(this);
+	public Adapter createObjectContainmentPropertyAdapter() {
+		if (objectContainmentPropertyItemProvider == null) {
+			objectContainmentPropertyItemProvider = new ObjectContainmentPropertyItemProvider(this);
 		}
 
-		return propertyContainedValueItemProvider;
+		return objectContainmentPropertyItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.object.PropertyReferencedValue} instances.
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.object.ObjectReferenceProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyReferencedValueItemProvider propertyReferencedValueItemProvider;
+	protected ObjectReferencePropertyItemProvider objectReferencePropertyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.object.PropertyReferencedValue}.
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.object.ObjectReferenceProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropertyReferencedValueAdapter() {
-		if (propertyReferencedValueItemProvider == null) {
-			propertyReferencedValueItemProvider = new PropertyReferencedValueItemProvider(this);
+	public Adapter createObjectReferencePropertyAdapter() {
+		if (objectReferencePropertyItemProvider == null) {
+			objectReferencePropertyItemProvider = new ObjectReferencePropertyItemProvider(this);
 		}
 
-		return propertyReferencedValueItemProvider;
+		return objectReferencePropertyItemProvider;
 	}
 
 	/**
@@ -325,8 +325,8 @@ public class ObjectItemProviderAdapterFactory extends ObjectAdapterFactory imple
 		if (objectValueItemProvider != null) objectValueItemProvider.dispose();
 		if (primitiveTypeValueItemProvider != null) primitiveTypeValueItemProvider.dispose();
 		if (literalValueItemProvider != null) literalValueItemProvider.dispose();
-		if (propertyContainedValueItemProvider != null) propertyContainedValueItemProvider.dispose();
-		if (propertyReferencedValueItemProvider != null) propertyReferencedValueItemProvider.dispose();
+		if (objectContainmentPropertyItemProvider != null) objectContainmentPropertyItemProvider.dispose();
+		if (objectReferencePropertyItemProvider != null) objectReferencePropertyItemProvider.dispose();
 		if (workspaceItemProvider != null) workspaceItemProvider.dispose();
 	}
 

@@ -57,22 +57,22 @@ public interface ObjectFactory extends EFactory {
 	LiteralValue createLiteralValue();
 
 	/**
-	 * Returns a new object of class '<em>Property Contained Value</em>'.
+	 * Returns a new object of class '<em>Containment Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Contained Value</em>'.
+	 * @return a new object of class '<em>Containment Property</em>'.
 	 * @generated
 	 */
-	PropertyContainedValue createPropertyContainedValue();
+	ObjectContainmentProperty createObjectContainmentProperty();
 
 	/**
-	 * Returns a new object of class '<em>Property Referenced Value</em>'.
+	 * Returns a new object of class '<em>Reference Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Referenced Value</em>'.
+	 * @return a new object of class '<em>Reference Property</em>'.
 	 * @generated
 	 */
-	PropertyReferencedValue createPropertyReferencedValue();
+	ObjectReferenceProperty createObjectReferenceProperty();
 
 	/**
 	 * Returns a new object of class '<em>Workspace</em>'.

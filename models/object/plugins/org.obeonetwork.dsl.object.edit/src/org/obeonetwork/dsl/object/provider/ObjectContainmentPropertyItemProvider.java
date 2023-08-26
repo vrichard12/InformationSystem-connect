@@ -22,25 +22,25 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.object.ObjectContainmentProperty;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
-import org.obeonetwork.dsl.object.PropertyContainedValue;
 import org.obeonetwork.dsl.object.edit.util.ObjectLabelSwitch;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyContainedValue} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.ObjectContainmentProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyContainedValueItemProvider extends PropertyValueItemProvider {
+public class ObjectContainmentPropertyItemProvider extends ObjectPropertyItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyContainedValueItemProvider(AdapterFactory adapterFactory) {
+	public ObjectContainmentPropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -71,7 +71,7 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES);
+			childrenFeatures.add(ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -90,14 +90,14 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	}
 
 	/**
-	 * This returns PropertyContainedValue.gif.
+	 * This returns ObjectContainmentProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyContainedValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ObjectContainmentProperty"));
 	}
 
 	/**
@@ -118,10 +118,10 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ObjectLabelSwitch.getObjectLabel((PropertyContainedValue)object);
+		String label = ObjectLabelSwitch.getObjectLabel((ObjectContainmentProperty)object);
 		return label == null || label.length() == 0 ?
-			getString("_UI_PropertyContainedValue_type") :
-			getString("_UI_PropertyContainedValue_type") + " " + label;
+			getString("_UI_ObjectContainmentProperty_type") :
+			getString("_UI_ObjectContainmentProperty_type") + " " + label;
 	}
 
 
@@ -136,8 +136,8 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PropertyContainedValue.class)) {
-			case ObjectPackage.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES:
+		switch (notification.getFeatureID(ObjectContainmentProperty.class)) {
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -157,17 +157,17 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
+				(ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createObjectValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
+				(ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createPrimitiveTypeValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES,
+				(ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES,
 				 ObjectFactory.eINSTANCE.createLiteralValue()));
 	}
 
@@ -183,8 +183,8 @@ public class PropertyContainedValueItemProvider extends PropertyValueItemProvide
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ObjectPackage.Literals.PROPERTY_VALUE__VALUES ||
-			childFeature == ObjectPackage.Literals.PROPERTY_CONTAINED_VALUE__CONTAINED_VALUES;
+			childFeature == ObjectPackage.Literals.OBJECT_PROPERTY__VALUES ||
+			childFeature == ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES;
 
 		if (qualify) {
 			return getString

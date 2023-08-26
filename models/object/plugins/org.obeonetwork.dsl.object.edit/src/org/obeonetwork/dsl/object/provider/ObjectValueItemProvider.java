@@ -71,7 +71,7 @@ public class ObjectValueItemProvider extends ValueItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ObjectPackage.Literals.OBJECT_VALUE__PROPERTY_VALUES);
+			childrenFeatures.add(ObjectPackage.Literals.OBJECT_VALUE__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -137,7 +137,7 @@ public class ObjectValueItemProvider extends ValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ObjectValue.class)) {
-			case ObjectPackage.OBJECT_VALUE__PROPERTY_VALUES:
+			case ObjectPackage.OBJECT_VALUE__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -157,13 +157,13 @@ public class ObjectValueItemProvider extends ValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.OBJECT_VALUE__PROPERTY_VALUES,
-				 ObjectFactory.eINSTANCE.createPropertyContainedValue()));
+				(ObjectPackage.Literals.OBJECT_VALUE__PROPERTIES,
+				 ObjectFactory.eINSTANCE.createObjectContainmentProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.OBJECT_VALUE__PROPERTY_VALUES,
-				 ObjectFactory.eINSTANCE.createPropertyReferencedValue()));
+				(ObjectPackage.Literals.OBJECT_VALUE__PROPERTIES,
+				 ObjectFactory.eINSTANCE.createObjectReferenceProperty()));
 	}
 
 }

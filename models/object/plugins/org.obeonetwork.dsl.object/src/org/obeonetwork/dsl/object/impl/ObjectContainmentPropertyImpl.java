@@ -12,34 +12,39 @@ package org.obeonetwork.dsl.object.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.obeonetwork.dsl.object.ObjectContainmentProperty;
 import org.obeonetwork.dsl.object.ObjectPackage;
-import org.obeonetwork.dsl.object.PropertyReferencedValue;
 import org.obeonetwork.dsl.object.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property Referenced Value</b></em>'.
+ * An implementation of the model object '<em><b>Containment Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.impl.PropertyReferencedValueImpl#getReferencedValues <em>Referenced Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.impl.ObjectContainmentPropertyImpl#getContainedValues <em>Contained Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PropertyReferencedValueImpl extends PropertyValueImpl implements PropertyReferencedValue {
+public class ObjectContainmentPropertyImpl extends ObjectPropertyImpl implements ObjectContainmentProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyReferencedValueImpl() {
+	protected ObjectContainmentPropertyImpl() {
 		super();
 	}
 
@@ -50,7 +55,7 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE;
+		return ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY;
 	}
 
 	/**
@@ -60,8 +65,22 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Value> getReferencedValues() {
-		return (EList<Value>)eDynamicGet(ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES, ObjectPackage.Literals.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES, true, true);
+	public EList<Value> getContainedValues() {
+		return (EList<Value>)eDynamicGet(ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES, ObjectPackage.Literals.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
+				return ((InternalEList<?>)getContainedValues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -72,8 +91,8 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
-				return getReferencedValues();
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
+				return getContainedValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -87,9 +106,9 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
-				getReferencedValues().clear();
-				getReferencedValues().addAll((Collection<? extends Value>)newValue);
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
+				getContainedValues().clear();
+				getContainedValues().addAll((Collection<? extends Value>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -103,8 +122,8 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
-				getReferencedValues().clear();
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
+				getContainedValues().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -118,8 +137,8 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE__REFERENCED_VALUES:
-				return !getReferencedValues().isEmpty();
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY__CONTAINED_VALUES:
+				return !getContainedValues().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -129,7 +148,7 @@ public class PropertyReferencedValueImpl extends PropertyValueImpl implements Pr
 	 */
 	@Override
 	public EList<Value> getValues() {
-		return getReferencedValues();
+		return getContainedValues();
 	}
 
-} //PropertyReferencedValueImpl
+} //ObjectContainmentPropertyImpl

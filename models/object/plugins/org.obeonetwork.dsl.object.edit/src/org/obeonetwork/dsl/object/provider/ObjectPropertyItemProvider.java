@@ -22,6 +22,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,15 +35,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
-import org.obeonetwork.dsl.object.PropertyValue;
+import org.obeonetwork.dsl.object.ObjectProperty;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.PropertyValue} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.object.ObjectProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyValueItemProvider 
+public class ObjectPropertyItemProvider 
 	extends CDOItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -56,7 +57,7 @@ public class PropertyValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyValueItemProvider(AdapterFactory adapterFactory) {
+	public ObjectPropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -90,9 +91,9 @@ public class PropertyValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyValue_metaProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyValue_metaProperty_feature", "_UI_PropertyValue_type"),
-				 ObjectPackage.Literals.PROPERTY_VALUE__META_PROPERTY,
+				 getString("_UI_ObjectProperty_metaProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectProperty_metaProperty_feature", "_UI_ObjectProperty_type"),
+				 ObjectPackage.Literals.OBJECT_PROPERTY__META_PROPERTY,
 				 true,
 				 false,
 				 true,
@@ -112,9 +113,9 @@ public class PropertyValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyValue_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyValue_name_feature", "_UI_PropertyValue_type"),
-				 ObjectPackage.Literals.PROPERTY_VALUE__NAME,
+				 getString("_UI_ObjectProperty_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectProperty_name_feature", "_UI_ObjectProperty_type"),
+				 ObjectPackage.Literals.OBJECT_PROPERTY__NAME,
 				 true,
 				 false,
 				 false,
@@ -134,9 +135,9 @@ public class PropertyValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyValue_multiplicity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyValue_multiplicity_feature", "_UI_PropertyValue_type"),
-				 ObjectPackage.Literals.PROPERTY_VALUE__MULTIPLICITY,
+				 getString("_UI_ObjectProperty_multiplicity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectProperty_multiplicity_feature", "_UI_ObjectProperty_type"),
+				 ObjectPackage.Literals.OBJECT_PROPERTY__MULTIPLICITY,
 				 true,
 				 false,
 				 false,
@@ -156,9 +157,9 @@ public class PropertyValueItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyValue_value_feature", "_UI_PropertyValue_type"),
-				 ObjectPackage.Literals.PROPERTY_VALUE__VALUE,
+				 getString("_UI_ObjectProperty_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectProperty_value_feature", "_UI_ObjectProperty_type"),
+				 ObjectPackage.Literals.OBJECT_PROPERTY__VALUE,
 				 true,
 				 false,
 				 false,
@@ -179,7 +180,7 @@ public class PropertyValueItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ObjectPackage.Literals.PROPERTY_VALUE__VALUES);
+			childrenFeatures.add(ObjectPackage.Literals.OBJECT_PROPERTY__VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -198,14 +199,14 @@ public class PropertyValueItemProvider
 	}
 
 	/**
-	 * This returns PropertyValue.gif.
+	 * This returns ObjectProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ObjectProperty"));
 	}
 
 	/**
@@ -226,10 +227,10 @@ public class PropertyValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PropertyValue)object).getName();
+		String label = ((ObjectProperty)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PropertyValue_type") :
-			getString("_UI_PropertyValue_type") + " " + label;
+			getString("_UI_ObjectProperty_type") :
+			getString("_UI_ObjectProperty_type") + " " + label;
 	}
 
 
@@ -244,13 +245,13 @@ public class PropertyValueItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PropertyValue.class)) {
-			case ObjectPackage.PROPERTY_VALUE__NAME:
-			case ObjectPackage.PROPERTY_VALUE__MULTIPLICITY:
-			case ObjectPackage.PROPERTY_VALUE__VALUE:
+		switch (notification.getFeatureID(ObjectProperty.class)) {
+			case ObjectPackage.OBJECT_PROPERTY__NAME:
+			case ObjectPackage.OBJECT_PROPERTY__MULTIPLICITY:
+			case ObjectPackage.OBJECT_PROPERTY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ObjectPackage.PROPERTY_VALUE__VALUES:
+			case ObjectPackage.OBJECT_PROPERTY__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -270,17 +271,17 @@ public class PropertyValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_VALUE__VALUES,
+				(ObjectPackage.Literals.OBJECT_PROPERTY__VALUES,
 				 ObjectFactory.eINSTANCE.createObjectValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_VALUE__VALUES,
+				(ObjectPackage.Literals.OBJECT_PROPERTY__VALUES,
 				 ObjectFactory.eINSTANCE.createPrimitiveTypeValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ObjectPackage.Literals.PROPERTY_VALUE__VALUES,
+				(ObjectPackage.Literals.OBJECT_PROPERTY__VALUES,
 				 ObjectFactory.eINSTANCE.createLiteralValue()));
 	}
 

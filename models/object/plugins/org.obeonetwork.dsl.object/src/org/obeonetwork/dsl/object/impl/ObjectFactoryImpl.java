@@ -67,8 +67,8 @@ public class ObjectFactoryImpl extends EFactoryImpl implements ObjectFactory {
 			case ObjectPackage.OBJECT_VALUE: return (EObject)createObjectValue();
 			case ObjectPackage.PRIMITIVE_TYPE_VALUE: return (EObject)createPrimitiveTypeValue();
 			case ObjectPackage.LITERAL_VALUE: return (EObject)createLiteralValue();
-			case ObjectPackage.PROPERTY_CONTAINED_VALUE: return (EObject)createPropertyContainedValue();
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE: return (EObject)createPropertyReferencedValue();
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY: return (EObject)createObjectContainmentProperty();
+			case ObjectPackage.OBJECT_REFERENCE_PROPERTY: return (EObject)createObjectReferenceProperty();
 			case ObjectPackage.WORKSPACE: return (EObject)createWorkspace();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -114,9 +114,9 @@ public class ObjectFactoryImpl extends EFactoryImpl implements ObjectFactory {
 	 * @generated
 	 */
 	@Override
-	public PropertyContainedValue createPropertyContainedValue() {
-		PropertyContainedValueImpl propertyContainedValue = new PropertyContainedValueImpl();
-		return propertyContainedValue;
+	public ObjectContainmentProperty createObjectContainmentProperty() {
+		ObjectContainmentPropertyImpl objectContainmentProperty = new ObjectContainmentPropertyImpl();
+		return objectContainmentProperty;
 	}
 
 	/**
@@ -125,9 +125,9 @@ public class ObjectFactoryImpl extends EFactoryImpl implements ObjectFactory {
 	 * @generated
 	 */
 	@Override
-	public PropertyReferencedValue createPropertyReferencedValue() {
-		PropertyReferencedValueImpl propertyReferencedValue = new PropertyReferencedValueImpl();
-		return propertyReferencedValue;
+	public ObjectReferenceProperty createObjectReferenceProperty() {
+		ObjectReferencePropertyImpl objectReferenceProperty = new ObjectReferencePropertyImpl();
+		return objectReferenceProperty;
 	}
 
 	/**

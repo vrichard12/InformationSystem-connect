@@ -14,31 +14,31 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Property Referenced Value</b></em>'.
+ * A representation of the model object '<em><b>Reference Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.object.PropertyReferencedValue#getReferencedValues <em>Referenced Values</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.object.ObjectReferenceProperty#getReferencedValues <em>Referenced Values</em>}</li>
  * </ul>
  *
- * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyReferencedValue()
+ * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectReferenceProperty()
  * @model
  * @generated
  */
-public interface PropertyReferencedValue extends PropertyValue {
+public interface ObjectReferenceProperty extends ObjectProperty {
 	/**
 	 * Returns the value of the '<em><b>Referenced Values</b></em>' reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.object.Value}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Referenced Values</em>' reference list.
-	 * @see org.obeonetwork.dsl.object.ObjectPackage#getPropertyReferencedValue_ReferencedValues()
+	 * @see org.obeonetwork.dsl.object.ObjectPackage#getObjectReferenceProperty_ReferencedValues()
 	 * @model
 	 * @generated
 	 */
 	EList<Value> getReferencedValues();
 
-} // PropertyReferencedValue
+} // ObjectReferenceProperty

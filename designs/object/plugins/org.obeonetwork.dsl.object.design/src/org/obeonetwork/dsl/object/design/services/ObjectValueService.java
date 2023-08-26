@@ -16,8 +16,8 @@ import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.ISObjectCheckBoxFilter;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
+import org.obeonetwork.dsl.object.ObjectContainmentProperty;
 import org.obeonetwork.dsl.object.ObjectValue;
-import org.obeonetwork.dsl.object.PropertyContainedValue;
 import org.obeonetwork.dsl.object.Value;
 import org.obeonetwork.dsl.object.Workspace;
 
@@ -28,11 +28,11 @@ public class ObjectValueService {
 		if(element instanceof Workspace) {
 			children = ((Workspace) element).getValues();
 		} else if(element instanceof ObjectValue) {
-			children = ((ObjectValue) element).getPropertyValues().stream()
-					.filter(PropertyContainedValue.class::isInstance).map(PropertyContainedValue.class::cast)
+			children = ((ObjectValue) element).getProperties().stream()
+					.filter(ObjectContainmentProperty.class::isInstance).map(ObjectContainmentProperty.class::cast)
 					.collect(toList());
-		} else if(element instanceof PropertyContainedValue) {
-			children = ((PropertyContainedValue) element).getContainedValues();
+		} else if(element instanceof ObjectContainmentProperty) {
+			children = ((ObjectContainmentProperty) element).getContainedValues();
 		} else {
 			children = Collections.emptyList();
 		}
@@ -108,7 +108,7 @@ public class ObjectValueService {
 	public static Property openSelectPropertyDialog(ObjectValue objectValue) {
 		
 		StructuredType definingType = (StructuredType) objectValue.getMetaType();
-		Set<Property> alreadyUsedProperties = objectValue.getPropertyValues().stream()
+		Set<Property> alreadyUsedProperties = objectValue.getProperties().stream()
 		.map(pv -> pv.getMetaProperty()).filter(p -> p != null)
 		.collect(toSet());
 		

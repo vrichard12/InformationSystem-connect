@@ -100,16 +100,16 @@ public class ObjectAdapterFactory extends AdapterFactoryImpl {
 				return createLiteralValueAdapter();
 			}
 			@Override
-			public Adapter casePropertyValue(PropertyValue object) {
-				return createPropertyValueAdapter();
+			public Adapter caseObjectProperty(ObjectProperty object) {
+				return createObjectPropertyAdapter();
 			}
 			@Override
-			public Adapter casePropertyContainedValue(PropertyContainedValue object) {
-				return createPropertyContainedValueAdapter();
+			public Adapter caseObjectContainmentProperty(ObjectContainmentProperty object) {
+				return createObjectContainmentPropertyAdapter();
 			}
 			@Override
-			public Adapter casePropertyReferencedValue(PropertyReferencedValue object) {
-				return createPropertyReferencedValueAdapter();
+			public Adapter caseObjectReferenceProperty(ObjectReferenceProperty object) {
+				return createObjectReferencePropertyAdapter();
 			}
 			@Override
 			public Adapter caseWorkspace(Workspace object) {
@@ -214,44 +214,44 @@ public class ObjectAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.PropertyValue <em>Property Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.ObjectProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.object.PropertyValue
+	 * @see org.obeonetwork.dsl.object.ObjectProperty
 	 * @generated
 	 */
-	public Adapter createPropertyValueAdapter() {
+	public Adapter createObjectPropertyAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.PropertyContainedValue <em>Property Contained Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.ObjectContainmentProperty <em>Containment Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.object.PropertyContainedValue
+	 * @see org.obeonetwork.dsl.object.ObjectContainmentProperty
 	 * @generated
 	 */
-	public Adapter createPropertyContainedValueAdapter() {
+	public Adapter createObjectContainmentPropertyAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.PropertyReferencedValue <em>Property Referenced Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.object.ObjectReferenceProperty <em>Reference Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.object.PropertyReferencedValue
+	 * @see org.obeonetwork.dsl.object.ObjectReferenceProperty
 	 * @generated
 	 */
-	public Adapter createPropertyReferencedValueAdapter() {
+	public Adapter createObjectReferencePropertyAdapter() {
 		return null;
 	}
 

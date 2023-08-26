@@ -119,23 +119,23 @@ public class ObjectSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectPackage.PROPERTY_VALUE: {
-				PropertyValue propertyValue = (PropertyValue)theEObject;
-				T result = casePropertyValue(propertyValue);
+			case ObjectPackage.OBJECT_PROPERTY: {
+				ObjectProperty objectProperty = (ObjectProperty)theEObject;
+				T result = caseObjectProperty(objectProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectPackage.PROPERTY_CONTAINED_VALUE: {
-				PropertyContainedValue propertyContainedValue = (PropertyContainedValue)theEObject;
-				T result = casePropertyContainedValue(propertyContainedValue);
-				if (result == null) result = casePropertyValue(propertyContainedValue);
+			case ObjectPackage.OBJECT_CONTAINMENT_PROPERTY: {
+				ObjectContainmentProperty objectContainmentProperty = (ObjectContainmentProperty)theEObject;
+				T result = caseObjectContainmentProperty(objectContainmentProperty);
+				if (result == null) result = caseObjectProperty(objectContainmentProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ObjectPackage.PROPERTY_REFERENCED_VALUE: {
-				PropertyReferencedValue propertyReferencedValue = (PropertyReferencedValue)theEObject;
-				T result = casePropertyReferencedValue(propertyReferencedValue);
-				if (result == null) result = casePropertyValue(propertyReferencedValue);
+			case ObjectPackage.OBJECT_REFERENCE_PROPERTY: {
+				ObjectReferenceProperty objectReferenceProperty = (ObjectReferenceProperty)theEObject;
+				T result = caseObjectReferenceProperty(objectReferenceProperty);
+				if (result == null) result = caseObjectProperty(objectReferenceProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,47 +227,47 @@ public class ObjectSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyValue(PropertyValue object) {
+	public T caseObjectProperty(ObjectProperty object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Contained Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Containment Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Contained Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Containment Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyContainedValue(PropertyContainedValue object) {
+	public T caseObjectContainmentProperty(ObjectContainmentProperty object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Referenced Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reference Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Referenced Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reference Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyReferencedValue(PropertyReferencedValue object) {
+	public T caseObjectReferenceProperty(ObjectReferenceProperty object) {
 		return null;
 	}
 
