@@ -18,7 +18,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="OWD_PropertyValue_values" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']" targetFinderExpression="feature:values" reconnections="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectSource'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectTarget']">
+        <edgeMappings name="OWD_PropertyValue_values" deletionDescription="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_Delete']" sourceMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue']/@borderedNodeMappings[name='OWD_ObjectPropertyValue']" targetMapping="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@containerMappings[name='OWD_ObjectValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_LiteralValue'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@nodeMappings[name='OWD_PrimitiveTypeValue']" targetFinderExpression="feature:values" reconnections="//@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectSource'] //@ownedViewpoints[name='Object%20Views']/@ownedRepresentations[name='Object%20Workspace%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OWD_PropertyValue_values_ReconnectTarget']">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:if view.sourceNode.target.isMultiple() then view.sourceNode.target.values->indexOf(view.targetNode.target) else '' endif">
@@ -206,6 +206,14 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.replaceValue(source, target)"/>
             </initialOperation>
             <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="OWD_PropertyValue_values_Delete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.deleteValueEdge(elementView.targetNode.target)"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>

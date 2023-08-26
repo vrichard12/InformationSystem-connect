@@ -51,4 +51,15 @@ public class PropertyValueService {
 		return property;
 	}
 	
+	public static PropertyValue deleteValueEdge(PropertyValue property, Value value) {
+		property.unsetValue(value);
+		
+		if(property instanceof PropertyContainedValue) {
+			Workspace workspace = EObjectUtils.getContainer(property, Workspace.class);
+			workspace.getValues().add(value);
+		}
+		
+		return property;
+	}
+	
 }
