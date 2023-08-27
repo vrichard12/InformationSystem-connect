@@ -45,12 +45,32 @@
            </with>
         </enabledWhen>
      </handler>
+     <handler
+           class="org.obeonetwork.dsl.object.design.handlers.DeleteWorkspaceHandler"
+           commandId="org.obeonetwork.dsl.object.design.command.DeleteWorkspace">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <instanceof
+                       value="org.obeonetwork.dsl.object.Workspace">
+                 </instanceof>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
   </extension>
   <extension
         point="org.eclipse.ui.commands">
      <command
            id="org.obeonetwork.dsl.object.design.command.CreateNewWorkspace"
            name="New Object Workspace">
+     </command>
+     <command
+           id="org.obeonetwork.dsl.object.design.command.DeleteWorkspace"
+           name="DeleteWorkspace">
      </command>
   </extension>
   <extension
@@ -62,6 +82,19 @@
               commandId="org.obeonetwork.dsl.object.design.command.CreateNewWorkspace"
               icon="icons/full/tool16/CreateWorkspace.gif"
               label="Workspace..."
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+     </menuContribution>
+     <menuContribution
+           allPopups="false"
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.obeonetwork.dsl.object.design.command.DeleteWorkspace"
+              icon="icons/full/tool16/delete.gif"
+              label="Delete"
               style="push">
            <visibleWhen
                  checkEnabled="true">
