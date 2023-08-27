@@ -146,4 +146,16 @@ public class SessionUtils {
 		return Optional.empty();
 	}
 
+	public static Session getSessionFromSemanticIFile(IFile file) {
+		return SessionManager.INSTANCE.getSessions().stream()
+		.filter(session -> getSemanticResource(session, file) != null)
+		.findAny().orElse(null);
+	}
+	
+	public static Resource getSemanticResource(Session session, IFile file) {
+		return session.getSemanticResources().stream()
+		.filter(resource -> resource.getURI().equals(URI.createPlatformResourceURI(file.getFullPath().toString(), true)))
+		.findAny().orElse(null);
+	}
+	
 }

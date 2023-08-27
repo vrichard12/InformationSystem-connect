@@ -17,7 +17,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.object.edit,
  org.obeonetwork.utils.common.ui,
  org.obeonetwork.utils.common,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.eclipse.sirius.ui,
+ org.eclipse.emf.transaction
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
