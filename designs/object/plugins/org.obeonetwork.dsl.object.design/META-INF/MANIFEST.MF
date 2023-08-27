@@ -19,7 +19,10 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.utils.common,
  org.eclipse.emf.ecore,
  org.eclipse.sirius.ui,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.sirius.common.ui,
+ org.eclipse.ui.navigator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
