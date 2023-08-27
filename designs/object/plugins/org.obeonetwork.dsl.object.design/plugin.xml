@@ -20,4 +20,53 @@
         </description>
      </wizard>
   </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="org.obeonetwork.dsl.object.design.handlers.CreateNewWorkspaceHandler"
+           commandId="org.obeonetwork.dsl.object.design.command.CreateNewWorkspace">
+        <enabledWhen>
+           <with
+                 variable="selection">
+              <count
+                    value="1">
+              </count>
+              <iterate
+                    ifEmpty="false"
+                    operator="and">
+                 <adapt
+                       type="org.eclipse.core.resources.IFile">
+                    <test
+                          property="org.eclipse.core.resources.extension"
+                          value="object">
+                    </test>
+                 </adapt>
+              </iterate>
+           </with>
+        </enabledWhen>
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           id="org.obeonetwork.dsl.object.design.command.CreateNewWorkspace"
+           name="New Object Workspace">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="popup:common.new.menu?after=additions">
+        <command
+              commandId="org.obeonetwork.dsl.object.design.command.CreateNewWorkspace"
+              icon="icons/full/tool16/CreateWorkspace.gif"
+              label="Workspace..."
+              style="push">
+           <visibleWhen
+                 checkEnabled="true">
+           </visibleWhen>
+        </command>
+     </menuContribution>
+  </extension>
 </plugin>
