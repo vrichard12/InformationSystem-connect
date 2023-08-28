@@ -11,13 +11,22 @@
 package org.obeonetwork.dsl.interaction.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.InteractionPackage;
+import org.obeonetwork.dsl.object.Workspace;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Call Message</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.obeonetwork.dsl.interaction.impl.CallMessageImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.interaction.impl.CallMessageImpl#getRuntimeWorkspace <em>Runtime Workspace</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -39,6 +48,130 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 	@Override
 	protected EClass eStaticClass() {
 		return InteractionPackage.Literals.CALL_MESSAGE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action getAction() {
+		return (Action)eDynamicGet(InteractionPackage.CALL_MESSAGE__ACTION, InteractionPackage.Literals.CALL_MESSAGE__ACTION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action basicGetAction() {
+		return (Action)eDynamicGet(InteractionPackage.CALL_MESSAGE__ACTION, InteractionPackage.Literals.CALL_MESSAGE__ACTION, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAction(Action newAction) {
+		eDynamicSet(InteractionPackage.CALL_MESSAGE__ACTION, InteractionPackage.Literals.CALL_MESSAGE__ACTION, newAction);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Workspace getRuntimeWorkspace() {
+		return (Workspace)eDynamicGet(InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE, InteractionPackage.Literals.CALL_MESSAGE__RUNTIME_WORKSPACE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Workspace basicGetRuntimeWorkspace() {
+		return (Workspace)eDynamicGet(InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE, InteractionPackage.Literals.CALL_MESSAGE__RUNTIME_WORKSPACE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuntimeWorkspace(Workspace newRuntimeWorkspace) {
+		eDynamicSet(InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE, InteractionPackage.Literals.CALL_MESSAGE__RUNTIME_WORKSPACE, newRuntimeWorkspace);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case InteractionPackage.CALL_MESSAGE__ACTION:
+				if (resolve) return getAction();
+				return basicGetAction();
+			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
+				if (resolve) return getRuntimeWorkspace();
+				return basicGetRuntimeWorkspace();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case InteractionPackage.CALL_MESSAGE__ACTION:
+				setAction((Action)newValue);
+				return;
+			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
+				setRuntimeWorkspace((Workspace)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case InteractionPackage.CALL_MESSAGE__ACTION:
+				setAction((Action)null);
+				return;
+			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
+				setRuntimeWorkspace((Workspace)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case InteractionPackage.CALL_MESSAGE__ACTION:
+				return basicGetAction() != null;
+			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
+				return basicGetRuntimeWorkspace() != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //CallMessageImpl

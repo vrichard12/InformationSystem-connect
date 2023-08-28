@@ -2061,13 +2061,31 @@ public interface InteractionPackage extends EPackage {
 	int CALL_MESSAGE__FINISHING_END = MESSAGE__FINISHING_END;
 
 	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_MESSAGE__ACTION = MESSAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Workspace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_MESSAGE__RUNTIME_WORKSPACE = MESSAGE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Call Message</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_MESSAGE_FEATURE_COUNT = MESSAGE_FEATURE_COUNT + 0;
+	int CALL_MESSAGE_FEATURE_COUNT = MESSAGE_FEATURE_COUNT + 2;
 
 
 	/**
@@ -2600,6 +2618,28 @@ public interface InteractionPackage extends EPackage {
 	EClass getCallMessage();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.interaction.CallMessage#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Action</em>'.
+	 * @see org.obeonetwork.dsl.interaction.CallMessage#getAction()
+	 * @see #getCallMessage()
+	 * @generated
+	 */
+	EReference getCallMessage_Action();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.interaction.CallMessage#getRuntimeWorkspace <em>Runtime Workspace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Runtime Workspace</em>'.
+	 * @see org.obeonetwork.dsl.interaction.CallMessage#getRuntimeWorkspace()
+	 * @see #getCallMessage()
+	 * @generated
+	 */
+	EReference getCallMessage_RuntimeWorkspace();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.CompoundEnd <em>Compound End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2967,6 +3007,22 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CALL_MESSAGE = eINSTANCE.getCallMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_MESSAGE__ACTION = eINSTANCE.getCallMessage_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Runtime Workspace</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_MESSAGE__RUNTIME_WORKSPACE = eINSTANCE.getCallMessage_RuntimeWorkspace();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.CompoundEndImpl <em>Compound End</em>}' class.

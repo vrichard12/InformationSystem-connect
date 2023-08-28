@@ -34,6 +34,8 @@ import org.obeonetwork.dsl.interaction.Operand;
 import org.obeonetwork.dsl.interaction.Participant;
 import org.obeonetwork.dsl.interaction.ReturnMessage;
 import org.obeonetwork.dsl.interaction.StateInvariant;
+import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,7 +184,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link InteractionPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -196,12 +198,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		if (isInited) return (InteractionPackage)EPackage.Registry.INSTANCE.getEPackage(InteractionPackage.eNS_URI);
 
 		// Obtain or create and register package
-		InteractionPackageImpl theInteractionPackage = (InteractionPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof InteractionPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new InteractionPackageImpl());
+		Object registeredInteractionPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		InteractionPackageImpl theInteractionPackage = registeredInteractionPackage instanceof InteractionPackageImpl ? (InteractionPackageImpl)registeredInteractionPackage : new InteractionPackageImpl();
 
 		isInited = true;
 
 		// Initialize simple dependencies
 		EnvironmentPackage.eINSTANCE.eClass();
+		ObjectPackage.eINSTANCE.eClass();
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theInteractionPackage.createPackageContents();
@@ -212,7 +217,6 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		// Mark meta-data to indicate it can't be changed
 		theInteractionPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(InteractionPackage.eNS_URI, theInteractionPackage);
 		return theInteractionPackage;
@@ -556,6 +560,24 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCallMessage_Action() {
+		return (EReference)callMessageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMessage_RuntimeWorkspace() {
+		return (EReference)callMessageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompoundEnd() {
 		return compoundEndEClass;
 	}
@@ -648,6 +670,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		operandEClass = createEClass(OPERAND);
 
 		callMessageEClass = createEClass(CALL_MESSAGE);
+		createEReference(callMessageEClass, CALL_MESSAGE__ACTION);
+		createEReference(callMessageEClass, CALL_MESSAGE__RUNTIME_WORKSPACE);
 
 		compoundEndEClass = createEClass(COMPOUND_END);
 		createEReference(compoundEndEClass, COMPOUND_END__OTHER_OWNER);
@@ -678,6 +702,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		// Obtain other dependent packages
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
+		ObjectPackage theObjectPackage = (ObjectPackage)EPackage.Registry.INSTANCE.getEPackage(ObjectPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -782,6 +807,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEClass(operandEClass, Operand.class, "Operand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(callMessageEClass, CallMessage.class, "CallMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCallMessage_Action(), theEnvironmentPackage.getAction(), null, "action", null, 0, 1, CallMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMessage_RuntimeWorkspace(), theObjectPackage.getWorkspace(), null, "runtimeWorkspace", null, 0, 1, CallMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundEndEClass, CompoundEnd.class, "CompoundEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompoundEnd_OtherOwner(), this.getMessage(), null, "otherOwner", null, 0, 1, CompoundEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
