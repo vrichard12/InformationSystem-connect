@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -25,6 +26,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import org.obeonetwork.dsl.interaction.CallMessage;
+import org.obeonetwork.dsl.interaction.InteractionPackage;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.interaction.CallMessage} object.
@@ -55,8 +57,54 @@ public class CallMessageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addActionPropertyDescriptor(object);
+			addRuntimeWorkspacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Action feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallMessage_action_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallMessage_action_feature", "_UI_CallMessage_type"),
+				 InteractionPackage.Literals.CALL_MESSAGE__ACTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Runtime Workspace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuntimeWorkspacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallMessage_runtimeWorkspace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallMessage_runtimeWorkspace_feature", "_UI_CallMessage_type"),
+				 InteractionPackage.Literals.CALL_MESSAGE__RUNTIME_WORKSPACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

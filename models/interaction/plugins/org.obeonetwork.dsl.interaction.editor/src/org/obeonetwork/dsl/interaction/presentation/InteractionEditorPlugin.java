@@ -14,6 +14,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.object.provider.ObjectEditPlugin;
 import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
@@ -49,6 +50,7 @@ public final class InteractionEditorPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				EnvironmentEditPlugin.INSTANCE,
+				ObjectEditPlugin.INSTANCE,
 				TechnicalIDEditPlugin.INSTANCE,
 			});
 	}

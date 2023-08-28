@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Interaction Editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.interaction.editor;singleton:=true
+Automatic-Module-Name: org.obeonetwork.dsl.interaction.editor
 Bundle-Version: 5.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.interaction.presentation.InteractionEditorPlugin$Implementation
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.dsl.interaction.presentation
@@ -16,6 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.obeonetwork.dsl.environment.edit;visibility:=reexport,
+ org.obeonetwork.dsl.object.edit;visibility:=reexport,
  org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
  org.eclipse.emf.eef.runtime
 Bundle-ActivationPolicy: lazy

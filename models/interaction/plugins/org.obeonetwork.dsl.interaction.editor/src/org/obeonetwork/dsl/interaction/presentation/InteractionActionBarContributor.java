@@ -166,6 +166,7 @@ public class InteractionActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("interaction-settings"));
 		toolBarManager.add(new Separator("interaction-additions"));
 	}
