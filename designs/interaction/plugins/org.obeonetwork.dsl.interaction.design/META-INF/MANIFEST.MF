@@ -25,7 +25,8 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.is,
  org.obeonetwork.is.eef.custom,
  org.obeonetwork.utils.common.ui,
- org.obeonetwork.utils.common
+ org.obeonetwork.utils.common,
+ org.obeonetwork.dsl.environment.design
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network

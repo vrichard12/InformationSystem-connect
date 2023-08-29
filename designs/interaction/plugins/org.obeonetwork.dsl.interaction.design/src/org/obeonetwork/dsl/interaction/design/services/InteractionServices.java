@@ -44,7 +44,11 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
+import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
+import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
 import org.obeonetwork.dsl.interaction.End;
@@ -61,6 +65,8 @@ import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
 import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizard;
+import org.obeonetwork.utils.common.EObjectUtils;
+import org.obeonetwork.utils.common.StreamUtils;
 
 /**
  * Java services for the sample 'Interaction' sequence diagrams.
@@ -716,5 +722,58 @@ public class InteractionServices {
 			return null;
 		}
 	}
-       
+	
+	public static Action openSelectContainedActionDialog(EObject context) {
+		
+		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
+				null,
+				Action.class::isInstance);
+		
+		StreamUtils.asStream(context.eAllContents())
+		.filter(Action.class::isInstance)
+		.forEach(action -> insertTreeItemWrapper(treeInput, context, action));
+		
+        String windowTitle = "Action selection";
+		String message = "Select the Action executed by this Call Message";
+		final ISObjectSelectionWizard wizard = new ISObjectSelectionWizard(
+        		windowTitle, 
+        		message, 
+        		null, 
+        		treeInput,
+        		false);
+		
+        wizard.setLevelToExpand(4);
+
+        IPageCompleteTester pageCompleteTester = 
+        		(selectedTreeItemWrapers, partiallySelectedTreeItemWrapers) -> 
+        			selectedTreeItemWrapers.size() == 1;
+        wizard.setPageCompleteTester(pageCompleteTester);
+        
+		Action selectedAction = null;
+        if(wizard.open() == Window.OK) {
+        	selectedAction = (Action) wizard.getSelectedObject();
+        }
+
+		return selectedAction;
+	}
+
+	private static ISObjectTreeItemWrapper insertTreeItemWrapper(ISObjectTreeItemWrapper tiwRoot, EObject rootContainer, EObject containedElement) {
+		
+		List<EObject> ancestors = EObjectUtils.getAncestors(containedElement);
+		ancestors.add(containedElement);
+		while(ancestors.get(0) != rootContainer) {
+			ancestors.remove(0);
+		}
+		
+		ISObjectTreeItemWrapper tiw = tiwRoot;
+		for(Object ancestor : ancestors) {
+			tiw = tiw.getChildren().stream()
+					.filter(childTiw -> childTiw.getWrappedObject() == ancestor)
+					.findFirst().orElse(new ISObjectTreeItemWrapper(tiw, ancestor));
+		}
+		
+		return tiw;
+	}
+	
+	
 }
