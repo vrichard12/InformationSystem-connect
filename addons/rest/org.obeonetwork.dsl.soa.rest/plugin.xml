@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.dsl.soa.rest.handlers.RestCallMessageExectutionHandler"
+            commandId="org.obeonetwork.dsl.soa.rest.command.RestCallMessageExectution">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <test
+                           forcePluginActivation="true"
+                           property="org.obeonetwork.dsl.soa.rest.propertyTester.isRestCallMessage">
+                     </test>
+                  </adapt>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.dsl.soa.rest.command.RestCallMessageExectution"
+            name="Rest Call Message Exectution">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="org.obeonetwork.dsl.soa.rest.command.RestCallMessageExectution"
+               label="Execute REST call"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.dsl.soa.rest.propertyTesters.RestPropertyTester"
+            id="org.obeonetwork.dsl.soa.rest.propertyTesters.RestPropertyTester"
+            namespace="org.obeonetwork.dsl.soa.rest.propertyTester"
+            properties="isRestCallMessage"
+            type="org.eclipse.emf.ecore.EObject">
+      </propertyTester>
+   </extension>
+
+</plugin>

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 public class EObjectUtils {
 
@@ -175,6 +176,13 @@ public class EObjectUtils {
 			name = eObject.eGet(nameFeature).toString();
 		}
 		return name;
+	}
+
+	public static EObject toSemantic(EObject eObject) {
+		if(eObject instanceof DSemanticDecorator) {
+			return ((DSemanticDecorator) eObject).getTarget();
+		}
+		return eObject;
 	}
 	
 }

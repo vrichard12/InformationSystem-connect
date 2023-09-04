@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rest Service Call
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.rest;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Obeo Network
+Automatic-Module-Name: org.obeonetwork.dsl.soa.rest
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.expressions,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.obeonetwork.utils.common,
+ org.obeonetwork.dsl.interaction,
+ org.obeonetwork.utils.common.ui,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.emf.transaction
+Import-Package: org.obeonetwork.dsl.soa
