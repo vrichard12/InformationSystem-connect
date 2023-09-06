@@ -14,5 +14,6 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.interaction,
  org.obeonetwork.utils.common.ui,
  org.eclipse.sirius.diagram.ui,
- org.eclipse.emf.transaction
-Import-Package: org.obeonetwork.dsl.soa
+ org.eclipse.emf.transaction,
+ org.obeonetwork.dsl.soa,
+ com.konghq.unirest-java

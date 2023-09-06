@@ -12,7 +12,6 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.obeonetwork.dsl.interaction.CallMessage;
-import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.rest.services.RestServices;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
@@ -21,29 +20,33 @@ public class RestCallMessageExectutionHandler extends AbstractHandler implements
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
-		CallMessage callMessage = null;
-		
 		Object selection = EventHelper.uwrapSingleSelection(event, Object.class);
-		if(selection instanceof IDiagramElementEditPart) {
-			DDiagramElement diagramElement = ((IDiagramElementEditPart) selection).resolveDiagramElement();
-			callMessage = (CallMessage) diagramElement.getTarget();
-		} else if(selection instanceof EObject) {
-			callMessage = (CallMessage) selection;
-		}
-		Operation operation = (Operation) callMessage.getAction();
-		
-		Session session = new EObjectQuery(operation).getSession();
+		CallMessage callMessage = unwrapCallMessage(selection);
+
+		Session session = new EObjectQuery(callMessage).getSession();
 		TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 		
 		ted.getCommandStack().execute(new RecordingCommand(ted) {
 			
 			@Override
 			protected void doExecute() {
-				RestServices.executeRestOperation(operation);
+				RestServices.executeRestOperation(callMessage);
 			}
 		});
 		
 		return null;
+	}
+
+	private CallMessage unwrapCallMessage(Object selection) {
+		CallMessage callMessage = null;
+		if(selection instanceof IDiagramElementEditPart) {
+			DDiagramElement diagramElement = ((IDiagramElementEditPart) selection).resolveDiagramElement();
+			callMessage = (CallMessage) diagramElement.getTarget();
+		} else if(selection instanceof EObject) {
+			callMessage = (CallMessage) selection;
+		}
+		
+		return callMessage;
 	}
 
 }
