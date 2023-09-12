@@ -8,6 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Obeo Network
 Export-Package: com.fasterxml.jackson.core,
  com.fasterxml.jackson.databind,
+ com.fasterxml.jackson.databind.node,
  io.swagger.v3.oas.models,
  io.swagger.v3.oas.models.info,
  org.obeonetwork.dsl.soa.gen.swagger,

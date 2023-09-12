@@ -1,15 +1,24 @@
 package org.obeonetwork.dsl.soa.rest.services;
 
+import java.io.IOException;
+
+import org.obeonetwork.dsl.environment.StructuredType;
+import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.services.ObeoDSMObjectService;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.Participant;
+import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
+import org.obeonetwork.dsl.soa.rest.transfo.JsonToObjectBuilder;
 import org.obeonetwork.utils.common.EObjectUtils;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kong.unirest.GetRequest;
 import kong.unirest.HttpResponse;
@@ -18,10 +27,6 @@ import kong.unirest.Unirest;
 public class RestServices {
 
 	public static void executeRestOperation(CallMessage callMessage) {
-//		HttpResponse<String> response = Unirest.request(operation.getVerb().getLiteral(), baseUrl + queryParameters)
-//		  .header("accept", "application/json")
-//		  .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMWUxZGE5MTg4MmViYmQxMGZjMDdmNzM5MWU2MzZlNSIsInN1YiI6IjY0YjRmMGZmMTIxOTdlMDExY2FhN2JjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UJV3Q-G9U26YqQiXg3D1_BC9ncSZ-kuXtCZCI5P_yCA")
-//		  .asString();
 		
 		Operation operation = (Operation) callMessage.getAction();
 		
@@ -35,7 +40,7 @@ public class RestServices {
 		GetRequest httpRequest = Unirest.get(baseUrl + queryParameters);
 		
 		operation.getOutput().stream()
-		.filter(p -> p.getStatusCode() != null && p.getStatusCode().startsWith("2"))
+		.filter(p -> p.getStatusCode() != null)
 		.flatMap(p -> p.getMediaType().stream())
 		.forEach(mediaType -> httpRequest.header("accept", mediaType.getIdentifier()));
 		
@@ -43,7 +48,31 @@ public class RestServices {
 		
 		HttpResponse<String> response = httpRequest.asString();
 		
-		System.out.println(response.getBody());
+		ObjectMapper jsonObjectMapper = new ObjectMapper();
+		JsonNode jsonResponse = null;
+		try {
+			jsonResponse = jsonObjectMapper.readTree(response.getBody());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(String.format("[INFO] Return status code = %d. For GET %s", response.getStatus(), baseUrl + queryParameters));
+		
+		Workspace workspace = callMessage.getRuntimeWorkspace();
+		
+		Type returnType = operation.getOutput().stream()
+		.filter(p -> p.getStatusCode() != null && p.getStatusCode().matches("[0-9]+"))
+		.filter(p -> Integer.parseInt(p.getStatusCode()) == response.getStatus())
+		.map(p -> p.getType())
+		.findFirst().orElse(null);
+
+		if(returnType == null) {
+			System.out.println(String.format("[WARNING] Return status code doesn't match any output parameter. Status code = %d.", response.getStatus()));
+		} else if(!(returnType instanceof StructuredType)) {
+			System.out.println(String.format("[WARNING] Return type of type %s not handled.", returnType.getClass().getName()));
+		}
+		
+		new JsonToObjectBuilder(jsonResponse, (StructuredType) returnType, workspace).build();
 		
 	}
 

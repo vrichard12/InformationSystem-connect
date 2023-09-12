@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.object.impl;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,8 +19,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectPackage;
 import org.obeonetwork.dsl.object.ObjectProperty;
@@ -127,10 +130,23 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 		.findAny();
 		propertyOption.ifPresent(property -> property.setValue(value));
 		if(!propertyOption.isPresent()) {
-			ObjectProperty property = ObjectFactory.eINSTANCE.createObjectContainmentProperty();
-			property.setName(name);
-			property.setValue(value);
-			getProperties().add(property);
+			Property metaProperty = null;
+			if(getMetaType() != null) {
+				metaProperty = ((StructuredType)getMetaType()).getProperties().stream()
+				.filter(p -> name.equals(p.getName()))
+				.findFirst().orElse(null);
+			}
+			if(metaProperty != null) {
+				setValue(metaProperty, value);
+			} else {
+				ObjectProperty property = ObjectFactory.eINSTANCE.createObjectContainmentProperty();
+				property.setName(name);
+				if(value instanceof List) {
+					property.setMultiplicity(MultiplicityKind.ZERO_STAR_LITERAL);
+				}
+				property.setValue(value);
+				getProperties().add(property);
+			}
 		}
 	}
 
