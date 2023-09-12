@@ -13,12 +13,16 @@ package org.obeonetwork.dsl.object.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.obeonetwork.dsl.object.*;
+import org.obeonetwork.dsl.object.LiteralValue;
+import org.obeonetwork.dsl.object.ObjectContainmentProperty;
+import org.obeonetwork.dsl.object.ObjectFactory;
+import org.obeonetwork.dsl.object.ObjectPackage;
+import org.obeonetwork.dsl.object.ObjectReferenceProperty;
+import org.obeonetwork.dsl.object.ObjectValue;
+import org.obeonetwork.dsl.object.PrimitiveTypeValue;
+import org.obeonetwork.dsl.object.Workspace;
 
 /**
  * <!-- begin-user-doc -->
