@@ -2079,13 +2079,22 @@ public interface InteractionPackage extends EPackage {
 	int CALL_MESSAGE__RUNTIME_WORKSPACE = MESSAGE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_MESSAGE__PARAMETER_VALUES = MESSAGE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Call Message</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_MESSAGE_FEATURE_COUNT = MESSAGE_FEATURE_COUNT + 2;
+	int CALL_MESSAGE_FEATURE_COUNT = MESSAGE_FEATURE_COUNT + 3;
 
 
 	/**
@@ -2223,6 +2232,470 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOUND_END_FEATURE_COUNT = END_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.interaction.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.interaction.impl.ParameterValueImpl
+	 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getParameterValue()
+	 * @generated
+	 */
+	int PARAMETER_VALUE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.interaction.impl.ByReferenceParameterValueImpl <em>By Reference Parameter Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.interaction.impl.ByReferenceParameterValueImpl
+	 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getByReferenceParameterValue()
+	 * @generated
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__TECHNICALID = PARAMETER_VALUE__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__METADATAS = PARAMETER_VALUE__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__KEYWORDS = PARAMETER_VALUE__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__BEHAVIOURS = PARAMETER_VALUE__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__BINDING_REGISTRIES = PARAMETER_VALUE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__VERSION = PARAMETER_VALUE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__CREATED_ON = PARAMETER_VALUE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__MODIFIED_ON = PARAMETER_VALUE__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__NAME = PARAMETER_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE__REFERENCED_VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>By Reference Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_REFERENCE_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.interaction.impl.ByValueParameterValueImpl <em>By Value Parameter Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.interaction.impl.ByValueParameterValueImpl
+	 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getByValueParameterValue()
+	 * @generated
+	 */
+	int BY_VALUE_PARAMETER_VALUE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__TECHNICALID = PARAMETER_VALUE__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__METADATAS = PARAMETER_VALUE__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__KEYWORDS = PARAMETER_VALUE__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__BEHAVIOURS = PARAMETER_VALUE__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__BINDING_REGISTRIES = PARAMETER_VALUE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__VERSION = PARAMETER_VALUE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__CREATED_ON = PARAMETER_VALUE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__MODIFIED_ON = PARAMETER_VALUE__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__NAME = PARAMETER_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contained Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE__CONTAINED_VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>By Value Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BY_VALUE_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.interaction.impl.ComputedParameterValueImpl <em>Computed Parameter Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.interaction.impl.ComputedParameterValueImpl
+	 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getComputedParameterValue()
+	 * @generated
+	 */
+	int COMPUTED_PARAMETER_VALUE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__TECHNICALID = PARAMETER_VALUE__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__METADATAS = PARAMETER_VALUE__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__KEYWORDS = PARAMETER_VALUE__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__BEHAVIOURS = PARAMETER_VALUE__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__BINDING_REGISTRIES = PARAMETER_VALUE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__VERSION = PARAMETER_VALUE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__CREATED_ON = PARAMETER_VALUE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__MODIFIED_ON = PARAMETER_VALUE__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__NAME = PARAMETER_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE__EXPRESSION = PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Computed Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUTED_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 
 	/**
@@ -2640,6 +3113,17 @@ public interface InteractionPackage extends EPackage {
 	EReference getCallMessage_RuntimeWorkspace();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.interaction.CallMessage#getParameterValues <em>Parameter Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Values</em>'.
+	 * @see org.obeonetwork.dsl.interaction.CallMessage#getParameterValues()
+	 * @see #getCallMessage()
+	 * @generated
+	 */
+	EReference getCallMessage_ParameterValues();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.CompoundEnd <em>Compound End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2659,6 +3143,90 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompoundEnd_OtherOwner();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ParameterValue
+	 * @generated
+	 */
+	EClass getParameterValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.interaction.ParameterValue#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ParameterValue#getName()
+	 * @see #getParameterValue()
+	 * @generated
+	 */
+	EAttribute getParameterValue_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.ByReferenceParameterValue <em>By Reference Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>By Reference Parameter Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ByReferenceParameterValue
+	 * @generated
+	 */
+	EClass getByReferenceParameterValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.interaction.ByReferenceParameterValue#getReferencedValue <em>Referenced Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Referenced Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ByReferenceParameterValue#getReferencedValue()
+	 * @see #getByReferenceParameterValue()
+	 * @generated
+	 */
+	EReference getByReferenceParameterValue_ReferencedValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.ByValueParameterValue <em>By Value Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>By Value Parameter Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ByValueParameterValue
+	 * @generated
+	 */
+	EClass getByValueParameterValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.interaction.ByValueParameterValue#getContainedValue <em>Contained Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Contained Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ByValueParameterValue#getContainedValue()
+	 * @see #getByValueParameterValue()
+	 * @generated
+	 */
+	EReference getByValueParameterValue_ContainedValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.interaction.ComputedParameterValue <em>Computed Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Computed Parameter Value</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ComputedParameterValue
+	 * @generated
+	 */
+	EClass getComputedParameterValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.interaction.ComputedParameterValue#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see org.obeonetwork.dsl.interaction.ComputedParameterValue#getExpression()
+	 * @see #getComputedParameterValue()
+	 * @generated
+	 */
+	EAttribute getComputedParameterValue_Expression();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3025,6 +3593,14 @@ public interface InteractionPackage extends EPackage {
 		EReference CALL_MESSAGE__RUNTIME_WORKSPACE = eINSTANCE.getCallMessage_RuntimeWorkspace();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_MESSAGE__PARAMETER_VALUES = eINSTANCE.getCallMessage_ParameterValues();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.CompoundEndImpl <em>Compound End</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3041,6 +3617,78 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPOUND_END__OTHER_OWNER = eINSTANCE.getCompoundEnd_OtherOwner();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.interaction.impl.ParameterValueImpl
+		 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getParameterValue()
+		 * @generated
+		 */
+		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_VALUE__NAME = eINSTANCE.getParameterValue_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.ByReferenceParameterValueImpl <em>By Reference Parameter Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.interaction.impl.ByReferenceParameterValueImpl
+		 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getByReferenceParameterValue()
+		 * @generated
+		 */
+		EClass BY_REFERENCE_PARAMETER_VALUE = eINSTANCE.getByReferenceParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Referenced Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BY_REFERENCE_PARAMETER_VALUE__REFERENCED_VALUE = eINSTANCE.getByReferenceParameterValue_ReferencedValue();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.ByValueParameterValueImpl <em>By Value Parameter Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.interaction.impl.ByValueParameterValueImpl
+		 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getByValueParameterValue()
+		 * @generated
+		 */
+		EClass BY_VALUE_PARAMETER_VALUE = eINSTANCE.getByValueParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Contained Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BY_VALUE_PARAMETER_VALUE__CONTAINED_VALUE = eINSTANCE.getByValueParameterValue_ContainedValue();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.interaction.impl.ComputedParameterValueImpl <em>Computed Parameter Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.interaction.impl.ComputedParameterValueImpl
+		 * @see org.obeonetwork.dsl.interaction.impl.InteractionPackageImpl#getComputedParameterValue()
+		 * @generated
+		 */
+		EClass COMPUTED_PARAMETER_VALUE = eINSTANCE.getComputedParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPUTED_PARAMETER_VALUE__EXPRESSION = eINSTANCE.getComputedParameterValue_Expression();
 
 	}
 

@@ -269,6 +269,41 @@ public class InteractionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InteractionPackage.PARAMETER_VALUE: {
+				ParameterValue parameterValue = (ParameterValue)theEObject;
+				T result = caseParameterValue(parameterValue);
+				if (result == null) result = caseObeoDSMObject(parameterValue);
+				if (result == null) result = caseIdentifiable(parameterValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.BY_REFERENCE_PARAMETER_VALUE: {
+				ByReferenceParameterValue byReferenceParameterValue = (ByReferenceParameterValue)theEObject;
+				T result = caseByReferenceParameterValue(byReferenceParameterValue);
+				if (result == null) result = caseParameterValue(byReferenceParameterValue);
+				if (result == null) result = caseObeoDSMObject(byReferenceParameterValue);
+				if (result == null) result = caseIdentifiable(byReferenceParameterValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.BY_VALUE_PARAMETER_VALUE: {
+				ByValueParameterValue byValueParameterValue = (ByValueParameterValue)theEObject;
+				T result = caseByValueParameterValue(byValueParameterValue);
+				if (result == null) result = caseParameterValue(byValueParameterValue);
+				if (result == null) result = caseObeoDSMObject(byValueParameterValue);
+				if (result == null) result = caseIdentifiable(byValueParameterValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.COMPUTED_PARAMETER_VALUE: {
+				ComputedParameterValue computedParameterValue = (ComputedParameterValue)theEObject;
+				T result = caseComputedParameterValue(computedParameterValue);
+				if (result == null) result = caseParameterValue(computedParameterValue);
+				if (result == null) result = caseObeoDSMObject(computedParameterValue);
+				if (result == null) result = caseIdentifiable(computedParameterValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -510,6 +545,66 @@ public class InteractionSwitch<T> {
 	 * @generated
 	 */
 	public T caseCompoundEnd(CompoundEnd object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>By Reference Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>By Reference Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseByReferenceParameterValue(ByReferenceParameterValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>By Value Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>By Value Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseByValueParameterValue(ByValueParameterValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Computed Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Computed Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComputedParameterValue(ComputedParameterValue object) {
 		return null;
 	}
 

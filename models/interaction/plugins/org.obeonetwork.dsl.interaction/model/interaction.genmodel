@@ -72,9 +72,22 @@
     <genClasses ecoreClass="interaction.ecore#//CallMessage">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interaction.ecore#//CallMessage/action"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interaction.ecore#//CallMessage/runtimeWorkspace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference interaction.ecore#//CallMessage/parameterValues"/>
     </genClasses>
     <genClasses ecoreClass="interaction.ecore#//CompoundEnd">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interaction.ecore#//CompoundEnd/otherOwner"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="interaction.ecore#//ParameterValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute interaction.ecore#//ParameterValue/name"/>
+    </genClasses>
+    <genClasses ecoreClass="interaction.ecore#//ByReferenceParameterValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference interaction.ecore#//ByReferenceParameterValue/referencedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="interaction.ecore#//ByValueParameterValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference interaction.ecore#//ByValueParameterValue/containedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="interaction.ecore#//ComputedParameterValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute interaction.ecore#//ComputedParameterValue/expression"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
