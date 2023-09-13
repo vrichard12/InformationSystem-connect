@@ -157,6 +157,22 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createCompoundEndAdapter();
 			}
 			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
+			}
+			@Override
+			public Adapter caseByReferenceParameterValue(ByReferenceParameterValue object) {
+				return createByReferenceParameterValueAdapter();
+			}
+			@Override
+			public Adapter caseByValueParameterValue(ByValueParameterValue object) {
+				return createByValueParameterValueAdapter();
+			}
+			@Override
+			public Adapter caseComputedParameterValue(ComputedParameterValue object) {
+				return createComputedParameterValueAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
 				return createIdentifiableAdapter();
 			}
@@ -409,6 +425,62 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompoundEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.interaction.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.interaction.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.interaction.ByReferenceParameterValue <em>By Reference Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.interaction.ByReferenceParameterValue
+	 * @generated
+	 */
+	public Adapter createByReferenceParameterValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.interaction.ByValueParameterValue <em>By Value Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.interaction.ByValueParameterValue
+	 * @generated
+	 */
+	public Adapter createByValueParameterValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.interaction.ComputedParameterValue <em>Computed Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.interaction.ComputedParameterValue
+	 * @generated
+	 */
+	public Adapter createComputedParameterValueAdapter() {
 		return null;
 	}
 

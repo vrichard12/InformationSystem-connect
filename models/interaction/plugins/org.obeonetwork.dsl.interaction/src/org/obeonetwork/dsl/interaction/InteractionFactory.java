@@ -147,6 +147,33 @@ public interface InteractionFactory extends EFactory {
 	CompoundEnd createCompoundEnd();
 
 	/**
+	 * Returns a new object of class '<em>By Reference Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>By Reference Parameter Value</em>'.
+	 * @generated
+	 */
+	ByReferenceParameterValue createByReferenceParameterValue();
+
+	/**
+	 * Returns a new object of class '<em>By Value Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>By Value Parameter Value</em>'.
+	 * @generated
+	 */
+	ByValueParameterValue createByValueParameterValue();
+
+	/**
+	 * Returns a new object of class '<em>Computed Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Computed Parameter Value</em>'.
+	 * @generated
+	 */
+	ComputedParameterValue createComputedParameterValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -80,8 +80,23 @@
   <eClassifiers xsi:type="ecore:EClass" name="CallMessage" eSuperTypes="#//Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="runtimeWorkspace" eType="ecore:EClass ../../org.obeonetwork.dsl.object/model/object.ecore#//Workspace"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValues" upperBound="-1"
+        eType="#//ParameterValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundEnd" eSuperTypes="#//End">
     <eStructuralFeatures xsi:type="ecore:EReference" name="otherOwner" eType="#//Message"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ByReferenceParameterValue" eSuperTypes="#//ParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedValue" eType="ecore:EClass ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ByValueParameterValue" eSuperTypes="#//ParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedValue" eType="ecore:EClass ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputedParameterValue" eSuperTypes="#//ParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

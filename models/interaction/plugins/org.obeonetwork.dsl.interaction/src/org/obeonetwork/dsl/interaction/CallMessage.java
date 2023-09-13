@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.interaction;
 
+import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.object.Workspace;
 
@@ -25,6 +26,7 @@ import org.obeonetwork.dsl.object.Workspace;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.CallMessage#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.CallMessage#getRuntimeWorkspace <em>Runtime Workspace</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.interaction.CallMessage#getParameterValues <em>Parameter Values</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getCallMessage()
@@ -76,4 +78,16 @@ public interface CallMessage extends Message {
 	 * @generated
 	 */
 	void setRuntimeWorkspace(Workspace value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Values</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.interaction.ParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Values</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.interaction.InteractionPackage#getCallMessage_ParameterValues()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<ParameterValue> getParameterValues();
 } // CallMessage

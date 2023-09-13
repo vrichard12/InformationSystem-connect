@@ -379,6 +379,75 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.interaction.ByReferenceParameterValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ByReferenceParameterValueItemProvider byReferenceParameterValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.interaction.ByReferenceParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createByReferenceParameterValueAdapter() {
+		if (byReferenceParameterValueItemProvider == null) {
+			byReferenceParameterValueItemProvider = new ByReferenceParameterValueItemProvider(this);
+		}
+
+		return byReferenceParameterValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.interaction.ByValueParameterValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ByValueParameterValueItemProvider byValueParameterValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.interaction.ByValueParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createByValueParameterValueAdapter() {
+		if (byValueParameterValueItemProvider == null) {
+			byValueParameterValueItemProvider = new ByValueParameterValueItemProvider(this);
+		}
+
+		return byValueParameterValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.interaction.ComputedParameterValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComputedParameterValueItemProvider computedParameterValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.interaction.ComputedParameterValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComputedParameterValueAdapter() {
+		if (computedParameterValueItemProvider == null) {
+			computedParameterValueItemProvider = new ComputedParameterValueItemProvider(this);
+		}
+
+		return computedParameterValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -490,6 +559,9 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 		if (operandItemProvider != null) operandItemProvider.dispose();
 		if (callMessageItemProvider != null) callMessageItemProvider.dispose();
 		if (compoundEndItemProvider != null) compoundEndItemProvider.dispose();
+		if (byReferenceParameterValueItemProvider != null) byReferenceParameterValueItemProvider.dispose();
+		if (byValueParameterValueItemProvider != null) byValueParameterValueItemProvider.dispose();
+		if (computedParameterValueItemProvider != null) computedParameterValueItemProvider.dispose();
 	}
 
 }

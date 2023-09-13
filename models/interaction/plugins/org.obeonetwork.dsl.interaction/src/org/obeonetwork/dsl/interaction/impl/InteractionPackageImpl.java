@@ -16,9 +16,12 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.interaction.ByReferenceParameterValue;
+import org.obeonetwork.dsl.interaction.ByValueParameterValue;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.CompoundEnd;
+import org.obeonetwork.dsl.interaction.ComputedParameterValue;
 import org.obeonetwork.dsl.interaction.CreateParticipantMessage;
 import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
 import org.obeonetwork.dsl.interaction.End;
@@ -31,6 +34,7 @@ import org.obeonetwork.dsl.interaction.InteractionUse;
 import org.obeonetwork.dsl.interaction.Message;
 import org.obeonetwork.dsl.interaction.NamedElement;
 import org.obeonetwork.dsl.interaction.Operand;
+import org.obeonetwork.dsl.interaction.ParameterValue;
 import org.obeonetwork.dsl.interaction.Participant;
 import org.obeonetwork.dsl.interaction.ReturnMessage;
 import org.obeonetwork.dsl.interaction.StateInvariant;
@@ -155,6 +159,34 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * @generated
 	 */
 	private EClass compoundEndEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass byReferenceParameterValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass byValueParameterValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass computedParameterValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -578,6 +610,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCallMessage_ParameterValues() {
+		return (EReference)callMessageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompoundEnd() {
 		return compoundEndEClass;
 	}
@@ -589,6 +630,78 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EReference getCompoundEnd_OtherOwner() {
 		return (EReference)compoundEndEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameterValue() {
+		return parameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameterValue_Name() {
+		return (EAttribute)parameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getByReferenceParameterValue() {
+		return byReferenceParameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getByReferenceParameterValue_ReferencedValue() {
+		return (EReference)byReferenceParameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getByValueParameterValue() {
+		return byValueParameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getByValueParameterValue_ContainedValue() {
+		return (EReference)byValueParameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComputedParameterValue() {
+		return computedParameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComputedParameterValue_Expression() {
+		return (EAttribute)computedParameterValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -672,9 +785,22 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		callMessageEClass = createEClass(CALL_MESSAGE);
 		createEReference(callMessageEClass, CALL_MESSAGE__ACTION);
 		createEReference(callMessageEClass, CALL_MESSAGE__RUNTIME_WORKSPACE);
+		createEReference(callMessageEClass, CALL_MESSAGE__PARAMETER_VALUES);
 
 		compoundEndEClass = createEClass(COMPOUND_END);
 		createEReference(compoundEndEClass, COMPOUND_END__OTHER_OWNER);
+
+		parameterValueEClass = createEClass(PARAMETER_VALUE);
+		createEAttribute(parameterValueEClass, PARAMETER_VALUE__NAME);
+
+		byReferenceParameterValueEClass = createEClass(BY_REFERENCE_PARAMETER_VALUE);
+		createEReference(byReferenceParameterValueEClass, BY_REFERENCE_PARAMETER_VALUE__REFERENCED_VALUE);
+
+		byValueParameterValueEClass = createEClass(BY_VALUE_PARAMETER_VALUE);
+		createEReference(byValueParameterValueEClass, BY_VALUE_PARAMETER_VALUE__CONTAINED_VALUE);
+
+		computedParameterValueEClass = createEClass(COMPUTED_PARAMETER_VALUE);
+		createEAttribute(computedParameterValueEClass, COMPUTED_PARAMETER_VALUE__EXPRESSION);
 	}
 
 	/**
@@ -703,6 +829,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		// Obtain other dependent packages
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
 		ObjectPackage theObjectPackage = (ObjectPackage)EPackage.Registry.INSTANCE.getEPackage(ObjectPackage.eNS_URI);
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage)EPackage.Registry.INSTANCE.getEPackage(TechnicalIDPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -726,6 +853,10 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		operandEClass.getESuperTypes().add(this.getInteractionFragment());
 		callMessageEClass.getESuperTypes().add(this.getMessage());
 		compoundEndEClass.getESuperTypes().add(this.getEnd());
+		parameterValueEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		byReferenceParameterValueEClass.getESuperTypes().add(this.getParameterValue());
+		byValueParameterValueEClass.getESuperTypes().add(this.getParameterValue());
+		computedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -809,9 +940,22 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEClass(callMessageEClass, CallMessage.class, "CallMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCallMessage_Action(), theEnvironmentPackage.getAction(), null, "action", null, 0, 1, CallMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallMessage_RuntimeWorkspace(), theObjectPackage.getWorkspace(), null, "runtimeWorkspace", null, 0, 1, CallMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMessage_ParameterValues(), this.getParameterValue(), null, "parameterValues", null, 0, -1, CallMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundEndEClass, CompoundEnd.class, "CompoundEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompoundEnd_OtherOwner(), this.getMessage(), null, "otherOwner", null, 0, 1, CompoundEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(byReferenceParameterValueEClass, ByReferenceParameterValue.class, "ByReferenceParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getByReferenceParameterValue_ReferencedValue(), theTechnicalIDPackage.getIdentifiable(), null, "referencedValue", null, 0, 1, ByReferenceParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(byValueParameterValueEClass, ByValueParameterValue.class, "ByValueParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getByValueParameterValue_ContainedValue(), theTechnicalIDPackage.getIdentifiable(), null, "containedValue", null, 0, 1, ByValueParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(computedParameterValueEClass, ComputedParameterValue.class, "ComputedParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComputedParameterValue_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, ComputedParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

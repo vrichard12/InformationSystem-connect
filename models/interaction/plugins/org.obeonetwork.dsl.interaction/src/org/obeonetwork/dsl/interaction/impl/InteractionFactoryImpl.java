@@ -89,6 +89,9 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.OPERAND: return (EObject)createOperand();
 			case InteractionPackage.CALL_MESSAGE: return (EObject)createCallMessage();
 			case InteractionPackage.COMPOUND_END: return (EObject)createCompoundEnd();
+			case InteractionPackage.BY_REFERENCE_PARAMETER_VALUE: return (EObject)createByReferenceParameterValue();
+			case InteractionPackage.BY_VALUE_PARAMETER_VALUE: return (EObject)createByValueParameterValue();
+			case InteractionPackage.COMPUTED_PARAMETER_VALUE: return (EObject)createComputedParameterValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -222,6 +225,36 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	public CompoundEnd createCompoundEnd() {
 		CompoundEndImpl compoundEnd = new CompoundEndImpl();
 		return compoundEnd;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ByReferenceParameterValue createByReferenceParameterValue() {
+		ByReferenceParameterValueImpl byReferenceParameterValue = new ByReferenceParameterValueImpl();
+		return byReferenceParameterValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ByValueParameterValue createByValueParameterValue() {
+		ByValueParameterValueImpl byValueParameterValue = new ByValueParameterValueImpl();
+		return byValueParameterValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComputedParameterValue createComputedParameterValue() {
+		ComputedParameterValueImpl computedParameterValue = new ComputedParameterValueImpl();
+		return computedParameterValue;
 	}
 
 	/**

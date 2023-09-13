@@ -10,10 +10,16 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.interaction.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.InteractionPackage;
+import org.obeonetwork.dsl.interaction.ParameterValue;
 import org.obeonetwork.dsl.object.Workspace;
 
 /**
@@ -26,6 +32,7 @@ import org.obeonetwork.dsl.object.Workspace;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.CallMessageImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.CallMessageImpl#getRuntimeWorkspace <em>Runtime Workspace</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.interaction.impl.CallMessageImpl#getParameterValues <em>Parameter Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +116,30 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<ParameterValue> getParameterValues() {
+		return (EList<ParameterValue>)eDynamicGet(InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES, InteractionPackage.Literals.CALL_MESSAGE__PARAMETER_VALUES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES:
+				return ((InternalEList<?>)getParameterValues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -118,6 +149,8 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
 				if (resolve) return getRuntimeWorkspace();
 				return basicGetRuntimeWorkspace();
+			case InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES:
+				return getParameterValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -127,6 +160,7 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -135,6 +169,10 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 				return;
 			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
 				setRuntimeWorkspace((Workspace)newValue);
+				return;
+			case InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES:
+				getParameterValues().clear();
+				getParameterValues().addAll((Collection<? extends ParameterValue>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,6 +192,9 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
 				setRuntimeWorkspace((Workspace)null);
 				return;
+			case InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES:
+				getParameterValues().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -170,6 +211,8 @@ public class CallMessageImpl extends MessageImpl implements CallMessage {
 				return basicGetAction() != null;
 			case InteractionPackage.CALL_MESSAGE__RUNTIME_WORKSPACE:
 				return basicGetRuntimeWorkspace() != null;
+			case InteractionPackage.CALL_MESSAGE__PARAMETER_VALUES:
+				return !getParameterValues().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
