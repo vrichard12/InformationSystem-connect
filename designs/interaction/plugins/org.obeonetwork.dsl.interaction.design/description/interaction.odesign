@@ -705,6 +705,68 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="GRP_ParameterValues">
+            <tools xsi:type="tool_2:ToolDescription" name="CRE_ByValueParameterValue" label="By value parameter" precondition="aql:self.oclIsKindOf(interaction::CallMessage)" iconPath="/org.obeonetwork.dsl.interaction.edit/icons/full/obj16/ByValueParameterValue.gif">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction::ByValueParameterValue" referenceName="parameterValues">
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="parameter"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New ByValueParameterValue">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="ByValueParameterValue Page" labelExpression="ByValueParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.9"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_2:ToolDescription" name="CRE_ByReferenceParameterValue" label="By reference parameter" precondition="aql:self.oclIsKindOf(interaction::CallMessage)" iconPath="/org.obeonetwork.dsl.interaction.edit/icons/full/obj16/ByReferenceParameterValue.gif">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction::ByReferenceParameterValue" referenceName="parameterValues">
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="parameter"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New ByReferenceParameterValue">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="ByReferenceParameterValue Page" labelExpression="ByReferenceParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_2:ToolDescription" name="CRE_ComputedParameterValue" label="Computed parameter" precondition="aql:self.oclIsKindOf(interaction::CallMessage)" iconPath="/org.obeonetwork.dsl.interaction.edit/icons/full/obj16/ComputedParameterValue.gif">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction::ComputedParameterValue" referenceName="parameterValues">
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="parameter"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New ComputedParameterValue">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="ComputedParameterValue Page" labelExpression="ComputedParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.10"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
           <subSections name="Usability">
             <subSections name="Participant">
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_Participant">
@@ -1062,6 +1124,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.interaction.design.services.InteractionServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.utils.common.EObjectUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.interaction.design.services.DeleteServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.object.design.services.WorkspaceService"/>
   </ownedViewpoints>
   <userColorsPalettes name="Dutch Seas">
     <entries xsi:type="description:UserFixedColor" red="22" green="147" blue="165" name="Dutch teal"/>
@@ -1107,6 +1170,9 @@
       <pages name="StateInvariant Page" labelExpression="StateInvariant" domainClass="interaction::StateInvariant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
       <pages name="CombinedFragment Page" labelExpression="CombinedFragment" domainClass="interaction::CombinedFragment" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
       <pages name="Operand Page" labelExpression="Operand" domainClass="interaction::Operand" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
+      <pages name="ByReferenceParameterValue Page" labelExpression="ByReferenceParameterValue" domainClass="interaction::ByReferenceParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8"/>
+      <pages name="ByValueParameterValue Page" labelExpression="ByValueParameterValue" domainClass="interaction::ByValueParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.9"/>
+      <pages name="ComputedParameterValue Page" labelExpression="ComputedParameterValue" domainClass="interaction::ComputedParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.10"/>
       <groups name="Interaction Group" labelExpression="Properties" domainClass="interaction::Interaction" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="interaction::Interaction name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
@@ -1244,6 +1310,58 @@
           <initialOperation>
             <firstModelOperations xsi:type="tool_2:SetValue" featureName="description" valueExpression="aql:newValue"/>
           </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ByReferenceParameterValue Group" labelExpression="Properties" domainClass="interaction::ByReferenceParameterValue" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::ByReferenceParameterValue name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:true" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="interaction::ByReferenceParameterValue referencedValue" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('referencedValue')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referencedValue'))" isEnabledExpression="aql:true">
+          <customExpressions name="referenceNameExpression" customExpression="referencedValue"/>
+        </controls>
+      </groups>
+      <groups name="ByValueParameterValue Group" labelExpression="Properties" domainClass="interaction::ByValueParameterValue" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::ByValueParameterValue name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="interaction::ByReferenceParameterValue referencedValue" labelExpression="Contained Value:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('containedValue'))" isEnabledExpression="aql:true">
+          <customExpressions name="referenceNameExpression" customExpression="containedValue"/>
+          <customOperations name="addButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:Let" variableName="primitiveType" valueExpression="aql:self.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
+                <subModelOperations xsi:type="tool_2:If" conditionExpression="aql:primitiveType&lt;>null">
+                  <subModelOperations xsi:type="tool_2:If" conditionExpression="aql:self.containedValue&lt;>null">
+                    <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:self.containedValue">
+                      <subModelOperations xsi:type="tool_2:RemoveElement"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_2:CreateInstance" typeName="object::PrimitiveTypeValue" referenceName="containedValue">
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="metaType" valueExpression="var:primitiveType"/>
+                    <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:self.setDefaultPrimitiveTypeData()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
+        </controls>
+      </groups>
+      <groups name="ComputedParameterValue Group" labelExpression="Properties" domainClass="interaction::ComputedParameterValue" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="interaction::ComputedParameterValue name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="interaction::ComputedParameterValue expression" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('expression')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('expression'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('expression').changeable" valueExpression="aql:self.expression">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_2:SetValue" featureName="expression" valueExpression="var:newValue"/>
+          </initialOperation>
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
         </controls>
       </groups>
     </categories>
