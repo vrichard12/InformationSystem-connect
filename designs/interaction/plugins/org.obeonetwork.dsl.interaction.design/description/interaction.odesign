@@ -720,7 +720,7 @@
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation/>
                       </buttons>
-                      <page name="ByValueParameterValue Page" labelExpression="ByValueParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.9"/>
+                      <page name="Default Page" labelExpression="ByValueParameterValue" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.9"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -740,7 +740,7 @@
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation/>
                       </buttons>
-                      <page name="ByReferenceParameterValue Page" labelExpression="ByReferenceParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8"/>
+                      <page name="Default Page" labelExpression="ByReferenceParameterValue" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.8"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -760,7 +760,7 @@
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation/>
                       </buttons>
-                      <page name="ComputedParameterValue Page" labelExpression="ComputedParameterValue" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.10"/>
+                      <page name="Default Page" labelExpression="ComputedParameterValue" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.10"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -1242,6 +1242,53 @@
           <ifs name="self.eClass().getEStructuralFeature('runtimeWorkspace')&lt;>null" predicateExpression="aql:self.eClass().getEStructuralFeature('runtimeWorkspace')&lt;>null">
             <widget xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="interaction::CallMessage runtimeWorkspace" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('runtimeWorkspace')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('runtimeWorkspace'))" isEnabledExpression="aql:true">
               <customExpressions name="referenceNameExpression" customExpression="runtimeWorkspace"/>
+            </widget>
+          </ifs>
+          <ifs name="self.eClass().getEStructuralFeature('parameterValues')&lt;>null" predicateExpression="aql:self.eClass().getEStructuralFeature('parameterValues')&lt;>null">
+            <widget xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="interaction::CallMessage parameterValues" labelExpression="Parameter Values:" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('parameterValues'))" isEnabledExpression="aql:true">
+              <customExpressions name="referenceNameExpression" customExpression="parameterValues"/>
+              <customOperations name="onDoubleClickOperation">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:selection->first()">
+                    <subModelOperations xsi:type="tool_2:Switch">
+                      <cases conditionExpression="aql:self.oclIsKindOf(interaction::ByReferenceParameterValue)">
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="ByReferenceParameterValue Edition">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation/>
+                          </buttons>
+                          <page name="Default Page" labelExpression="ByReferenceParameterValue Edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.8"/>
+                        </subModelOperations>
+                      </cases>
+                      <cases conditionExpression="aql:self.oclIsKindOf(interaction::ByValueParameterValue)">
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="ByValueParameterValue Edition">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation/>
+                          </buttons>
+                          <page name="Default Page" labelExpression="ByValueParameterValue Edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.9"/>
+                        </subModelOperations>
+                      </cases>
+                      <cases conditionExpression="aql:self.oclIsKindOf(interaction::ComputedParameterValue)">
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="ComputedParameterValue Edition">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation/>
+                          </buttons>
+                          <page name="Default Page" labelExpression="ComputedParameterValue Edition" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.10"/>
+                        </subModelOperations>
+                      </cases>
+                      <default/>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </customOperations>
             </widget>
           </ifs>
         </controls>
