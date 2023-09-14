@@ -27,3 +27,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Automatic-Module-Name: org.obeonetwork.dsl.object.design
+Export-Package: org.obeonetwork.dsl.object.design.services
