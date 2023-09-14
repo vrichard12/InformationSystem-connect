@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.interaction.design.services;
 
+import static java.util.stream.Collectors.joining;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -49,6 +50,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizard;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectSelectionWizardPage.IPageCompleteTester;
 import org.obeonetwork.dsl.environment.design.wizards.ISObjectTreeItemWrapper;
+import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
 import org.obeonetwork.dsl.interaction.End;
@@ -638,6 +640,13 @@ public class InteractionServices {
     	return label;
     } 
 
+    public String getCallMessageLabel(CallMessage callMessage) {
+    	return callMessage.getName() + 
+    			callMessage.getParameterValues().stream()
+    			.map(vp -> vp.getName())
+    			.collect(joining(", ", "(", ")"));
+    }
+    
     /**
      * Change the parent of an interaction with a selected one 
      * @param interaction
