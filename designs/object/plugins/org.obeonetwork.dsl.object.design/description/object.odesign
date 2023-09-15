@@ -42,14 +42,14 @@
             </conditionnalStyles>
           </borderedNodeMappings>
           <subNodeMappings name="OWD_DataTypeObjectProperty" semanticCandidatesExpression="aql:self.properties->select(pv | pv.isDataTypeObjectProperty())" domainClass="object::ObjectProperty">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.getObjectLabel()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.getObjectLabel().truncateObjectLabel()" labelAlignment="LEFT" tooltipExpression="aql:self.getObjectLabel()" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
             <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(object::ObjectReferenceProperty)">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.getObjectLabel()" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.getObjectLabel().truncateObjectLabel()" labelAlignment="LEFT" tooltipExpression="aql:self.getObjectLabel()" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>

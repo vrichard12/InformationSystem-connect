@@ -94,5 +94,12 @@ public class ObjectLabelSwitch extends ObjectSwitch<String> {
 	public static String getObjectLabel(EObject eObject) {
 		return INSTANCE.doSwitch(eObject);
 	}
+	
+	public static String truncateObjectLabel(String label) {
+		if(label.length() > 38) {
+			return label.substring(0, 38) + "...";
+		}
+		return label;
+	}
 
 }
