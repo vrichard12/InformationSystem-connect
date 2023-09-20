@@ -19,4 +19,5 @@ Require-Bundle: org.eclipse.ui,
  com.konghq.unirest-java,
  org.obeonetwork.dsl.soa.gen.swagger,
  org.obeonetwork.dsl.environment,
- org.obeonetwork.dsl.object
+ org.obeonetwork.dsl.object,
+ org.obeonetwork.dsl.interaction.design

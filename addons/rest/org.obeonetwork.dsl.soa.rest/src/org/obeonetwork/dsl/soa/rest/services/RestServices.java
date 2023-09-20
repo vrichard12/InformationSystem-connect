@@ -1,20 +1,33 @@
 package org.obeonetwork.dsl.soa.rest.services;
 
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toMap;
+import static java.util.stream.Collectors.toSet;
+
 import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.services.ObeoDSMObjectService;
 import org.obeonetwork.dsl.interaction.CallMessage;
+import org.obeonetwork.dsl.interaction.ParameterValue;
 import org.obeonetwork.dsl.interaction.Participant;
+import org.obeonetwork.dsl.interaction.design.services.ParameterValueServices;
+import org.obeonetwork.dsl.object.PrimitiveTypeValue;
 import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.Parameter;
+import org.obeonetwork.dsl.soa.ParameterPassingMode;
 import org.obeonetwork.dsl.soa.SecurityScheme;
 import org.obeonetwork.dsl.soa.SecuritySchemeType;
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.Verb;
 import org.obeonetwork.dsl.soa.rest.transfo.JsonToObjectBuilder;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.utils.common.EObjectUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -149,8 +162,37 @@ public class RestServices {
 	 * @return Example: "?language=en-US&page=1"
 	 */
 	private static String getQueryParameters(CallMessage callMessage) {
-		// TODO Auto-generated method stub
-		return "";
+		Operation operation = (Operation) callMessage.getAction();
+		
+		Set<String> queryParameterNames = operation.getInput().stream()
+		.filter(p -> p.getRestData().getPassingMode() == ParameterPassingMode.QUERY)
+		.map(p -> p.getName())
+		.collect(toSet());
+		
+		Map<String, Parameter> queryParameters = operation.getInput().stream()
+		.filter(p -> p.getRestData().getPassingMode() == ParameterPassingMode.QUERY)
+		.collect(toMap(p -> p.getName(), p -> p));
+		
+		String queryParametersString = callMessage.getParameterValues().stream()
+		.filter(parameterValue -> queryParameterNames.contains(parameterValue.getName()))
+		.map(parameterValue -> queryParameters.get(parameterValue.getName()).getRestData().getRestId() + "=" + toQueryValueString(parameterValue))
+		.collect(joining("&"));
+		
+		if(!queryParametersString.isEmpty()) {
+			queryParametersString = "?" + queryParametersString;
+		}
+		return queryParametersString;
+	}
+
+	private static String toQueryValueString(ParameterValue parameter) {
+		Identifiable value = ParameterValueServices.getValue(parameter);
+		if(!(value instanceof PrimitiveTypeValue)) {
+			System.out.println(String.format("[ERROR] Parameter type not handled for parameter %s of type %s.", parameter.getName(), value.eClass().getName()));
+			return null;
+		}
+		
+		PrimitiveTypeValue primitiveTypeValue = (PrimitiveTypeValue) value;
+		return Objects.toString(primitiveTypeValue.getData());
 	}
 
 }
