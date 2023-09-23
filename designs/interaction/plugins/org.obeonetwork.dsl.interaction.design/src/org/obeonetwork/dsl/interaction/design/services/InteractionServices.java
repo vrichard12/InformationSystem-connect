@@ -66,6 +66,9 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
 import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
+import org.obeonetwork.dsl.object.PrimitiveTypeValue;
+import org.obeonetwork.dsl.object.edit.util.PrimitiveTypeValueService;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizard;
 import org.obeonetwork.utils.common.EObjectUtils;
 import org.obeonetwork.utils.common.StreamUtils;
@@ -643,8 +646,23 @@ public class InteractionServices {
     public String getCallMessageLabel(CallMessage callMessage) {
     	return callMessage.getName() + 
     			callMessage.getParameterValues().stream()
-    			.map(vp -> vp.getName())
+     			.map(pv -> pv.getName() + "=" + toParameterValueLabel(ParameterValueServices.getValue(pv)))
     			.collect(joining(", ", "(", ")"));
+    }
+    
+    private String toParameterValueLabel(Identifiable value) {
+    	String label;
+    	if(value == null) {
+    		label = "null";
+    	} else if(value instanceof PrimitiveTypeValue) {
+    		label = PrimitiveTypeValueService.getPrimitiveTypeDataAsString((PrimitiveTypeValue) value);
+    	} else if(value.eClass().getEStructuralFeature("name") != null) {
+    		label = value.eGet(value.eClass().getEStructuralFeature("name")).toString();	
+    	} else {
+    		label = value.eClass().getName() + "(" + value.getTechnicalid() + ")";
+    	}
+    	
+    	return label;
     }
     
     /**
