@@ -1,7 +1,6 @@
 package org.obeonetwork.dsl.object.edit.util;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -74,7 +73,7 @@ public class ObjectLabelSwitch extends ObjectSwitch<String> {
 		String label = null;
 		switch(value.eClass().getClassifierID()) {
 		case ObjectPackage.PRIMITIVE_TYPE_VALUE:
-			label = Objects.toString(((PrimitiveTypeValue)value).getData());
+			label = PrimitiveTypeValueService.getPrimitiveTypeDataAsString((PrimitiveTypeValue)value);
 			break;
 		case ObjectPackage.LITERAL_VALUE:
 			label = ((LiteralValue)value).getName();
