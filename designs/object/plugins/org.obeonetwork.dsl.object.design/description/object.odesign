@@ -233,6 +233,16 @@
       <groups name="PrimitiveTypeValue Group" labelExpression="PrimitiveTypeValue" domainClass="object::PrimitiveTypeValue" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CustomDescription" name="org.obeonetwork.is.eef.custom.reference" label="object::PrimitiveTypeValue metaType" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('metaType')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('metaType'))" isEnabledExpression="aql:true">
           <customExpressions name="referenceNameExpression" customExpression="metaType"/>
+          <customExpressions name="hideAddButtonExpression" customExpression="aql:true"/>
+          <customOperations name="browseButtonOperation">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="primitiveType" valueExpression="aql:self.openSelectMetaTypeDialog(environment::PrimitiveType).oclAsType(environment::PrimitiveType)">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:primitiveType&lt;>null">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setPrimitiveTypeDataMetaType(primitiveType)"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </customOperations>
         </controls>
         <controls xsi:type="properties:TextDescription" name="object::PrimitiveTypeValue data" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('data')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('data'))" isEnabledExpression="aql:true" valueExpression="aql:self.getPrimitiveTypeDataAsString()">
           <initialOperation>

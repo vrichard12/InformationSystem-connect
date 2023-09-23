@@ -3,8 +3,10 @@ package org.obeonetwork.dsl.object.edit.util;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -255,11 +257,13 @@ public class PrimitiveTypeValueService {
 		return dataAsString;
 	}
 
+	private static final List<String> INTEGER_LIKE_TYPE_NAMES = Arrays.asList("Integer", "Long");
+	
 	public static PrimitiveTypeValue setPrimitiveTypeDataMetaType(PrimitiveTypeValue ptv, PrimitiveType metaType) {
 		String dataAsString = getPrimitiveTypeDataAsString(ptv);
 		ptv.setMetaType(metaType);
-		if("Integer".equals(metaType.getName()) && dataAsString.contains(".")) {
-			dataAsString = dataAsString.substring(0, dataAsString.lastIndexOf(".") - 1);
+		if(INTEGER_LIKE_TYPE_NAMES.contains(metaType.getName()) && dataAsString.contains(".")) {
+			dataAsString = dataAsString.substring(0, dataAsString.lastIndexOf("."));
 		}
 		setPrimitiveTypeDataAsString(ptv, dataAsString);
 		return ptv;
