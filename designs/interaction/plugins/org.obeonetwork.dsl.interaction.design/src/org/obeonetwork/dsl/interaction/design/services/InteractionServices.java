@@ -67,6 +67,7 @@ import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
+import org.obeonetwork.dsl.object.Value;
 import org.obeonetwork.dsl.object.edit.util.PrimitiveTypeValueService;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.is.eef.custom.reference.CustomEEFExtEObjectSelectionWizard;
@@ -802,5 +803,17 @@ public class InteractionServices {
 		return tiw;
 	}
 	
+	public static List<Value> callMessageReturnValues(CallMessage context, String messageName) {
+		CallMessage callMessage = EObjectUtils.getContainer(context, Interaction.class).getMessages().stream()
+		.filter(CallMessage.class::isInstance).map(CallMessage.class::cast)
+		.filter(m -> messageName.equals(m.getName()))
+		.findFirst().orElse(null);
+		
+		if(callMessage != null && callMessage.getRuntimeWorkspace() != null) {
+			return callMessage.getRuntimeWorkspace().getValues();
+		}
+		
+		return Collections.emptyList();
+	}
 	
 }
