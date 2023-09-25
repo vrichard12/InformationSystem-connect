@@ -1,13 +1,11 @@
 package org.obeonetwork.dsl.soa.rest.services;
 
 import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static java.util.stream.Collectors.toSet;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -18,6 +16,7 @@ import org.obeonetwork.dsl.interaction.Participant;
 import org.obeonetwork.dsl.interaction.design.services.ParameterValueServices;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
 import org.obeonetwork.dsl.object.Workspace;
+import org.obeonetwork.dsl.object.edit.util.PrimitiveTypeValueService;
 import org.obeonetwork.dsl.soa.Component;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -48,6 +47,7 @@ public class RestServices {
 		}
 		
 		String baseUrl = getBaseUrl(operation);
+		baseUrl = injectPathParameters(baseUrl, callMessage);
 		String queryParameters = getQueryParameters(callMessage);
 		
 		GetRequest httpRequest = Unirest.get(baseUrl + queryParameters);
@@ -156,6 +156,25 @@ public class RestServices {
 		
 		return serverUrl + soaComponent.getURI() + soaService.getURI() + soaOperation.getURI();
 	}
+	
+	private static String injectPathParameters(String baseUrl, CallMessage callMessage) {
+		String injectedBaseUrl = baseUrl;
+		
+		Operation operation = (Operation) callMessage.getAction();
+		
+		Map<String, Parameter> pathParameters = operation.getInput().stream()
+		.filter(p -> p.getRestData().getPassingMode() == ParameterPassingMode.PATH)
+		.collect(toMap(p -> p.getName(), p -> p));
+
+		for(ParameterValue parameterValue : callMessage.getParameterValues().stream()
+		.filter(parameterValue -> pathParameters.keySet().contains(parameterValue.getName()))
+		.collect(toList())) {
+			injectedBaseUrl = injectedBaseUrl.replaceAll("\\{" + pathParameters.get(parameterValue.getName()).getRestData().getRestId() + "\\}", toQueryValueString(parameterValue));
+		}
+
+		return injectedBaseUrl;
+	}
+
 
 	/**
 	 * @param callMessage
@@ -164,17 +183,12 @@ public class RestServices {
 	private static String getQueryParameters(CallMessage callMessage) {
 		Operation operation = (Operation) callMessage.getAction();
 		
-		Set<String> queryParameterNames = operation.getInput().stream()
-		.filter(p -> p.getRestData().getPassingMode() == ParameterPassingMode.QUERY)
-		.map(p -> p.getName())
-		.collect(toSet());
-		
 		Map<String, Parameter> queryParameters = operation.getInput().stream()
 		.filter(p -> p.getRestData().getPassingMode() == ParameterPassingMode.QUERY)
 		.collect(toMap(p -> p.getName(), p -> p));
 		
 		String queryParametersString = callMessage.getParameterValues().stream()
-		.filter(parameterValue -> queryParameterNames.contains(parameterValue.getName()))
+		.filter(parameterValue -> queryParameters.keySet().contains(parameterValue.getName()))
 		.map(parameterValue -> queryParameters.get(parameterValue.getName()).getRestData().getRestId() + "=" + toQueryValueString(parameterValue))
 		.collect(joining("&"));
 		
@@ -191,8 +205,7 @@ public class RestServices {
 			return null;
 		}
 		
-		PrimitiveTypeValue primitiveTypeValue = (PrimitiveTypeValue) value;
-		return Objects.toString(primitiveTypeValue.getData());
+		return PrimitiveTypeValueService.getPrimitiveTypeDataAsString((PrimitiveTypeValue) value);
 	}
 
 }
