@@ -23,7 +23,7 @@ public class ParameterValueServices {
 		if(parameter instanceof ComputedParameterValue) {
 			String expression = ((ComputedParameterValue) parameter).getExpression();
 			IInterpreter interpreter = new EObjectQuery(parameter).getSession().getInterpreter();
-			return (Identifiable) SiriusInterpreterUtils.evaluateToEObject(interpreter, parameter, expression);
+			return (Identifiable) SiriusInterpreterUtils.evaluateToEObject(interpreter, parameter.eContainer(), expression);
 		}
 		
 		return null;
