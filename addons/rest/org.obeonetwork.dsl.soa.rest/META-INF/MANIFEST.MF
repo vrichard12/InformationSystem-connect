@@ -21,4 +21,5 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.object,
  org.obeonetwork.dsl.interaction.design,
- org.obeonetwork.dsl.object.edit
+ org.obeonetwork.dsl.object.edit,
+ org.obeonetwork.dsl.object.design
