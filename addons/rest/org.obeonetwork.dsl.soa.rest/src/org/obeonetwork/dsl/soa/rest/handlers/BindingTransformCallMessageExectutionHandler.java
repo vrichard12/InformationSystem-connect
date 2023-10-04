@@ -9,14 +9,13 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.obeonetwork.dsl.interaction.CallMessage;
-import org.obeonetwork.dsl.soa.rest.services.RestServices;
+import org.obeonetwork.dsl.soa.rest.services.BindingTransformationServices;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
-public class RestCallMessageExectutionHandler extends AbstractHandler implements IHandler {
+public class BindingTransformCallMessageExectutionHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
 		Object selection = EventHelper.uwrapSingleSelection(event, Object.class);
 		CallMessage callMessage = RestSelectionHelper.unwrapCallMessage(selection);
 
@@ -27,7 +26,7 @@ public class RestCallMessageExectutionHandler extends AbstractHandler implements
 			
 			@Override
 			protected void doExecute() {
-				RestServices.executeRestOperation(callMessage);
+				BindingTransformationServices.executeBindingTransformation(callMessage);
 			}
 		});
 		

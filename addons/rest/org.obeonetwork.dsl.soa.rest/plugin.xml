@@ -26,12 +26,37 @@
             </with>
          </enabledWhen>
       </handler>
+      <handler
+            class="org.obeonetwork.dsl.soa.rest.handlers.BindingTransformCallMessageExectutionHandler"
+            commandId="org.obeonetwork.dsl.soa.rest.command.BindingTransformCallMessageExectution">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate>
+                  <adapt
+                        type="org.eclipse.emf.ecore.EObject">
+                     <test
+                           forcePluginActivation="true"
+                           property="org.obeonetwork.dsl.soa.rest.propertyTester.isBindingTransformCallMessage">
+                     </test>
+                  </adapt>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
             id="org.obeonetwork.dsl.soa.rest.command.RestCallMessageExectution"
             name="Rest Call Message Exectution">
+      </command>
+      <command
+            id="org.obeonetwork.dsl.soa.rest.command.BindingTransformCallMessageExectution"
+            name="Binding Transform Call Message Exectution">
       </command>
    </extension>
    <extension
@@ -47,6 +72,14 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
+         <command
+               commandId="org.obeonetwork.dsl.soa.rest.command.BindingTransformCallMessageExectution"
+               label="Execute Binding Transformation"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
       </menuContribution>
    </extension>
    <extension
@@ -55,7 +88,7 @@
             class="org.obeonetwork.dsl.soa.rest.propertyTesters.RestPropertyTester"
             id="org.obeonetwork.dsl.soa.rest.propertyTesters.RestPropertyTester"
             namespace="org.obeonetwork.dsl.soa.rest.propertyTester"
-            properties="isRestCallMessage"
+            properties="isRestCallMessage,isBindingTransformCallMessage"
             type="org.eclipse.emf.ecore.EObject">
       </propertyTester>
    </extension>

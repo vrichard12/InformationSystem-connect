@@ -206,6 +206,7 @@ public class PrimitiveTypeValueService {
 	}
 
 	private static IPrimitiveTypeDataStrategy getPrimitiveTypeDataStrategy(PrimitiveType primitiveType) {
+		// TODO Create an extension point to declare the Primitive Type Data Strategies
 		IPrimitiveTypeDataStrategy strategy = PRIMITIVE_TYPE_DATA_STRATEGIES.get(primitiveType.getName());
 		if(strategy == null) {
 			System.out.println(String.format("[ERROR] Unhandled primitive type %s", primitiveType.getName()));
