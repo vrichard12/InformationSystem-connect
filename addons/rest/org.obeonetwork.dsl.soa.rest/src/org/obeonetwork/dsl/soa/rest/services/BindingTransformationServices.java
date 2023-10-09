@@ -24,9 +24,6 @@ public class BindingTransformationServices {
 		Binder binder = new Binder(sourceWorkspace, targetWorkspace, bindingRegistry);
 		binder.transform();
 		
-		WorkspaceDuplicateCleaner cleaner = new WorkspaceDuplicateCleaner(targetWorkspace);
-		cleaner.clean();
-		
 	}
 
 }
