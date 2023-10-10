@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.utils.common;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -69,4 +71,32 @@ public class SiriusInterpreterUtils {
         return b;
 	}
 
+	public static Collection<?> evaluateToCollection(IInterpreter interpreter, EObject context, String expression) {
+		Object result = null;
+		try {
+			result = interpreter.evaluate(context, expression);
+		} catch (EvaluationException e) {
+			e.printStackTrace();
+			// Safely do nothing
+		}
+		if(result instanceof Collection) {
+			return ((Collection<?>)result);
+		}
+		return Collections.singletonList(result);
+	}
+	
+	public static Object evaluateToObject(IInterpreter interpreter, EObject context, String expression) {
+		Object result = null;
+		try {
+			result = interpreter.evaluate(context, expression);
+		} catch (EvaluationException e) {
+			e.printStackTrace();
+			// Safely do nothing
+		}
+		if(result instanceof Collection && !((Collection<?>)result).isEmpty()) {
+			return ((Collection<?>)result).iterator().next();
+		}
+		return result;
+	}
+	
 }

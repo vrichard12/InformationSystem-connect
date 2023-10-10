@@ -8,12 +8,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingElement;
 import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.Enumeration;
+import org.obeonetwork.dsl.environment.Literal;
+import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.object.DataTypeValue;
@@ -25,7 +30,9 @@ import org.obeonetwork.dsl.object.ObjectValue;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
 import org.obeonetwork.dsl.object.Workspace;
 import org.obeonetwork.dsl.object.edit.util.PrimitiveTypeValueService;
+import org.obeonetwork.utils.common.SiriusInterpreterUtils;
 import org.obeonetwork.utils.common.StreamUtils;
+import org.obeonetwork.utils.common.StringUtils;
 
 public class Binder {
 
@@ -45,6 +52,7 @@ public class Binder {
 	
 	public void transform() {
 		
+		// Classify all the ObjectValues contained in the source Workspace by their type.
 		sourceWorkspace.getValues().stream()
 		.filter(ObjectValue.class::isInstance).map(ObjectValue.class::cast)
 		.flatMap(sourceObjectValue -> StreamUtils.closure(sourceObjectValue, this::streamContainedObjectValues))
@@ -59,12 +67,21 @@ public class Binder {
 			sourceObjects.add(sourceObjectValue);
 		});
 		
+		// Register already already target ValueObjects to guarantee ObjectValues unicity
+		targetWorkspace.getValues().stream()
+		.filter(ObjectValue.class::isInstance).map(ObjectValue.class::cast)
+		.flatMap(targetObjectValue -> StreamUtils.closure(targetObjectValue, this::streamContainedObjectValues))
+		.filter(targetObjectValue -> targetObjectValue != null)
+		.forEach(targetObjectValue -> targetObjectValueRegistry.registerOrGetDuplicateIfIdentifiable(targetObjectValue));
+		
+		// Create the target ObjectValues with their attributes, taking care of identifiers unicity
+		// and merging the property values altogether if different instances of the same object
+		// with different properties exist in the source Workspace.
 		bindingRegistry.getBindingInfos().stream()
 		.filter(bindingInfo -> bindingInfo.getRight() instanceof StructuredType && bindingInfo.getLeft() instanceof StructuredType)
 		.forEach(bindingInfo -> createObjectValues(bindingInfo));
 		
-		// 3- Appliquer les bindings de références aux objets sources et en interrogeant la binding registry avec
-		//    des protorypes d'objets cibles pour trouver les objets cibles
+		// Create the references among ObjectValues, finding the ObjectValues to connect by their type and ids.
 		bindingRegistry.getBindingInfos().stream()
 		.filter(bindingInfo -> bindingInfo.getRight() instanceof StructuredType && bindingInfo.getLeft() instanceof StructuredType)
 		.forEach(bindingInfo -> createReferences(bindingInfo));
@@ -87,10 +104,10 @@ public class Binder {
 	}
 
 	private void createOrUpdateObjectValue(BindingInfo bindingInfo, ObjectValue sourceObjectValue) {
-		ObjectValue targetObjectValue = createIdentifiableObjectValue(bindingInfo, sourceObjectValue);
+		ObjectValue targetObjectValuePrototype = createIdentifiableObjectValue(bindingInfo, sourceObjectValue);
 		
-		targetObjectValue = targetObjectValueRegistry.registerOrGetDuplicateIfIdentifiable(targetObjectValue);
-		if(!targetWorkspace.getValues().contains(targetObjectValue)) {
+		ObjectValue targetObjectValue = targetObjectValueRegistry.registerOrGetDuplicateIfIdentifiable(targetObjectValuePrototype);
+		if(targetObjectValue == targetObjectValuePrototype) {
 			targetWorkspace.getValues().add(targetObjectValue);
 		}
 		
@@ -132,7 +149,7 @@ public class Binder {
 				bindingReference.getLeft().getBoundElement() instanceof Attribute &&
 				bindingReference.getRight().getPathReferences().size() == 1 &&
 				bindingReference.getRight().getBoundElement() instanceof Attribute
-				&& !alreadyBoundMetaAttributes.contains((Attribute)bindingReference.getRight().getBoundElement()))
+				&& !alreadyBoundMetaAttributes.contains((Attribute)bindingReference.getLeft().getBoundElement()))
 		.forEach(bindingReference -> createObjectAttributeProperty(bindingReference, sourceObjectValue, targetObjectValue));
 	}
 
@@ -151,40 +168,53 @@ public class Binder {
 			targetObjectProperty.setMetaProperty(targetMetaAttribute);
 			targetObjectValue.getProperties().add(targetObjectProperty);
 			
-			// TODO Exploit the binding expression
-			sourceObjectProperty.getValues().stream()
-			.map(value -> cloneDataTypeValue((DataTypeValue) value))
-			.forEach(dataTypeValue -> targetObjectProperty.getContainedValues().add(dataTypeValue));
+			if(StringUtils.isNullOrWhite(bindingExpression)) {
+				sourceObjectProperty.getValues().stream()
+				.map(value -> getDataAsString((DataTypeValue) value))
+				.forEach(dataAsString -> addDataAsString(targetObjectProperty, dataAsString));
+			} else {
+				IInterpreter interpreter = new EObjectQuery(sourceObjectProperty).getSession().getInterpreter();
+				if(targetObjectProperty.isMultiple()) {
+					SiriusInterpreterUtils.evaluateToCollection(interpreter, sourceObjectProperty, bindingExpression)
+					.stream().map(data -> (data == null)? null : data.toString())
+					.forEach(dataAsString -> addDataAsString(targetObjectProperty, dataAsString));
+				} else {
+					Object data = SiriusInterpreterUtils.evaluateToObject(interpreter, sourceObjectProperty, bindingExpression);
+					addDataAsString(targetObjectProperty, (data == null)? null : data.toString());
+				}
+			}
 		}
 	}
 	
-	private DataTypeValue cloneDataTypeValue(DataTypeValue sourceDataTypeValue) {
-		if(sourceDataTypeValue instanceof PrimitiveTypeValue) {
-			return clonePrimitiveTypeValue((PrimitiveTypeValue)sourceDataTypeValue);
+	private void addDataAsString(ObjectContainmentProperty objectProperty, String dataAsString) {
+		Attribute metaAttribute = (Attribute) objectProperty.getMetaProperty();
+		if(metaAttribute.getType() instanceof PrimitiveType) {
+			PrimitiveTypeValue primitiveTypeValue = ObjectFactory.eINSTANCE.createPrimitiveTypeValue();
+			primitiveTypeValue.setMetaType(metaAttribute.getType());
+			PrimitiveTypeValueService.setPrimitiveTypeDataAsString(primitiveTypeValue, dataAsString);
+			objectProperty.getValues().add(primitiveTypeValue);
+		} else if(metaAttribute.getType() instanceof Enumeration) {
+			LiteralValue literalValue = ObjectFactory.eINSTANCE.createLiteralValue();
+			literalValue.setMetaType(metaAttribute.getType());
+			Literal literalData = ((Enumeration)metaAttribute.getType()).getLiterals().stream()
+			.filter(literal -> literal.getName().equals(dataAsString))
+			.findFirst().orElse(null);
+			if(literalData != null) {
+				literalValue.setData(literalData);
+			} else {
+				literalValue.setName(dataAsString);
+			}
+			objectProperty.getValues().add(literalValue);
 		}
-		
-		if(sourceDataTypeValue instanceof LiteralValue) {
-			return cloneLiteralValue((LiteralValue)sourceDataTypeValue);
+	}
+	
+	private String getDataAsString(DataTypeValue dataTypeValue) {
+		if(dataTypeValue instanceof PrimitiveTypeValue) {
+			return PrimitiveTypeValueService.getPrimitiveTypeDataAsString((PrimitiveTypeValue) dataTypeValue);
+		} else if(dataTypeValue instanceof LiteralValue) {
+			return ((LiteralValue)dataTypeValue).getName();
 		}
-		
 		return null;
-	}
-
-	private PrimitiveTypeValue clonePrimitiveTypeValue(PrimitiveTypeValue sourcePrimitiveTypeValue) {
-		PrimitiveTypeValue targetPrimitiveTypeValue = ObjectFactory.eINSTANCE.createPrimitiveTypeValue();
-		targetPrimitiveTypeValue.setMetaType(sourcePrimitiveTypeValue.getMetaType());
-		String dataAsString = PrimitiveTypeValueService.getPrimitiveTypeDataAsString(sourcePrimitiveTypeValue);
-		PrimitiveTypeValueService.setPrimitiveTypeDataAsString(targetPrimitiveTypeValue, dataAsString);
-		
-		return targetPrimitiveTypeValue;
-	}
-
-	private LiteralValue cloneLiteralValue(LiteralValue sourceLiteralValue) {
-		LiteralValue targetLiteralValue = ObjectFactory.eINSTANCE.createLiteralValue();
-		targetLiteralValue.setMetaType(sourceLiteralValue.getMetaType());
-		targetLiteralValue.setData(sourceLiteralValue.getData());
-		
-		return targetLiteralValue;
 	}
 
 	private void createReferences(BindingInfo bindingInfo) {
