@@ -1721,6 +1721,7 @@ public class SoaComponentBuilder {
 
 	private Reference createReferencedDtoReference(StructuredType type, Schema propertySchema, List<String> debugPath) {
 		Reference reference = EnvironmentFactory.eINSTANCE.createReference();
+		reference.setIsComposite(true);
 		type.getOwnedReferences().add(reference);
 		reference.setReferencedType((StructuredType) getExposedTypeFrom$ref(propertySchema.get$ref(), debugPath));
 
@@ -1760,6 +1761,7 @@ public class SoaComponentBuilder {
 		updateDto(soaDto, propertySchema, debugPath);
 
 		Reference reference = EnvironmentFactory.eINSTANCE.createReference();
+		reference.setIsComposite(true);
 		type.getOwnedReferences().add(reference);
 
 		soaDto = registerInlineType(reference, soaDto);
