@@ -40,7 +40,7 @@ public class CustomReferenceController extends EEFExtReferenceController {
 	
 	private static final String HIDE_ADD_BUTTON_EXPRESSION_ID = "hideAddButtonExpression";
 	
-	private static final String ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:self.eClass().getEStructuralFeature('%1$s').many";
+	private static final String ENABLE_ADD_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:true";
 	
 	private static final String ENABLE_BROWSE_BUTTON_DEFAULT_EXPRESSION_FORMAT = "aql:not self.eClass().getEStructuralFeature('%1$s').containment";
 
