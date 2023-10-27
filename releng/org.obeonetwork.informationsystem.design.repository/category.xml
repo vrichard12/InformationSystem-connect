@@ -188,6 +188,15 @@
       <category name="org.obeonetwork.informationsystem.metamodels"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.metamodels" label="Information System - Meta Models"/>
+   <feature url="features/org.obeonetwork.dsl.object.feature_0.0.0.jar" id="org.obeonetwork.dsl.object.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.object.design.feature_0.0.0.jar" id="org.obeonetwork.dsl.object.design.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.designs"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.soa.rest.feature_0.0.0.jar" id="org.obeonetwork.dsl.soa.rest.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.addons"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>

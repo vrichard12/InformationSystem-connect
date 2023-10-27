@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.dsl.soa.rest.feature"
+      label="Obeo Network - Rest Call Feature"
+      version="1.0.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="4.1.0.qualifier">
+
+   <description url="https://www.obeo.fr">
+      Obeo Network - Rest Call Feature
+   </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.obeonetwork.dsl.soa.rest"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
