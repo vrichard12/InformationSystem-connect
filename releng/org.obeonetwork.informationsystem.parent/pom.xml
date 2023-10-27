@@ -361,6 +361,19 @@
 		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.ui</module>
 		<module>../../addons/swagger/plugins/org.obeonetwork.dsl.soa.gen.swagger.tests</module>
 
+		<!-- Object -->
+		<module>../../models/object/plugins/org.obeonetwork.dsl.object</module>
+		<module>../../models/object/plugins/org.obeonetwork.dsl.object.edit</module>
+		<module>../../models/object/plugins/org.obeonetwork.dsl.object.editor</module>
+		<module>../../models/object/features/org.obeonetwork.dsl.object.feature</module>
+		
+		<module>../../designs/object/plugins/org.obeonetwork.dsl.object.design</module>
+		<module>../../designs/object/features/org.obeonetwork.dsl.object.design.feature</module>
+
+		<!-- REST Connector -->
+		<module>../../addons/rest/plugins/org.obeonetwork.dsl.soa.rest</module>
+		<module>../../addons/rest/features/org.obeonetwork.dsl.soa.rest.feature</module>
+		
 	</modules>
 
 

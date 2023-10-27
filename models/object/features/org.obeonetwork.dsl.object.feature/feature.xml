@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.dsl.object.feature"
+      label="Obeo Network - Object Values"
+      version="1.0.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="4.1.0.qualifier">
+
+   <description url="https://www.obeo.fr">
+      Obeo Network - Object Values
+   </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.obeonetwork.dsl.object"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.object.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.object.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

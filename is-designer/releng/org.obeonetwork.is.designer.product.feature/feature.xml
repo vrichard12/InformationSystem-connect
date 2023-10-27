@@ -273,4 +273,16 @@
          id="org.obeonetwork.dsl.soa.gen.swagger.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.obeonetwork.dsl.object.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.object.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.soa.rest.feature"
+         version="0.0.0"/>
+
 </feature>
