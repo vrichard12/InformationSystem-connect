@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.obeonetwork.dsl.environment.Enumeration;
-import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.services.PropertyService;
 import org.obeonetwork.dsl.object.DataTypeValue;
+import org.obeonetwork.dsl.object.LiteralValue;
 import org.obeonetwork.dsl.object.ObjectFactory;
 import org.obeonetwork.dsl.object.ObjectValue;
 import org.obeonetwork.dsl.object.PrimitiveTypeValue;
@@ -126,22 +126,18 @@ public class JsonToObjectBuilder {
 		}
 		
 		if(valueNode instanceof TextNode) {
-			// Date, Time and Timestamp are handled as Strings
-			PrimitiveTypeValue primitiveTypeValue = ObjectFactory.eINSTANCE.createPrimitiveTypeValue();
-			primitiveTypeValue.setMetaType(targetType);
 			if(targetType instanceof Enumeration) {
-				Literal literal = ((Enumeration) targetType).getLiterals().stream()
-				.filter(lit -> lit.getName().equals(valueNode.asText()))
-				.findFirst().orElse(null);
-				if(literal != null) {
-					primitiveTypeValue.setData(literal);
-				} else {
-					primitiveTypeValue.setData(valueNode.asText());
-				}
+				LiteralValue literalValue = ObjectFactory.eINSTANCE.createLiteralValue();
+				literalValue.setMetaType(targetType);
+				literalValue.setName(valueNode.asText());
+				return literalValue;
 			} else {
+				// Date, Time and Timestamp are handled as Strings
+				PrimitiveTypeValue primitiveTypeValue = ObjectFactory.eINSTANCE.createPrimitiveTypeValue();
+				primitiveTypeValue.setMetaType(targetType);
 				primitiveTypeValue.setData(valueNode.asText());
+				return primitiveTypeValue;
 			}
-			return primitiveTypeValue;
 		}
 		
 		if(valueNode instanceof BigIntegerNode) {
