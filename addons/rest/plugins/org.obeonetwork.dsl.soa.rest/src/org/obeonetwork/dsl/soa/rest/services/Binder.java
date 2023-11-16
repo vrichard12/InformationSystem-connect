@@ -17,7 +17,6 @@ import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.Enumeration;
-import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -196,14 +195,7 @@ public class Binder {
 		} else if(metaAttribute.getType() instanceof Enumeration) {
 			LiteralValue literalValue = ObjectFactory.eINSTANCE.createLiteralValue();
 			literalValue.setMetaType(metaAttribute.getType());
-			Literal literalData = ((Enumeration)metaAttribute.getType()).getLiterals().stream()
-			.filter(literal -> literal.getName().equals(dataAsString))
-			.findFirst().orElse(null);
-			if(literalData != null) {
-				literalValue.setData(literalData);
-			} else {
-				literalValue.setName(dataAsString);
-			}
+			literalValue.setName(dataAsString);
 			objectProperty.getValues().add(literalValue);
 		}
 	}

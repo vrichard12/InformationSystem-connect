@@ -11,7 +11,7 @@
 package org.obeonetwork.dsl.object.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Literal;
 
 import org.obeonetwork.dsl.object.LiteralValue;
@@ -106,11 +106,16 @@ public class LiteralValueImpl extends DataTypeValueImpl implements LiteralValue 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
 		eDynamicSet(ObjectPackage.LITERAL_VALUE__NAME, ObjectPackage.Literals.LITERAL_VALUE__NAME, newName);
+		if(getMetaType() instanceof Enumeration) {
+			((Enumeration) getMetaType()).getLiterals().stream()
+					.filter(l -> l.getName().equals(newName))
+					.findFirst().ifPresent(l -> setData(l));
+		}
 	}
 
 	/**
