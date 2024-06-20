@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Rest Service Call
 Bundle-SymbolicName: org.obeonetwork.dsl.soa.rest;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Vendor: Obeo Network
 Automatic-Module-Name: org.obeonetwork.dsl.soa.rest
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
