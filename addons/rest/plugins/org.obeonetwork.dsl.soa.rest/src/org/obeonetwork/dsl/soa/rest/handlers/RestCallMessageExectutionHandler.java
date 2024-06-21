@@ -1,5 +1,8 @@
 package org.obeonetwork.dsl.soa.rest.handlers;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -27,7 +30,12 @@ public class RestCallMessageExectutionHandler extends AbstractHandler implements
 			
 			@Override
 			protected void doExecute() {
-				RestServices.executeRestOperation(callMessage);
+				try {
+					RestServices.executeRestOperation(callMessage);
+				} catch (URISyntaxException | IOException | InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		
