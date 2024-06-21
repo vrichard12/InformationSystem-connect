@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ISD SmartEA Connector
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.smartea
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Obeo Network
+Automatic-Module-Name: org.obeonetwork.dsl.soa.smartea
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.obeonetwork.dsl.soa.smartea
+Require-Bundle: org.obeonetwork.dsl.soa
