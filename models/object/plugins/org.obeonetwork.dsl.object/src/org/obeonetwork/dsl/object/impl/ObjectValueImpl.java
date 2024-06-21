@@ -128,26 +128,27 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 		Optional<ObjectProperty> propertyOption = getProperties().stream()
 		.filter(p -> name.equals(p.getName()))
 		.findAny();
-		propertyOption.ifPresent(property -> property.setValue(value));
-		if(!propertyOption.isPresent()) {
-			Property metaProperty = null;
-			if(getMetaType() != null) {
-				metaProperty = ((StructuredType)getMetaType()).getProperties().stream()
-				.filter(p -> name.equals(p.getName()))
-				.findFirst().orElse(null);
-			}
-			if(metaProperty != null) {
-				setValue(metaProperty, value);
-			} else {
-				ObjectProperty property = ObjectFactory.eINSTANCE.createObjectContainmentProperty();
-				property.setName(name);
-				if(value instanceof List) {
-					property.setMultiplicity(MultiplicityKind.ZERO_STAR_LITERAL);
-				}
-				property.setValue(value);
-				getProperties().add(property);
-			}
-		}
+		propertyOption.ifPresentOrElse(
+				property -> property.setValue(value), 
+				() -> {
+					Property metaProperty = null;
+					if(getMetaType() != null) {
+						metaProperty = ((StructuredType)getMetaType()).getProperties().stream()
+						.filter(p -> name.equals(p.getName()))
+						.findFirst().orElse(null);
+					}
+					if(metaProperty != null) {
+						setValue(metaProperty, value);
+					} else {
+						ObjectProperty property = ObjectFactory.eINSTANCE.createObjectContainmentProperty();
+						property.setName(name);
+						if(value instanceof List) {
+							property.setMultiplicity(MultiplicityKind.ZERO_STAR_LITERAL);
+						}
+						property.setValue(value);
+						getProperties().add(property);
+					}
+				});
 	}
 
 	/**
@@ -160,15 +161,16 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 		Optional<ObjectProperty> propertyOption = getProperties().stream()
 		.filter(p -> p.getMetaProperty() == property)
 		.findAny();
-		propertyOption.ifPresent(p -> p.setValue(value));
-		if(!propertyOption.isPresent()) {
-			ObjectProperty p = (property instanceof Reference && !((Reference)property).isIsComposite())?
-					ObjectFactory.eINSTANCE.createObjectReferenceProperty() :
-					ObjectFactory.eINSTANCE.createObjectContainmentProperty();
-			p.setMetaProperty(property);
-			p.setValue(value);
-			getProperties().add(p);
-		}
+		propertyOption.ifPresentOrElse(
+				p -> p.setValue(value), 
+				() -> {
+					ObjectProperty p = (property instanceof Reference && !((Reference)property).isIsComposite())?
+							ObjectFactory.eINSTANCE.createObjectReferenceProperty() :
+							ObjectFactory.eINSTANCE.createObjectContainmentProperty();
+					p.setMetaProperty(property);
+					p.setValue(value);
+					getProperties().add(p);
+				});
 	}
 
 	/**
