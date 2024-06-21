@@ -5,6 +5,13 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.Builder;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.util.Map;
 
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -32,13 +39,9 @@ import org.obeonetwork.utils.common.EObjectUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import kong.unirest.GetRequest;
-import kong.unirest.HttpResponse;
-import kong.unirest.Unirest;
-
 public class RestServices {
 
-	public static void executeRestOperation(CallMessage callMessage) {
+	public static void executeRestOperation(CallMessage callMessage) throws URISyntaxException, IOException, InterruptedException {
 		
 		Operation operation = (Operation) callMessage.getAction();
 		
@@ -50,37 +53,41 @@ public class RestServices {
 		baseUrl = injectPathParameters(baseUrl, callMessage);
 		String queryParameters = getQueryParameters(callMessage);
 		
-		GetRequest httpRequest = Unirest.get(baseUrl + queryParameters);
+		Builder httpRequestBuilder = HttpRequest.newBuilder(new URI((baseUrl + queryParameters).replaceAll(" ", "%20")));
 		
 		operation.getOutput().stream()
 		.filter(p -> p.getStatusCode() != null)
 		.flatMap(p -> p.getMediaType().stream())
-		.forEach(mediaType -> httpRequest.header("accept", mediaType.getIdentifier()));
+		.forEach(mediaType -> httpRequestBuilder.header("accept", mediaType.getIdentifier()));
 		
-		addAuthentication(httpRequest, callMessage);
 		
-		HttpResponse<String> response = httpRequest.asString();
+		addAuthentication(httpRequestBuilder, callMessage);
+		
+		HttpRequest httpRequest = httpRequestBuilder.GET().build();
+		
+		HttpClient httpClient = HttpClient.newBuilder().build();
+		HttpResponse<String> response = httpClient.send(httpRequest, BodyHandlers.ofString());
 		
 		ObjectMapper jsonObjectMapper = new ObjectMapper();
 		JsonNode jsonResponse = null;
 		try {
-			jsonResponse = jsonObjectMapper.readTree(response.getBody());
+			jsonResponse = jsonObjectMapper.readTree(response.body());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println(String.format("[INFO] Return status code = %d. For GET %s", response.getStatus(), baseUrl + queryParameters));
+		System.out.println(String.format("[INFO] Return status code = %d. For GET %s", response.statusCode(), baseUrl + queryParameters));
 		
 		Workspace workspace = callMessage.getRuntimeWorkspace();
 		
 		Type returnType = operation.getOutput().stream()
 		.filter(p -> p.getStatusCode() != null && p.getStatusCode().matches("[0-9]+"))
-		.filter(p -> Integer.parseInt(p.getStatusCode()) == response.getStatus())
+		.filter(p -> Integer.parseInt(p.getStatusCode()) == response.statusCode())
 		.map(p -> p.getType())
 		.findFirst().orElse(null);
 
 		if(returnType == null) {
-			System.out.println(String.format("[WARNING] Return status code doesn't match any output parameter. Status code = %d.", response.getStatus()));
+			System.out.println(String.format("[WARNING] Return status code doesn't match any output parameter. Status code = %d.", response.statusCode()));
 		} else if(!(returnType instanceof StructuredType)) {
 			System.out.println(String.format("[WARNING] Return type of type %s not handled.", returnType.getClass().getName()));
 		}
@@ -89,7 +96,7 @@ public class RestServices {
 		
 	}
 
-	private static void addAuthentication(GetRequest httpRequest, CallMessage callMessage) {
+	private static void addAuthentication(Builder httpRequestBuilder, CallMessage callMessage) {
 		Operation soaOperation = (Operation) callMessage.getAction();
 		Component soaComponent = EObjectUtils.getContainer(soaOperation, Component.class);
 		
@@ -110,7 +117,7 @@ public class RestServices {
 		switch(securitySchemeType) {
 		case API_KEY:
 			String securityToken = ObeoDSMObjectService.getAnnotationValue(interactionParticipant, "SECURITY-TOKEN");
-			httpRequest.header(securitySchemeKey, "Bearer " + securityToken);
+			httpRequestBuilder.header(securitySchemeKey, "Bearer " + securityToken);
 			break;
 		case HTTP:
 			// TODO
