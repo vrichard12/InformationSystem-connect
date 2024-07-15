@@ -753,9 +753,8 @@ public class InteractionServices {
 	
 	public static Action openSelectContainedActionDialog(EObject context) {
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
-				null,
-				Action.class::isInstance);
+		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(null);
+		treeInput.getConfiguration().setSelectableCondition(Action.class::isInstance);
 		
 		StreamUtils.asStream(context.eAllContents())
 		.filter(Action.class::isInstance)

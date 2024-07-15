@@ -18,9 +18,8 @@ public class WorkspaceService {
 	
 	public static Type openSelectMetaTypeDialog(EObject context, EClass metaMetaType) {
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
-				null,
-				(wrappedEObject) -> metaMetaType.isInstance(wrappedEObject));
+		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(null);
+		treeInput.getConfiguration().setSelectableCondition((wrappedEObject) -> metaMetaType.isInstance(wrappedEObject));
 		
 		ResourceSet resourceSet = context.eResource().getResourceSet();
 		resourceSet.getResources().stream()

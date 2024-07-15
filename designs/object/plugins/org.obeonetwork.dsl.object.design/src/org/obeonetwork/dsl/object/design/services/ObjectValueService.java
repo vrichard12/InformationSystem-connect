@@ -41,9 +41,8 @@ public class ObjectValueService {
 	
 	public static Value openSelectValueDialog(ObjectValue context) {
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
-				ObjectValueService::getSelectValueDialogChildren,
-				Value.class::isInstance);
+		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(ObjectValueService::getSelectValueDialogChildren);
+		treeInput.getConfiguration().setSelectableCondition(Value.class::isInstance);
 		
 		context.eResource().getContents().stream()
 		.filter(Workspace.class::isInstance).map(Workspace.class::cast)
@@ -120,8 +119,8 @@ public class ObjectValueService {
 		}
 		
 		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
-				wrappedObject -> getSelectPropertyDialogChildren(wrappedObject, alreadyUsedProperties),
-				Property.class::isInstance);
+				wrappedObject -> getSelectPropertyDialogChildren(wrappedObject, alreadyUsedProperties));
+		treeInput.getConfiguration().setSelectableCondition(Property.class::isInstance);
 		
 		superTypes.forEach(t -> new ISObjectTreeItemWrapper(treeInput, t));
 		
