@@ -796,7 +796,10 @@ public class InteractionServices {
 		for(Object ancestor : ancestors) {
 			tiw = tiw.getChildren().stream()
 					.filter(childTiw -> childTiw.getWrappedObject() == ancestor)
-					.findFirst().orElse(new ISObjectTreeItemWrapper(tiw, ancestor));
+					.findFirst().orElse(null);
+			if(tiw == null) {
+				tiw = new ISObjectTreeItemWrapper(tiw, ancestor);
+			}
 		}
 		
 		return tiw;

@@ -41,12 +41,12 @@ public class ObjectValueService {
 	
 	public static Value openSelectValueDialog(ObjectValue context) {
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(ObjectValueService::getSelectValueDialogChildren);
-		treeInput.getConfiguration().setSelectableCondition(Value.class::isInstance);
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(ObjectValueService::getSelectValueDialogChildren);
+		treeRoot.getConfiguration().setSelectableCondition(Value.class::isInstance);
 		
 		context.eResource().getContents().stream()
 		.filter(Workspace.class::isInstance).map(Workspace.class::cast)
-		.forEach(w -> new ISObjectTreeItemWrapper(treeInput, w));
+		.forEach(workspace -> new ISObjectTreeItemWrapper(treeRoot, workspace));
 		
         String windowTitle = "Value selection";
 		String message = "Select a Value";
@@ -54,15 +54,14 @@ public class ObjectValueService {
         		windowTitle, 
         		message, 
         		null, 
-        		treeInput,
+        		treeRoot,
         		false);
 		
         wizard.setLevelToExpand(4);
 
-        IPageCompleteTester pageCompleteTester = 
+        wizard.setPageCompleteTester(
         		(selectedTreeItemWrapers, partiallySelectedTreeItemWrapers) -> 
-        			selectedTreeItemWrapers.size() == 1;
-        wizard.setPageCompleteTester(pageCompleteTester);
+        			selectedTreeItemWrapers.size() == 1);
         
         wizard.setCheckBoxFilter(new ISObjectCheckBoxFilter("Hide Object Values", true) {
 			@Override
@@ -118,11 +117,11 @@ public class ObjectValueService {
 			superType = superType.getSupertype();
 		}
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
 				wrappedObject -> getSelectPropertyDialogChildren(wrappedObject, alreadyUsedProperties));
-		treeInput.getConfiguration().setSelectableCondition(Property.class::isInstance);
+		treeRoot.getConfiguration().setSelectableCondition(Property.class::isInstance);
 		
-		superTypes.forEach(t -> new ISObjectTreeItemWrapper(treeInput, t));
+		superTypes.forEach(t -> new ISObjectTreeItemWrapper(treeRoot, t));
 		
         String windowTitle = "Property selection";
 		String message = "Select a Property";
@@ -130,7 +129,7 @@ public class ObjectValueService {
         		windowTitle, 
         		message, 
         		null, 
-        		treeInput,
+        		treeRoot,
         		false);
 		
         wizard.setLevelToExpand(2);

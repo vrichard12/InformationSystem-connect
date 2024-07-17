@@ -18,14 +18,14 @@ public class WorkspaceService {
 	
 	public static Type openSelectMetaTypeDialog(EObject context, EClass metaMetaType) {
 		
-		ISObjectTreeItemWrapper treeInput = new ISObjectTreeItemWrapper(null);
-		treeInput.getConfiguration().setSelectableCondition((wrappedEObject) -> metaMetaType.isInstance(wrappedEObject));
+		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(null);
+		treeRoot.getConfiguration().setSelectableCondition((wrappedEObject) -> metaMetaType.isInstance(wrappedEObject));
 		
 		ResourceSet resourceSet = context.eResource().getResourceSet();
 		resourceSet.getResources().stream()
 		.flatMap(r -> StreamUtils.asStream(r.getAllContents()))
 		.filter(e -> metaMetaType.isInstance(e))
-		.forEach(metaType -> insertTreeItemWrapper(treeInput, metaType));
+		.forEach(metaType -> insertTreeItemWrapper(treeRoot, metaType));
 		
         String windowTitle = metaMetaType.getName() + " selection";
 		String message = "Select a " + metaMetaType.getName();
@@ -33,7 +33,7 @@ public class WorkspaceService {
         		windowTitle, 
         		message, 
         		null, 
-        		treeInput,
+        		treeRoot,
         		false);
 		
         wizard.setLevelToExpand(4);
@@ -61,7 +61,10 @@ public class WorkspaceService {
 		for(Object ancestor : ancestors) {
 			tiw = tiw.getChildren().stream()
 					.filter(childTiw -> childTiw.getWrappedObject() == ancestor)
-					.findFirst().orElse(new ISObjectTreeItemWrapper(tiw, ancestor));
+					.findFirst().orElse(null);
+			if(tiw == null) {
+				tiw = new ISObjectTreeItemWrapper(tiw, ancestor);
+			}
 		}
 		return tiw;
 	}
