@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 
 import org.eclipse.jface.window.Window;
@@ -110,12 +111,12 @@ public class ObjectValueService {
 		.map(pv -> pv.getMetaProperty()).filter(p -> p != null)
 		.collect(toSet());
 		
-		List<StructuredType> superTypes = new LinkedList<>();
-		StructuredType superType = definingType;
-		while(superType != null) {
-			superTypes.add(0, superType);
-			superType = superType.getSupertype();
-		}
+		List<StructuredType> superTypes = new ArrayList<>();
+		Queue<StructuredType> crawlingQueue = new LinkedList<>();
+		superTypes.add(definingType);
+		crawlingQueue.add(definingType);
+		collectSuperTypesOrdered(superTypes, crawlingQueue);
+		Collections.reverse(superTypes);
 		
 		ISObjectTreeItemWrapper treeRoot = new ISObjectTreeItemWrapper(
 				wrappedObject -> getSelectPropertyDialogChildren(wrappedObject, alreadyUsedProperties));
@@ -145,6 +146,27 @@ public class ObjectValueService {
         }
 		
 		return selectedProperty;
+	}
+	
+	/**
+	 * Collect the supertypes of the crawlingQueue StructuredTypes.
+	 * The collected supertypes are stored (added) into the given empty
+	 * superTypes list ordered from the most concrete to the most abstract
+	 * ones.
+	 * 
+	 * @param superTypes
+	 * @param crawlingQueue
+	 */
+	private static void collectSuperTypesOrdered(List<StructuredType> superTypes, Queue<StructuredType> crawlingQueue) {
+		while(!crawlingQueue.isEmpty()) {
+			StructuredType type = crawlingQueue.remove();
+			type.getSupertypes().stream()
+				.filter(supertype -> !superTypes.contains(supertype))
+				.forEach(supertype -> {
+					crawlingQueue.add(supertype);
+					superTypes.add(supertype);
+				});
+		}
 	}
 	
 }
