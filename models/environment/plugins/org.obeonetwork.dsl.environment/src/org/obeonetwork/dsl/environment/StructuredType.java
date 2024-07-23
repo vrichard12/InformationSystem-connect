@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getOwnedReferences <em>Owned References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getSupertypes <em>Supertypes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType()
@@ -57,7 +58,7 @@ public interface StructuredType extends Type {
 	 * @return the value of the '<em>Supertype</em>' reference.
 	 * @see #setSupertype(StructuredType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_Supertype()
-	 * @model
+	 * @model transient="true" derived="true"
 	 * @generated
 	 */
 	StructuredType getSupertype();
@@ -191,10 +192,30 @@ public interface StructuredType extends Type {
 	EList<Property> getProperties();
 
 	/**
+	 * Returns the value of the '<em><b>Supertypes</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.StructuredType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Supertypes</em>' reference list.
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType_Supertypes()
+	 * @model
+	 * @generated
+	 */
+	EList<StructuredType> getSupertypes();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isSubtypeOf(StructuredType type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<StructuredType> getAllSupertypes();
 } // StructuredType

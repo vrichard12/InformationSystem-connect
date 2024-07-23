@@ -65,6 +65,7 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 			addAttributesPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 			addPropertiesPropertyDescriptor(object);
+			addSupertypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -162,6 +163,21 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 								"_UI_StructuredType_type"),
 						EnvironmentPackage.Literals.STRUCTURED_TYPE__PROPERTIES, false, false, false, null, null,
 						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Supertypes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupertypesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_supertypes_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_supertypes_feature",
+								"_UI_StructuredType_type"),
+						EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPES, true, false, true, null, null, null));
 	}
 
 	/**

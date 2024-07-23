@@ -881,6 +881,16 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 	 * @generated
 	 */
 	@Override
+	public EReference getStructuredType_Supertypes() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDTO() {
 		return dtoEClass;
 	}
@@ -1470,6 +1480,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__OWNED_REFERENCES);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__REFERENCES);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__PROPERTIES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__SUPERTYPES);
 
 		dtoEClass = createEClass(DTO);
 		createEReference(dtoEClass, DTO__OWNED_CONTAINER);
@@ -1729,8 +1740,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		initEClass(structuredTypeEClass, StructuredType.class, "StructuredType", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStructuredType_Supertype(), this.getStructuredType(), null, "supertype", null, 0, 1,
-				StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				StructuredType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getStructuredType_AssociatedTypes(), this.getStructuredType(), null, "associatedTypes", null, 0,
 				-1, StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1749,10 +1760,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentP
 		initEReference(getStructuredType_Properties(), this.getProperty(), null, "properties", null, 0, -1,
 				StructuredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuredType_Supertypes(), this.getStructuredType(), null, "supertypes", null, 0, -1,
+				StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(structuredTypeEClass, ecorePackage.getEBoolean(), "isSubtypeOf", 1, 1, IS_UNIQUE,
 				IS_ORDERED);
 		addEParameter(op, this.getStructuredType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(structuredTypeEClass, this.getStructuredType(), "getAllSupertypes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dtoEClass, org.obeonetwork.dsl.environment.DTO.class, "DTO", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

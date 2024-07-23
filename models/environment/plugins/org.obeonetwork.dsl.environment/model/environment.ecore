@@ -185,7 +185,9 @@
     <eOperations name="isSubtypeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" eType="#//StructuredType"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//StructuredType">
+    <eOperations name="getAllSupertypes" upperBound="-1" eType="#//StructuredType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//StructuredType"
+        transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The super structuredtype."/>
       </eAnnotations>
@@ -226,6 +228,8 @@
         <details key="documentation" value="The list of priorities."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertypes" upperBound="-1"
+        eType="#//StructuredType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DTO" eSuperTypes="#//StructuredType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedContainer" eType="#//FilterContainer"

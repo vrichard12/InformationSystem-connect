@@ -1863,13 +1863,22 @@ public interface EnvironmentPackage extends EPackage {
 	int STRUCTURED_TYPE__PROPERTIES = TYPE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Supertypes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__SUPERTYPES = TYPE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Structured Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 7;
+	int STRUCTURED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.DTOImpl <em>DTO</em>}' class.
@@ -2042,6 +2051,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int DTO__PROPERTIES = STRUCTURED_TYPE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Supertypes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__SUPERTYPES = STRUCTURED_TYPE__SUPERTYPES;
 
 	/**
 	 * The feature id for the '<em><b>Owned Container</b></em>' containment reference.
@@ -4078,6 +4096,17 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getStructuredType_Properties();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getSupertypes <em>Supertypes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Supertypes</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getSupertypes()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_Supertypes();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.DTO <em>DTO</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5063,6 +5092,14 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRUCTURED_TYPE__PROPERTIES = eINSTANCE.getStructuredType_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Supertypes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__SUPERTYPES = eINSTANCE.getStructuredType_Supertypes();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.DTOImpl <em>DTO</em>}' class.

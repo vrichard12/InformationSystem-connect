@@ -16,6 +16,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
@@ -44,6 +45,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getOwnedReferences <em>Owned References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getSupertypes <em>Supertypes</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,22 +80,24 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public StructuredType getSupertype() {
-		return (StructuredType) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true, true);
+		StructuredType supertype = null;
+		if (!getSupertypes().isEmpty()) {
+			supertype = getSupertypes().get(0);
+		}
+		return supertype;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StructuredType basicGetSupertype() {
-		return (StructuredType) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, false, true);
+		return getSupertype();
 	}
 
 	/**
@@ -106,44 +110,14 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	 * @generated NOT
 	 */
 	public void setSupertype(StructuredType newSupertype) {
-		if (isCyclicInheritance(newSupertype)) {
+		if (newSupertype == this || getAllSupertypes().contains(newSupertype)) {
 			throw new IllegalArgumentException(
 					"Cyclic inheritance from " + getName() + " to " + newSupertype.getName() + ".");
 		}
-		eDynamicSet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, newSupertype);
-	}
-
-	/**
-	 * Checks that there is no cyclic inheritance if the given type becomes the
-	 * super type of this type.
-	 * 
-	 * @param superTypeCandidate
-	 *            the super type candidate.
-	 * @return <code>true</true> if a cyclic inheritance appears if <code>superTypeCandidate</code>
-	 *         becomes the super type of this type.
-	 */
-	private boolean isCyclicInheritance(final StructuredType superTypeCandidate) {
-		// quick tests
-		if (superTypeCandidate == null) {
-			return false;
+		getSupertypes().clear();
+		if (newSupertype != null) {
+			getSupertypes().add(newSupertype);
 		}
-		if (superTypeCandidate == this) {
-			return true;
-		}
-
-		// checks that this is not a super type of superTypeCandidate.
-		final Set<StructuredType> superTypesOfSuperTypeCandidate = new HashSet<StructuredType>();
-		StructuredType currentSuperType = superTypeCandidate.getSupertype();
-		while (currentSuperType != null && superTypesOfSuperTypeCandidate.add(currentSuperType)) {
-			if (currentSuperType == this) { // cycle
-				return true;
-			}
-			currentSuperType.getSupertype(); // Iterate on supertypes
-		}
-
-		// it's ok, no cycle.
-		return false;
 	}
 
 	/**
@@ -188,9 +162,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			}
 		};
 		result.addAll(getOwnedAttributes());
-		if (getSupertype() != null) {
-			result.addAll(getSupertype().getAttributes());
-		}
+		getAllSupertypes().forEach(superType -> result.addAll(superType.getOwnedAttributes()));
+
 		result.shrink();
 		EList<Attribute> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Attribute>(this,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__ATTRIBUTES, result.size(), result.data());
@@ -227,9 +200,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			}
 		};
 		result.addAll(getOwnedReferences());
-		if (getSupertype() != null) {
-			result.addAll(getSupertype().getReferences());
-		}
+		getAllSupertypes().forEach(superType -> result.addAll(superType.getOwnedReferences()));
+		
 		result.shrink();
 		EList<Reference> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Reference>(this,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__REFERENCES, result.size(), result.data());
@@ -264,17 +236,49 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<StructuredType> getSupertypes() {
+		return (EList<StructuredType>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPES,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isSubtypeOf(StructuredType type) {
-		// A structured type A is a subtype of a structured type B
-		// - A and B are both the same structured type
-		// - the supertype of A is B
-		// - the supertype of A is a subtype of B
-		return (EcoreUtil.equals(this, type) || (getSupertype() != null
-				&& (EcoreUtil.equals(getSupertype(), type) || getSupertype().isSubtypeOf(type))));
+		return EcoreUtil.equals(this, type) || getAllSupertypes().stream().anyMatch(supertype -> EcoreUtil.equals(supertype, type));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<StructuredType> getAllSupertypes() {
+		return ECollections.toEList(getAllSupertypesInternal().iterator());
+	}
+	
+	private Set<StructuredType> getAllSupertypesInternal() {
+		Set<StructuredType> allSupertypes = new HashSet<>();
+		
+		getSupertypes().stream()//
+			.map(StructuredTypeImpl.class::cast)//
+			.forEach(supertype -> {
+				if(!allSupertypes.contains(supertype)) {
+					allSupertypes.add(supertype);
+					allSupertypes.addAll(supertype.getAllSupertypesInternal());
+				}
+			});
+		
+		return allSupertypes;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,6 +336,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			return getReferences();
 		case EnvironmentPackage.STRUCTURED_TYPE__PROPERTIES:
 			return getProperties();
+		case EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPES:
+			return getSupertypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,6 +366,10 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			getOwnedReferences().clear();
 			getOwnedReferences().addAll((Collection<? extends Reference>) newValue);
 			return;
+		case EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPES:
+			getSupertypes().clear();
+			getSupertypes().addAll((Collection<? extends StructuredType>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -383,6 +393,9 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			return;
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES:
 			getOwnedReferences().clear();
+			return;
+		case EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPES:
+			getSupertypes().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -410,6 +423,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			return !getReferences().isEmpty();
 		case EnvironmentPackage.STRUCTURED_TYPE__PROPERTIES:
 			return !getProperties().isEmpty();
+		case EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPES:
+			return !getSupertypes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

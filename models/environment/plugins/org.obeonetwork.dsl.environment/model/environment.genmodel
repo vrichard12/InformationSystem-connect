@@ -90,9 +90,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/ownedReferences"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/references"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/supertypes"/>
       <genOperations ecoreOperation="environment.ecore#//StructuredType/isSubtypeOf">
         <genParameters ecoreParameter="environment.ecore#//StructuredType/isSubtypeOf/type"/>
       </genOperations>
+      <genOperations ecoreOperation="environment.ecore#//StructuredType/getAllSupertypes"/>
     </genClasses>
     <genClasses ecoreClass="environment.ecore#//DTO">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//DTO/ownedContainer"/>
