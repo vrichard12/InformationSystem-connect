@@ -5,6 +5,10 @@ Bundle-SymbolicName: org.obeonetwork.dsl.soa.smartea
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Obeo Network
 Automatic-Module-Name: org.obeonetwork.dsl.soa.smartea
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.obeonetwork.dsl.soa.smartea.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.obeonetwork.dsl.soa.smartea
-Require-Bundle: org.obeonetwork.dsl.soa
+Require-Bundle: org.obeonetwork.dsl.soa,
+ org.obeonetwork.utils.common,
+ fr.obeo.smartea.archimate

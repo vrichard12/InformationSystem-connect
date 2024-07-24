@@ -26,7 +26,6 @@ import org.obeonetwork.utils.common.transaction.RecordingCommandWithResult;
 import org.obeonetwork.utils.common.ui.handlers.EventHelper;
 
 import fr.obeo.smartea.archimate.ArchimatePackage;
-import fr.obeo.smartea.core.basemm.BasePackage;
 
 public class SmartEAArchiMateModelImportHandler extends AbstractHandler implements IHandler {
 
@@ -43,12 +42,6 @@ public class SmartEAArchiMateModelImportHandler extends AbstractHandler implemen
 			.forEach(eClass -> insertTreeItemWrapper(archiMateRoot, eClass, 
 					eInsertedClass -> eInsertedClass.getEPackage() == ArchimatePackage.eINSTANCE));
 		
-		ISObjectTreeItemWrapper basemmRoot = new ISObjectTreeItemWrapper(treeRoot, BasePackage.eINSTANCE);
-		BasePackage.eINSTANCE.getEClassifiers().stream()//
-			.filter(EClass.class::isInstance).map(EClass.class::cast)//
-			.filter(eClass -> !eClass.isAbstract() && !eClass.isInterface())
-			.forEach(eClass -> insertTreeItemWrapper(basemmRoot, eClass, eInsertedClass -> true));
-		
 		String windowTitle = "ArchiMate types selection";
 		String message = "Select the ArchiMate types to be imported as DTOs.";
 		
@@ -59,7 +52,7 @@ public class SmartEAArchiMateModelImportHandler extends AbstractHandler implemen
         		treeRoot,
         		true);
 		
-		wizard.setLevelToExpand(2);
+		wizard.setLevelToExpand(3);
 		
         IPageCompleteTester pageCompleteTester = 
         		(selectedTreeItemWrapers, partiallySelectedTreeItemWrapers) -> 
