@@ -18,6 +18,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.databinding.property,
  org.eclipse.jface.databinding,
  org.obeonetwork.dsl.environment.design,
- fr.obeo.smartea.core.basemm
+ fr.obeo.smartea.core.basemm,
+ fr.obeo.smartea.core.prism,
+ fr.obeo.smartea.archimate
 Bundle-Activator: org.obeonetwork.dsl.soa.smartea.Activator
-Import-Package: fr.obeo.smartea.archimate

@@ -1,6 +1,10 @@
 package org.obeonetwork.dsl.soa.smartea;
 
+import java.util.List;
+
 import org.obeonetwork.dsl.soa.System;
+
+import fr.obeo.smartea.core.refmodel.Stereotype;
 
 public class SmartEAReferenceModelImporter {
 
@@ -8,9 +12,9 @@ public class SmartEAReferenceModelImporter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer importFromFile(String prismFilePath) {
+	public int importStereotypes(List<Stereotype> selectedStereotypes) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 }

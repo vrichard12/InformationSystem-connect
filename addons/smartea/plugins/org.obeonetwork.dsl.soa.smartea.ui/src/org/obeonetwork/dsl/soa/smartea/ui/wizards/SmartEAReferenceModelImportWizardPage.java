@@ -12,6 +12,9 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -22,6 +25,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.obeonetwork.utils.common.SessionUtils;
 
 public class SmartEAReferenceModelImportWizardPage extends WizardPage {
 
@@ -38,7 +42,7 @@ public class SmartEAReferenceModelImportWizardPage extends WizardPage {
 	public SmartEAReferenceModelImportWizardPage(SmartEAReferenceModelImportWizard smartEAReferenceModelImportWizard) {
 		super("smartEAReferenceModelImportWizardPage");
 		setTitle("SmartEA Reference Model import");
-		setDescription("Select prism file to import.");
+		setDescription("Select prism file to import types from. Ignore to import only ArchiMate types.");
 		this.wizard = smartEAReferenceModelImportWizard;
 		this.model = new SmartEAReferenceModelImportWizardModel();
 	}
@@ -97,7 +101,7 @@ public class SmartEAReferenceModelImportWizardPage extends WizardPage {
 		});
 		btnSelectPrismFilePath.setText("...");
 		
-		model.setPrismFilePath(ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
+		model.setPrismFilePath(getDefaultInputDirPath());
 		
 		bindingContext = initDataBindings();
 		
@@ -116,6 +120,20 @@ public class SmartEAReferenceModelImportWizardPage extends WizardPage {
 		};
 		model.addPropertyChangeListener(SmartEAReferenceModelImportWizardModel.PRISM_FILE_PATH_PROP, prismFilePathModelListener); //$NON-NLS-1$
 		
+	}
+	
+	public String getDefaultInputDirPath() {
+		Session session = new EObjectQuery(wizard.getSoaSystem()).getSession();
+		ModelingProject enclosingModelingProject = SessionUtils.getModelingProjectFromSession(session);
+		
+		String defaultInputDirPath = null; 
+		if(enclosingModelingProject != null) {
+			defaultInputDirPath = enclosingModelingProject.getProject().getLocation().toOSString();
+		} else {
+			defaultInputDirPath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString();
+		}
+
+		return defaultInputDirPath;
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
