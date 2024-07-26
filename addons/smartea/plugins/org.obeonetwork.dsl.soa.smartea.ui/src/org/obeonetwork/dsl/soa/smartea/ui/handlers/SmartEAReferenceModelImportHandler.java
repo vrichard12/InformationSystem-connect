@@ -114,24 +114,19 @@ public class SmartEAReferenceModelImportHandler extends AbstractHandler implemen
         wizard.setPageCompleteTester(pageCompleteTester);
 		
         wizard.setCustomLabelProvider(wrappedObject -> {
-        	if(wrappedObject instanceof StereotypeFolder) {
-        		StereotypeFolder stereotypeFolder = (StereotypeFolder) wrappedObject;
+        	if(wrappedObject instanceof StereotypeFolder stereotypeFolder) {
         		return stereotypeFolder.getName();
         	}
-        	if(wrappedObject instanceof TypeExtensionFolder) {
-        		TypeExtensionFolder typeExtensionFolder = (TypeExtensionFolder) wrappedObject;
+        	if(wrappedObject instanceof TypeExtensionFolder typeExtensionFolder) {
         		return typeExtensionFolder.getName();
         	}
-        	if(wrappedObject instanceof DerivedRelationshipFolder) {
-        		DerivedRelationshipFolder derivedRelationshipFolder = (DerivedRelationshipFolder) wrappedObject;
+        	if(wrappedObject instanceof DerivedRelationshipFolder derivedRelationshipFolder) {
         		return derivedRelationshipFolder.getName();
         	}
-        	if(wrappedObject instanceof TypeExtension) {
-        		TypeExtension typeExtension = (TypeExtension) wrappedObject;
+        	if(wrappedObject instanceof TypeExtension typeExtension) {
         		return typeExtension.getLabel();
         	}
-        	if(wrappedObject instanceof DerivedRelationshipDescription) {
-        		DerivedRelationshipDescription derivedRelationshipDescription = (DerivedRelationshipDescription) wrappedObject;
+        	if(wrappedObject instanceof DerivedRelationshipDescription derivedRelationshipDescription) {
         		return derivedRelationshipDescription.getName();
         	}
         	return null;
@@ -225,8 +220,7 @@ public class SmartEAReferenceModelImportHandler extends AbstractHandler implemen
 
 	private static List<EObject> getReferenceModelSelectionWizardChildren(Object parent) {
 		List<EObject> children = null;
-		if(parent instanceof EObject) {
-			EObject parentEObject = (EObject) parent;
+		if(parent instanceof EObject parentEObject) {
 			children = parentEObject.eContents().stream()//
 				.filter(eObject -> eObject instanceof StereotypeLibrary ||
 						eObject instanceof StereotypeLibrary ||
